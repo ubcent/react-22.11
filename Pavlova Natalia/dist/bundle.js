@@ -94,7 +94,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _user__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./user */ \"./src/user.js\");\n\nObject(_user__WEBPACK_IMPORTED_MODULE_0__[\"sayHello\"])();\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _user__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./user */ \"./src/user.js\");\n\n\nwindow.onload = () => {\n    const user = new _user__WEBPACK_IMPORTED_MODULE_0__[\"User\"]('Василий', 'Иванов', 'Петрович');\n    user.sayName();\n};\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
@@ -113,11 +113,11 @@ eval("// removed by extract-text-webpack-plugin\n\n//# sourceURL=webpack:///./sr
 /*!*********************!*\
   !*** ./src/user.js ***!
   \*********************/
-/*! exports provided: sayHello */
+/*! exports provided: User */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"sayHello\", function() { return sayHello; });\n/* harmony import */ var _user_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./user.css */ \"./src/user.css\");\n/* harmony import */ var _user_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_user_css__WEBPACK_IMPORTED_MODULE_0__);\n\n\nfunction sayHello() {\n    alert('Hi');\n}\n\n//# sourceURL=webpack:///./src/user.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"User\", function() { return User; });\n/* harmony import */ var _user_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./user.css */ \"./src/user.css\");\n/* harmony import */ var _user_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_user_css__WEBPACK_IMPORTED_MODULE_0__);\n\n\nclass User {\n    constructor(name, surname, middleName) {\n        this.name = name;\n        this.surname = surname;\n        this.middleName = middleName;\n    }\n\n    sayName() {\n        const text = document.getElementById('name');\n        text.innerHTML = `<p class=\"text\">${this.surname} ${this.name} ${this.middleName}</p>`;\n    }\n}\n\n//# sourceURL=webpack:///./src/user.js?");
 
 /***/ })
 
