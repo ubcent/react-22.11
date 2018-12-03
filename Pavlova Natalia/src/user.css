@@ -1,3 +1,6 @@
-.user {
-    color: black;
+.text {
+    font-size: 20px;
+    margin: 20px auto;
+    color: blue;
+    text-align: center;
 }
