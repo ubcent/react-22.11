@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/1Vegas/react-22.11#readme",
   "dependencies": {
+    "@types/node": "^10.12.12",
     "react": "^16.6.3"
   },
   "devDependencies": {
