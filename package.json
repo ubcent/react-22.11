@@ -19,5 +19,8 @@
   "homepage": "https://github.com/1Vegas/react-22.11#readme",
   "dependencies": {
     "react": "^16.6.3"
+  },
+  "devDependencies": {
+    "webpack": "^4.27.0"
   }
 }
