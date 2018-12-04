@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/1Vegas/react-22.11/issues"
   },
-  "homepage": "https://github.com/1Vegas/react-22.11#readme"
+  "homepage": "https://github.com/1Vegas/react-22.11#readme",
+  "dependencies": {
+    "react": "^16.6.3"
+  }
 }
