@@ -1,3 +1,5 @@
+import './user.css';
+
 export class User
 {
     constructor(firstName, lastName) {
