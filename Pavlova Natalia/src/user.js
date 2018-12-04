@@ -21,18 +21,5 @@ export class User {
             return true;
         }
     }
-    lookData() {
-        let date = new Date();
-        let day = date.getDate();
-            if(day < 10) {
-                day = `0${day}`;
-            }
-        let dayWeek = date.getDay();
-            if(dayWeek < 10) {
-                dayWeek = `0${dayWeek}`;
-            }
-        const year = date.getFullYear();
-        const dateObj = `${day}.${dayWeek}.${year}`;
-        console.log(dateObj);
-    }
+
 }
