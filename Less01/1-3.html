@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 1-3</title>
+</head>
+<body>
+<script>
+    window.onload = function () {
+        let abc = new Human("Иванов.А.В.", 18, "06.11.2000");
+        abc.displayInfo();
+
+        let abcd = new Employee("Иванов.А.В.", 18, "06.11.2000", 125000, 'Департамент финансов');
+        //, 125000, 'Департамент финансов'
+        abcd.displayInfo();
+
+        let abcde = new Manager("Иванов.А.В.", 18, "06.11.2000", 125000, 'Департамент финансов');
+        //, 125000, 'Департамент финансов'
+        abcde.addPers();
+
+        let abcdef = new Manager("Киркоров.А.З.,18,06.03.2000,125000,Департамент финансов");
+        //, 125000, 'Департамент финансов'
+        abcdef.delPers();
+
+        const dev = new Developer();
+        const manager1  = new Manager();
+        const manager2  = new Manager();
+
+        dev.setManager(manager1);
+        dev.setManager(manager2);
+
+
+    }
+</script>
+
+
+<script src="js/Human.js"></script>
+<script src="js/underscore.js"></script>
+
+</body>
+</html>

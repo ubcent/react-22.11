@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1-Е ЗАДАНИЕ</title>
+</head>
+<body>
+<h1>1-e задание</h1>
+<h2>смотреть console.log(режим random)</h2>
+<script>
+    window.onload = function () {
+        console.log("Проверка целостности системы!");
+        checkIn();
+
+        function loop(times = 0, callback = null) {
+            this.times = times;
+            if (callback !== null) {
+                let i = 0;
+                while (i < this.times) {
+                    callback();
+                    i++;
+                }
+            }
+        }
+
+        function callback() {
+            console.log("Внимание, сработала сигнализация!");
+            return ("Внимание, сработала сигнализация!");
+        }
+
+        function checkIn() {
+            setTimeout(function () {
+                Math.random() > .5 ? console.log("Система в порядке! Нажимайте F5, пока не будет 'взлома'.") : loop(3, callback);
+            }, 3000)
+        }
+    }
+</script>
+
+</body>
+</html>

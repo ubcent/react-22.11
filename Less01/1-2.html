@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1-2</title>
+</head>
+<body>
+<h1>2-e задание</h1>
+<script>
+    window.onload = function () {
+        squareFig(4, 3, "rectangle");
+        squareFig(3, 5, "trapezium", 4);
+
+        function squareFig(height, width, figure, param = null) {
+            let square;
+            let objSquare;
+            switch (figure) {
+                case "rectangle":
+                    square = height * width;
+                    break;
+                case "trapezium":
+                    square = (1 / 2) * (height + width) * param;
+            }
+            objSquare = {area: square, figure: figure, input: [height, width]};
+            if (param !== null) {
+                objSquare.input.push(param);
+            }
+
+            console.log(objSquare);
+            return objSquare;
+        }
+    }
+
+
+</script>
+
+</body>
+</html>
