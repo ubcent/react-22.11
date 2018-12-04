@@ -1,1 +1,4 @@
-console.log('Welcome');
+import User from './user';
+
+const user = new User('Vasya', 'Pupkin');
+alert(user.sayHi());
