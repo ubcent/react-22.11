@@ -86,6 +86,29 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/click.css":
+/*!***********************!*\
+  !*** ./src/click.css ***!
+  \***********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("// removed by extract-text-webpack-plugin\n\n//# sourceURL=webpack:///./src/click.css?");
+
+/***/ }),
+
+/***/ "./src/click.js":
+/*!**********************!*\
+  !*** ./src/click.js ***!
+  \**********************/
+/*! exports provided: Click */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Click\", function() { return Click; });\n/* harmony import */ var _click_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./click.css */ \"./src/click.css\");\n/* harmony import */ var _click_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_click_css__WEBPACK_IMPORTED_MODULE_0__);\n\n\nclass Click {\n\n    lookData() {\n        let date = new Date();\n        let day = date.getDate();\n        if (day < 10) {\n            day = `0${day}`;\n        }\n        let dayWeek = date.getDay();\n        if (dayWeek < 10) {\n            dayWeek = `0${dayWeek}`;\n        }\n        const year = date.getFullYear();\n        return `${day}.${dayWeek}.${year}`;\n    }\n    onClick() {\n        document.getElementById('button').addEventListener('click', event => {\n            const data = this.lookData();\n            document.getElementById('data').innerHTML = data;\n        });\n    }\n}\n\n//# sourceURL=webpack:///./src/click.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -94,7 +117,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _user__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./user */ \"./src/user.js\");\n\n\nwindow.onload = () => {\n    const user = new _user__WEBPACK_IMPORTED_MODULE_0__[\"User\"]('Василий', 'Иванов', 'Петрович');\n    user.sayName();\n    user.lookData();\n};\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _user__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./user */ \"./src/user.js\");\n/* harmony import */ var _click__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./click */ \"./src/click.js\");\n\n\n\nwindow.onload = () => {\n    const user = new _user__WEBPACK_IMPORTED_MODULE_0__[\"User\"]('Василий', 'Иванов', 'Петрович');\n    user.sayName();\n    const click = new _click__WEBPACK_IMPORTED_MODULE_1__[\"Click\"]();\n    click.onClick();\n};\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
@@ -117,7 +140,7 @@ eval("// removed by extract-text-webpack-plugin\n\n//# sourceURL=webpack:///./sr
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"User\", function() { return User; });\n/* harmony import */ var _user_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./user.css */ \"./src/user.css\");\n/* harmony import */ var _user_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_user_css__WEBPACK_IMPORTED_MODULE_0__);\n\n\nclass User {\n    constructor(name, surname, middleName) {\n        this.name = name;\n        this.surname = surname;\n        this.middleName = middleName;\n        this.regName = /^[a-zа-я\\-]{1,30}$/i;\n        this.regData = null;\n    }\n\n    sayName() {\n        if (this.validParam()) {\n            const text = document.getElementById('name');\n            text.innerHTML = `<p class=\"text\">${this.surname} ${this.name} ${this.middleName}</p>`;\n            return;\n        }\n    }\n    validParam() {\n        if (this.regName.test(this.name) && this.regName.test(this.surname) && this.regName.test(this.middleName)) {\n            return true;\n        }\n    }\n    lookData() {\n        let date = new Date();\n        let day = date.getDate();\n        if (day < 10) {\n            day = `0${day}`;\n        }\n        let dayWeek = date.getDay();\n        if (dayWeek < 10) {\n            dayWeek = `0${dayWeek}`;\n        }\n        const year = date.getFullYear();\n        const dateObj = `${day}.${dayWeek}.${year}`;\n        console.log(dateObj);\n    }\n}\n\n//# sourceURL=webpack:///./src/user.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"User\", function() { return User; });\n/* harmony import */ var _user_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./user.css */ \"./src/user.css\");\n/* harmony import */ var _user_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_user_css__WEBPACK_IMPORTED_MODULE_0__);\n\n\nclass User {\n    constructor(name, surname, middleName) {\n        this.name = name;\n        this.surname = surname;\n        this.middleName = middleName;\n        this.regName = /^[a-zа-я\\-]{1,30}$/i;\n        this.regData = null;\n    }\n\n    sayName() {\n        if (this.validParam()) {\n            const text = document.getElementById('name');\n            text.innerHTML = `<p class=\"text\">${this.surname} ${this.name} ${this.middleName}</p>`;\n            return;\n        }\n    }\n    validParam() {\n        if (this.regName.test(this.name) && this.regName.test(this.surname) && this.regName.test(this.middleName)) {\n            return true;\n        }\n    }\n    // lookData() {\n    //     let date = new Date();\n    //     let day = date.getDate();\n    //         if(day < 10) {\n    //             day = `0${day}`;\n    //         }\n    //     let dayWeek = date.getDay();\n    //         if(dayWeek < 10) {\n    //             dayWeek = `0${dayWeek}`;\n    //         }\n    //     const year = date.getFullYear();\n    //     return `${day}.${dayWeek}.${year}`;\n    // }\n    // onClick() {\n    //     document.getElementById('button').addEventListener('click', event => {\n    //           const data = this.lookData();\n    //           document.getElementById('data').innerHTML = data;\n    //     })\n    // }\n}\n\n//# sourceURL=webpack:///./src/user.js?");
 
 /***/ })
 
