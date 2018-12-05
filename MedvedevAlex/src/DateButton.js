@@ -23,7 +23,7 @@ export default class DateButton {
   // метод, предоставляющий нам дату в нужном объёме
   getDate() {
     let date = new Date();
-    return `${date.getDate()}.${date.getMonth()}.${date.getFullYear()}<br>${date.getHours()}:${date.getMinutes()}` +
+    return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}<br>${date.getHours()}:${date.getMinutes()}` +
       `:${date.getSeconds()}`;
   }
 
