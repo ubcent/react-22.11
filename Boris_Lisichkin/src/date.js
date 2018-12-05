@@ -7,5 +7,4 @@ export default class Today {
     const dateBuild = document.getElementById('date');
     return dateBuild.innerHTML = dateFormat;
   }
-
 }
