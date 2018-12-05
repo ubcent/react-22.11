@@ -10,9 +10,10 @@ html:
 js: 
 5 классов - 5 файлов
 
-class main
-class Stuff
-class showCurrentdate
-class Click
-class News
+- class main
+- class Stuff
+- class showCurrentdate
+- class Click
+- class News
+- class Render
 
