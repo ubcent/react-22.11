@@ -14,8 +14,3 @@ window.onload = () => {
   button.onclick = () => date.addDate();
 
 };
-
-
-
-
-
