@@ -8,4 +8,9 @@ export default class User {
   sayHi() {
     return `Hi, ${this.firstName} ${this.lastName}`;
   }
+
+  getAuthor() {
+    const authorName = document.getElementById('author');
+    return authorName.innerHTML = `<h2 class="name">${this.firstName} ${this.lastName}</h2>`;
+  }
 }
