@@ -1,12 +1,12 @@
-import './user.css';
-
-export default class User {
-    constructor(firstName, lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-
-    sayHi() {
-        return `Hi, ${this.firstName} ${this.lastName}`;
-    }
-}
+// import './user.css';
+//
+// export default class User {
+//     constructor(familyName, firstName) {
+//         this.familyName = familyName;
+//         this.firstName = firstName;
+//     }
+//
+//     sayHi() {
+//         return `Hi, ${this.familyName} ${this.firstName}`;
+//     }
+// }
