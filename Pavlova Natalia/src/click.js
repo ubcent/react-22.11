@@ -8,12 +8,12 @@ export class Click {
             if(day < 10) {
                 day = `0${day}`;
             }
-        let dayWeek = date.getDay();
-            if(dayWeek < 10) {
-                dayWeek = `0${dayWeek}`;
+        let month = date.getMonth();
+            if(month < 10) {
+                month = `0${month}`;
             }
         const year = date.getFullYear();
-        return `${day}.${dayWeek}.${year}`;
+        return `${day}.${month}.${year}`;
     }
     onClick() {
         document.getElementById('button').addEventListener('click', event => {
