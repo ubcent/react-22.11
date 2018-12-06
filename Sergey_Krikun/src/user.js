@@ -1,4 +1,4 @@
-// import "./user.css"
+// import "./user.css";
 // сюда же импортируем css относящейся к этому модулю
 export class User {
   constructor(firstName, lastName) {
@@ -6,10 +6,19 @@ export class User {
     this.lastName = lastName;
   }
 
-  sayHi() {
-    return `Hi, ${this.firstName} ${this.lastName}`;
+  get fullDeveloperName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+
+  createOutputElement(cont = '') {
+    let elemDiv = document.createElement('p');
+    elemDiv.classList.add('div_fio-developer');
+    elemDiv.textContent = cont;
+    document.body.appendChild(elemDiv);
   }
 }
+
+
 
 // export нужен чтобы потом применить import в другом файле, если 
 //мы знаем что будет только один эакспорт, например только

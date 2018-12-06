@@ -2,7 +2,6 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-
 module.exports = {
   entry: {
     main: path.resolve(__dirname, 'src', 'index.js')
@@ -37,7 +36,6 @@ module.exports = {
       filename: 'index.html',
     })
   ]
-
 }
 
 // после этого (как прописали loader) пробуем запустить командой npm run build

@@ -1,9 +1,15 @@
 import {
-  User
+  User,
 } from './user';
 
-const user = new User('Vasya', 'Pupkin');
-alert(user.sayHi());
+import DateButton from './date-button';
+
+const user = new User('Sergey', 'Krikun');
+let contentOfElem = 'Web developer - ' + user.fullDeveloperName;
+user.createOutputElement(contentOfElem);
+
+const dateB = new DateButton();
+dateB.createButton();
 
 // если нужно импортировать что то default то можно
 // import User from '.user'; без фигурных скобках, а так в 
