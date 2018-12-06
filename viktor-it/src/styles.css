@@ -1,0 +1,11 @@
+#divCreate {
+  width: 400px;
+  height: 100px;
+  background-color: yellow;
+}
+
+#divShow {
+  width: 400px;
+  height: 50px;
+  background-color: lightgreen;
+}
