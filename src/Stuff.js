@@ -3,9 +3,9 @@ export class Stuff {
         this.familyName = familyName;
         this.firstName = firstName;
         this.additionalName = additionalName;
+        this.position = "Веб-разработчик: ";
     }
     data_output() {
-        console.log (`Веб-разработчик: ${this.firstName} ${this.familyName} ${this.additionalName}`);
-        return `Веб-разработчик: ${this.firstName} ${this.familyName} ${this.additionalName}`;
+        return `${this.position} ${this.firstName} ${this.familyName} ${this.additionalName}`;
     }
 }

@@ -32,8 +32,8 @@ window.onload = function () {
     for (let value of stuffList) {
         //console.log(value);
         for (let val2 of value) {
-            let stuff1 = new Stuff(value[[0]], value[[1]], value[[2]]);
-            //console.log(val2);
+            //let stuff1 = new Stuff(value[[0]], value[[1]], value[[2]]);
+            console.log(val2);
         }
 
     }
