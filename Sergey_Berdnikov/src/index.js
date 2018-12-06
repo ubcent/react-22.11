@@ -7,14 +7,14 @@ import { currentDate } from "./MyDate";
 
 const dev = new Developer('Бердников', 'Сергей', 'Юрьевич');
 
-$(document).ready(function () {
-    $('#developer').click(function (event) {
-        event.preventDefault();
+$(document).ready(() => {
+    $('#developer').click( e => {
+        e.preventDefault();
         alert(dev.whoiam());
     });
 
-    $('#date-show').click(function (event) {
-        event.preventDefault();
+    $('#date-show').click( e => {
+        e.preventDefault();
         alert(`Дата: ${currentDate}`);
     })
 
