@@ -1,0 +1,23 @@
+#dateButton {
+    color: brown;
+    background: burlywood;
+    font-size: 15px;
+    font-style: italic;
+    border: none;
+    outline: none;
+    transition: all 1.5s;
+}
+
+#dateButton:hover {
+    color: green;
+    background: aqua;
+    transition: 1.5s;
+}
+
+#dateDiv {
+    padding-left: 48px;
+    color: blue;
+    font-size: 15px;
+    font-weight: 900;
+
+}
