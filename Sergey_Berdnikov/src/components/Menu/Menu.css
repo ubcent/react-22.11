@@ -1,0 +1,17 @@
+.menu {
+  height: 200px;
+  color: #cccccc;
+  background-color: #60a8ff;
+}
+.menu-big {
+  font-size: 2em;
+  height: 300px;
+  background-color: #ff5b54;
+}
+
+.menu-small {
+  font-size: 1em;
+  height: 100px;
+  color: #1a16ff;
+  background-color: #fffa70;
+}
