@@ -1,8 +1,8 @@
-/*.user {*/
-    /*width: 200px;*/
-    /*height: 200px;*/
-    /*background-color: aquamarine;*/
-/*}*/
+.user {
+    width: 200px;
+    height: 200px;
+    background-color: aquamarine;
+}
 li {
     list-style-type: none;
 }
