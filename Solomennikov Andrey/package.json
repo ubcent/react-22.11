@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/ubcent/react-22.11#readme",
   "dependencies": {
+    "@types/node": "^10.12.12",
     "classnames": "^2.2.6",
     "react": "^16.6.3",
     "react-dom": "^16.6.3"
