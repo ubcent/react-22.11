@@ -5,7 +5,7 @@ export class Component {
     }
 
     createButt() {
-        let newButt = document.createElement('button');
+        const newButt = document.createElement('button');
         newButt.innerHTML = this.buttName;
         return newButt
     }

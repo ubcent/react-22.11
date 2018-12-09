@@ -1,10 +1,7 @@
 import User from './user';
-//
-// const user = new User('Vasya', 'Pupkin');
-// alert(user.sayHi());
 
 import './user.css';
-//import * as Stuff from './Stuff'
+
 import {Stuff} from './Stuff'
 import {Render} from './Render'
 import {Component} from './Component'
@@ -13,7 +10,7 @@ import {DateDisplay} from './DateDisplay'
 
 window.onload = function () {
 
-    let stuffList = [
+    const stuffList = [
 
         ["Лобанов", "Федот", "Никитевич"],
         ["Горбачёв", "Бронислав", "Кондратович"],
@@ -38,49 +35,42 @@ window.onload = function () {
 
     ];
 
-    let panel = document.createElement('div');
+    const panel = document.createElement('div');
     document.body.appendChild(panel);
     panel.id = 'table';
-    let ul = document.createElement('ul');
+    const ul = document.createElement('ul');
     panel.appendChild(ul);
     ul.id = 'list';
 
 
-    let menu = document.getElementById('list');
+    const menu = document.getElementById('list');
 
 
-    // for (let value of stuffList) {
-    //     console.log(value);
-    //     let newLi = document.createElement('li');
-    //     newLi.innerHTML = `${value[0]} ${value[1]} ${value[2]}`;
-    //     menu.appendChild(newLi);
-    // }
+
     for (let value of stuffList) {
-        // console.log(value);
+
         let stuff = new Stuff(value[0], value[1], value[2]);
         let tags = new Render(stuff.familyName, stuff.firstName, stuff.additionalName, stuff.position);
-        //console.log(tags);
+
         menu.appendChild(tags.render());
 
     }
 
-    let panel2 = document.createElement('div');
+    const panel2 = document.createElement('div');
     document.body.appendChild(panel2);
     panel2.id = 'butty';
 
-    let panel3 = document.createElement('div');
+    const panel3 = document.createElement('div');
     document.body.appendChild(panel3);
     panel3.id = 'mydate';
 
-    let butt = document.getElementById('butty');
-    // let b = document.createElement('button');
-    // butt.appendChild(b);
+    const butt = document.getElementById('butty');
 
-    let buttO = new Component();
+    const buttO = new Component();
     butt.appendChild(buttO.createButt());
 
     document.getElementById('butty').addEventListener('click', () => {
-        let date = new DateDisplay();
+        const date = new DateDisplay();
         document.getElementById('mydate').innerHTML = date.getData();
     })
 
