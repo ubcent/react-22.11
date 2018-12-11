@@ -1,15 +1,15 @@
-import { Developer, getData } from './developer';
+import { Developer, getData } from './main';
 
 import './today.css';
 
-let button = document.createElement('button');
+const button = document.createElement('button');
 button.textContent = 'Today';
 button.className = 'today';
 document.body.appendChild(button);
 
 const myself = new Developer('Алексей', 'Михайлов');
 
-let developer = document.createElement('p');
+const developer = document.createElement('p');
 developer.textContent = myself.present();
 document.body.appendChild(developer);
 
