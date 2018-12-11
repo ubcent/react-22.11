@@ -17,17 +17,8 @@ export default class Header extends Component
         size: 'small',
     };
     render() {
-        const {size, color} = this.props;
-
-        const headerClasses = classname({
-            'header': true,
-            'header-small': size === 'small',
-            'header-big': size === 'big'
-        });
-
-        console.log(this.props);
         return (
-          <header className={headerClasses}>
+          <header >
             <Menu items = {items}></Menu>
           </header>
         );

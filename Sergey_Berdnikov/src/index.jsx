@@ -2,23 +2,19 @@
 import React, { Component } from 'react';
 //ReactDom только в точке входа
 import ReactDom from 'react-dom';
-
-import Header from './components/Header';
+//подключаем свои компоненты
+import Layout from './components/Layout';
 
 class App extends Component
 {
     render() {
         return (
-          <div >
-              <Header size="big" color="red"/>
-              <Header size="small" color="yellow"/>
-              <Header size="standart" color="blue"/>
-          </div>
+          <Layout/>
         );
     }
 }
 
 ReactDom.render(
   <App/>,
-  document.getElementById('root'),
+  document.getElementById('main-div'),
 );
