@@ -1,0 +1,14 @@
+.form-SignUp {
+  position: absolute;
+  background-color: rgb(172, 238, 180);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid #CCC;
+  border-radius: 3px;
+  margin-right: 25px;
+  margin-top: 25px;
+  padding: 10px;
+  z-index: 10;
+}
+.form-SignUp label {
+  display: block;
+}

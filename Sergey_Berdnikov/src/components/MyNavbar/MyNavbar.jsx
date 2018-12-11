@@ -13,12 +13,13 @@ import Button from "react-bootstrap/lib/Button";
 //Подключаем свои компоненты
 import SignUp from '../SignUp';
 
+
 export default class MyNavbar extends Component
 {
 
     render() {
         return (
-          <Navbar  inverse collapseOnSelect>
+          <Navbar inverse collapseOnSelect>
               <Navbar.Header>
                   <Navbar.Brand>
                       <a href="/">React-Bootstrap (Lesson3)</a>
@@ -44,7 +45,7 @@ export default class MyNavbar extends Component
                   </Nav>
 
                   <Navbar.Form pullRight>
-                      <Button bsStyle="success">Login</Button>
+                      <SignUp/>
                   </Navbar.Form>
               </Navbar.Collapse>
           </Navbar>

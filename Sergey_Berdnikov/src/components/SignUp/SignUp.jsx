@@ -1,15 +1,17 @@
 import './SignUp.css';
 
-import React, { Component} from 'react';
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+
 import FormGroup from "react-bootstrap/lib/FormGroup";
 import ControlLabel from "react-bootstrap/lib/ControlLabel";
 import FormControl from "react-bootstrap/lib/FormControl";
 import HelpBlock from "react-bootstrap/lib/HelpBlock";
 import Checkbox from "react-bootstrap/lib/Checkbox";
-import Radio from "react-bootstrap/lib/Radio";
 import Button from "react-bootstrap/lib/Button";
+import Overlay from "react-bootstrap/lib/Overlay";
 
-function FieldGroup({ id, label, help, ...props }) {
+function FieldGroup({id, label, help, ...props}) {
     return (
       <FormGroup controlId={id}>
           <ControlLabel>{label}</ControlLabel>
@@ -20,12 +22,12 @@ function FieldGroup({ id, label, help, ...props }) {
 }
 
 const formInstance = (
-  <form>
+  <form className="form-SignUp">
       <FieldGroup
         id="formControlsText"
         type="text"
-        label="Text"
-        placeholder="Enter text"
+        label="Login"
+        placeholder="Enter Login"
       />
       <FieldGroup
         id="formControlsEmail"
@@ -33,61 +35,17 @@ const formInstance = (
         label="Email address"
         placeholder="Enter email"
       />
-      <FieldGroup id="formControlsPassword" label="Password" type="password" />
+      <FieldGroup id="formControlsPassword" label="Password" type="password"/>
       <FieldGroup
         id="formControlsFile"
         type="file"
-        label="File"
-        help="Example block-level help text here."
+        label="Photo"
+        help="Load your photo."
       />
 
       <Checkbox checked readOnly>
-          Checkbox
+          Remeber me
       </Checkbox>
-      <Radio checked readOnly>
-          Radio
-      </Radio>
-
-      <FormGroup>
-          <Checkbox inline>1</Checkbox> <Checkbox inline>2</Checkbox>{' '}
-          <Checkbox inline>3</Checkbox>
-      </FormGroup>
-      <FormGroup>
-          <Radio name="radioGroup" inline>
-              1
-          </Radio>{' '}
-          <Radio name="radioGroup" inline>
-              2
-          </Radio>{' '}
-          <Radio name="radioGroup" inline>
-              3
-          </Radio>
-      </FormGroup>
-
-      <FormGroup controlId="formControlsSelect">
-          <ControlLabel>Select</ControlLabel>
-          <FormControl componentClass="select" placeholder="select">
-              <option value="select">select</option>
-              <option value="other">...</option>
-          </FormControl>
-      </FormGroup>
-      <FormGroup controlId="formControlsSelectMultiple">
-          <ControlLabel>Multiple select</ControlLabel>
-          <FormControl componentClass="select" multiple>
-              <option value="select">select (multiple)</option>
-              <option value="other">...</option>
-          </FormControl>
-      </FormGroup>
-
-      <FormGroup controlId="formControlsTextarea">
-          <ControlLabel>Textarea</ControlLabel>
-          <FormControl componentClass="textarea" placeholder="textarea" />
-      </FormGroup>
-
-      <FormGroup>
-          <ControlLabel>Static text</ControlLabel>
-          <FormControl.Static>email@example.com</FormControl.Static>
-      </FormGroup>
 
       <Button type="submit">Submit</Button>
   </form>
@@ -95,11 +53,43 @@ const formInstance = (
 
 export default class SignUp extends Component
 {
+    constructor(props, context) {
+        super(props, context);
+
+        this.handleToggle = this.handleToggle.bind(this);
+
+        this.state = {
+            show: false
+        };
+    }
+
+    handleToggle() {
+        this.setState({show: !this.state.show});
+    }
+
     render() {
         return (
-          <div>
-              {formInstance}
+          <div style={{position: 'relative'}}>
+              <Button bsStyle="success"
+                      ref={button => {
+                          this.target = button;
+                      }}
+                      onClick={this.handleToggle}
+              >
+                  Login
+              </Button>
+
+              <Overlay
+                show={this.state.show}
+                onHide={() => this.setState({show: false})}
+                placement="left"
+                container={this}
+                target={() => ReactDOM.findDOMNode(this.target)}
+              >
+                  {formInstance}
+              </Overlay>
           </div>
         );
     }
-};
+}
+
