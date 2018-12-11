@@ -31,7 +31,6 @@ const navInstance = (
   </Nav>
 );
 
-
 export default class Layout extends Component
 {
     render() {
