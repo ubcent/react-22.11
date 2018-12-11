@@ -1,4 +1,5 @@
 import './MyNavbar.css';
+
 //React импортируем в каждом файле
 import React, { Component } from 'react';
 //подключаем react-bootstrap компоненты
@@ -7,14 +8,17 @@ import Navbar from 'react-bootstrap/lib/Navbar';
 import NavItem from 'react-bootstrap/lib/NavItem';
 import NavDropdown from 'react-bootstrap/lib/NavDropdown';
 import MenuItem from 'react-bootstrap/lib/MenuItem';
-import Button from "react-bootstrap/es/Button";
+import Button from "react-bootstrap/lib/Button";
+
+//Подключаем свои компоненты
+import SignUp from '../SignUp';
 
 export default class MyNavbar extends Component
 {
 
     render() {
         return (
-          <Navbar fixedTop={true} inverse collapseOnSelect>
+          <Navbar  inverse collapseOnSelect>
               <Navbar.Header>
                   <Navbar.Brand>
                       <a href="/">React-Bootstrap (Lesson3)</a>
