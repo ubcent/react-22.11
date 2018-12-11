@@ -64,15 +64,14 @@ body {
 	min-height:100%;
 }
 a, a:visited { /* порядок правил для ссылок имеет значение */
-	color: #e6618c;
 	text-decoration: underline;
 }
 a:hover {
-	color: #fdf208;
+	color: #58c93a;
 	text-decoration:none;
 }
 a:focus, a:active {
-	color: #c83867;
+	color: #58c93a;
 	text-decoration: underline;
 }
 h1, h2, h3, h4, h5, h6{
