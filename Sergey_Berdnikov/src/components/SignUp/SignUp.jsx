@@ -1,8 +1,10 @@
 import './SignUp.css';
 
+//подключаем React и reactDom т.к. нужно искать элемент
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
+//подключаем react-bootstrap компоненты
 import FormGroup from "react-bootstrap/lib/FormGroup";
 import ControlLabel from "react-bootstrap/lib/ControlLabel";
 import FormControl from "react-bootstrap/lib/FormControl";
@@ -11,6 +13,15 @@ import Checkbox from "react-bootstrap/lib/Checkbox";
 import Button from "react-bootstrap/lib/Button";
 import Overlay from "react-bootstrap/lib/Overlay";
 
+/**
+ * Формирование групп ввода
+ * @param id {string} id группы
+ * @param label {string} Заголовок группу
+ * @param help {string} Подсказка
+ * @param props {Array} аргументы
+ * @return {*}
+ * @constructor
+ */
 function FieldGroup({id, label, help, ...props}) {
     return (
       <FormGroup controlId={id}>
@@ -21,6 +32,7 @@ function FieldGroup({id, label, help, ...props}) {
     );
 }
 
+//Разметка формы ввода данных для регистрации
 const formInstance = (
   <form className="form-SignUp">
       <FieldGroup
