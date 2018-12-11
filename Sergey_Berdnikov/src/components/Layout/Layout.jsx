@@ -1,6 +1,7 @@
 import './Layout.css';
 //React импортируем в каждом файле
 import React, { Component } from 'react';
+//подключаем react-bootstrap
 import Grid from 'react-bootstrap/lib/Grid';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
@@ -42,13 +43,13 @@ export default class Layout extends Component
               <main>
                   <Grid>
                       <Row className="show-grid">
-                      <Col lg={10} sm={10} md={8}>
-                          <Content/>
-                      </Col>
-                      <Col lg={2} sm={2} md={4}>
-                          {navInstance}
-                      </Col>
-                  </Row>
+                          <Col lg={10} sm={10} md={8}>
+                              <Content/>
+                          </Col>
+                          <Col lg={2} sm={2} md={4}>
+                              {navInstance}
+                          </Col>
+                      </Row>
                   </Grid>
               </main>
               <footer>
