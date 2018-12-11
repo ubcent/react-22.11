@@ -27,7 +27,7 @@ export default class Aside extends Component {
                     <div className="subscribe"></div>
                 </div>
                 <div className="modal">
-                    {/* <ModalExample />  */}
+                    <ModalExample /> 
                 </div>
             </aside>
         );
