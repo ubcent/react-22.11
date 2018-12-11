@@ -1,5 +1,9 @@
 //чтобы не ошибиться с путями, используем модуль path, который встроен в NodeJs
 const path = require('path');
+//подключаем плагин для работы webpack с CSS
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+//подключим плагин для работы с HTML
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     //точка входа - отсюда webpack собирает проект, __dirname - встроенная переменная, указывает на папку запуска
@@ -28,7 +32,27 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                 }
+            },
+            {
+                test: /\.css$/,
+                use: ExtractTextPlugin.extract({
+                    //декларируем подключенные loader
+                    fallback: 'style-loader',
+                    use: ['css-loader']
+                })
             }
         ]
-    }
+    },
+    //зарегистрируем плагин
+    plugins: [
+        //укажем имя файла, куда все будет складываться
+        new ExtractTextPlugin({ filename: 'style.css' }),
+        //регистрируем плагин для работы с html
+        new HtmlWebpackPlugin({
+            //что брать за основу
+            template: path.resolve(__dirname, 'src', 'index.html'),
+            //куда сохранять
+            filename: 'index.html',
+        })
+    ]
 };
