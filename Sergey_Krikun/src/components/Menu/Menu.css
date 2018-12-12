@@ -23,5 +23,42 @@
 
 .place-left-menu {
   flex-direction: column;
-  width: calc(100% * 0.08);
+  align-self: center;
+  height: 100%;
+}
+
+.icon-menu>.menu-item__link {
+  font-size: 4.5rem;
+  padding: 20px;
+
+}
+
+.icon-menu {
+  margin-bottom: 20px
+}
+
+/* 
+.icon-menu > .menu-item__link {
+  color: white;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  display:relative;
+}
+
+.icon-menu > .menu-item__link:after {
+  color:gray;
+  content: 'text';
+  font-size: 20px;
+  display: absolute;
+  display: block;
+
+} */
+
+.icon-menu>.menu-item__link {
+  color: white;
+}
+
+.icon-menu>.menu-item__link:hover {
+  color: gray;
 }

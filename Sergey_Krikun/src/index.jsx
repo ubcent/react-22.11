@@ -1,5 +1,6 @@
 import React, { Component } from 'react'; // импортируем в каждом файлк jsx
 import ReactDom from 'react-dom'; //нужно импортировать только в точке входа
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Layout from './components/Layout';
