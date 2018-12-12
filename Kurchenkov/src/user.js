@@ -7,6 +7,13 @@ export class User{
     }
 
     getFullName(){
-        return `Hi, ${this.firstName} ${this.lastName}`;
+        return `${this.firstName} ${this.lastName}`;
+    }
+
+    createElement(fullName){
+        const block = document.createElement('div');
+        block.classList.add('block');
+        block.textContent = fullName;
+        document.body.appendChild(block);
     }
 }
