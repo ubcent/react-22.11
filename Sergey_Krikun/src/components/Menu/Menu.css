@@ -3,16 +3,22 @@
   display: flex;
   margin: 20px;
   padding: 0;
+  line-height: 1;
 }
 
 .menu-item {
   padding: 15px;
+  display: block;
+  line-height: 1;
+  align-self: center;
 }
 
 .menu-item__link {
   text-decoration: none;
   font-size: 2rem;
   line-height: 2rem;
+  text-decoration: none;
+  color: black;
 }
 
 .place-left-menu {

@@ -13,19 +13,15 @@ const items = [
   { title: 'Gallery', href: '/gallery' }
 
 ]
-
 export default class Layout extends Component {
 
   render() {
 
-
     return (
-      <layout className="layout_main_wrapper">
+      <div className="layout_main_wrapper">
         <Header />
         <Menu place="left" items={items} />
-      </layout>
+      </div>
     );
   }
-
-
 }

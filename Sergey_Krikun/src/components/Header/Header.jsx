@@ -2,6 +2,8 @@ import './Header.css';
 
 import React, { Component } from 'react';
 import classNames from 'classNames'; //плагин помогает составлять имя класса
+import { Button } from 'reactstrap';
+import ModalForm from '../ModalForm';
 
 import Menu from '../Menu';
 
@@ -29,6 +31,7 @@ export default class Header extends Component {
       'header-big': size === 'big',
     })
 
+
     return (
       <header className={headerClasses}>
         <div className="logo-wrapper">
@@ -41,10 +44,13 @@ export default class Header extends Component {
           </div>
         </div>
 
-
-        <Menu place="top" items={items} />
-
-
+        <div className="head-menu-wrapper">
+          <Menu place="top" items={items} />
+          {/*  <Button color="primary" className="header-button">
+            Log in
+           </Button>{' '} */}
+          <ModalForm />
+        </div>
       </header>
     );
   }

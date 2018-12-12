@@ -31,9 +31,20 @@
   text-decoration: none;
   text-transform: uppercase;
   display: block;
+  color: darkgray;
 }
 
 .logo-sign__link {
   font-size: 6rem;
   margin-bottom: -20px;
+}
+
+.logo-text__link:hover,
+.logo-sign__link:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.head-menu-wrapper {
+  display: flex;
 }
