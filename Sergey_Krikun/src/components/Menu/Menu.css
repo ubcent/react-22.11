@@ -1,0 +1,21 @@
+.menu {
+  list-style: none;
+  display: flex;
+  margin: 20px;
+  padding: 0;
+}
+
+.menu-item {
+  padding: 15px;
+}
+
+.menu-item__link {
+  text-decoration: none;
+  font-size: 2rem;
+  line-height: 2rem;
+}
+
+.place-left-menu {
+  flex-direction: column;
+  width: calc(100% * 0.08);
+}

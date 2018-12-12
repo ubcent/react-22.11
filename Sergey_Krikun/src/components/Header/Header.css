@@ -1,0 +1,39 @@
+.header {
+  min-height: 60px;
+  border-bottom: 10px solid rgb(223, 108, 0);
+  background-color: white;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+/* .header-small {
+  background-color: blueviolet;
+  height: 300px;
+}
+
+.header-big {
+  background-color: chocolate;
+  height: 500px;
+}  */
+
+.logo-wrapper {
+  display: flex;
+  margin-left: 20px;
+
+}
+
+.logo-text__link,
+.logo-sign__link {
+  font-size: 4rem;
+  margin: 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: block;
+}
+
+.logo-sign__link {
+  font-size: 6rem;
+  margin-bottom: -20px;
+}

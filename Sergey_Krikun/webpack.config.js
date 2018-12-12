@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    main: path.resolve(__dirname, 'src', 'index.js')
+    main: path.resolve(__dirname, 'src', 'index.jsx')
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -12,7 +12,7 @@ module.exports = {
   },
   module: {
     rules: [{
-        test: /\.js$/, // под какой шаблон должны попадать файлы проекта
+        test: /\.jsx?$/, // под какой шаблон должны попадать файлы проекта под .js и .jsx
         exclude: /node_modules/, //то что исключаем 
         use: {
           loader: 'babel-loader', //ранее установленный лоадер
