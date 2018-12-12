@@ -4,7 +4,8 @@ import React, { Component } from 'react';
 import ReactDom from 'react-dom';
 //подключаем свои компоненты
 import Layout from './components/Layout';
-
+//Подключаем стили бутстрап
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component
 {
