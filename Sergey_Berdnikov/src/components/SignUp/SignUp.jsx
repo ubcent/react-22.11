@@ -5,13 +5,13 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
 //подключаем react-bootstrap компоненты
-import FormGroup from "react-bootstrap/lib/FormGroup";
-import ControlLabel from "react-bootstrap/lib/ControlLabel";
-import FormControl from "react-bootstrap/lib/FormControl";
-import HelpBlock from "react-bootstrap/lib/HelpBlock";
-import Checkbox from "react-bootstrap/lib/Checkbox";
-import Button from "react-bootstrap/lib/Button";
-import Overlay from "react-bootstrap/lib/Overlay";
+import FormGroup from 'react-bootstrap/lib/FormGroup';
+import ControlLabel from 'react-bootstrap/lib/ControlLabel';
+import FormControl from 'react-bootstrap/lib/FormControl';
+import HelpBlock from 'react-bootstrap/lib/HelpBlock';
+import Checkbox from 'react-bootstrap/lib/Checkbox';
+import Button from 'react-bootstrap/lib/Button';
+import Overlay from 'react-bootstrap/lib/Overlay';
 
 /**
  * Формирование групп ввода
@@ -81,7 +81,7 @@ export default class SignUp extends Component
 
     render() {
         return (
-          <div style={{position: 'relative'}}>
+          <div style={{position: "relative"}}>
               <Button bsStyle="success"
                       ref={button => {
                           this.target = button;

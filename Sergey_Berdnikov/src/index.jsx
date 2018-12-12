@@ -5,6 +5,7 @@ import ReactDom from 'react-dom';
 //подключаем свои компоненты
 import Layout from './components/Layout';
 
+
 class App extends Component
 {
     render() {
