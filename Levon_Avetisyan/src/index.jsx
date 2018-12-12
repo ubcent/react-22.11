@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-import Layout from '/.components/Layout';
+import Layout from './components/Layout';
 
 class App extends Component {
     render() {
@@ -9,7 +10,7 @@ class App extends Component {
             <div>
                 <Layout />
             </div>
-        )
+        );
     }
 }
 
