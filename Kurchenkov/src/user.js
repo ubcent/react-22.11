@@ -6,7 +6,7 @@ export class User{
         this.lastName = lastName;
     }
 
-    sayHi(){
+    getFullName(){
         return `Hi, ${this.firstName} ${this.lastName}`;
     }
 }
