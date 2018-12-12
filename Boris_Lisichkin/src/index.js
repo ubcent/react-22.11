@@ -1,5 +1,4 @@
 import User from './user';
-import Today from './date';
 
 window.onload = () => {
 
@@ -9,8 +8,13 @@ window.onload = () => {
   const author = new User('Boris', 'Lisichkin');
   author.getAuthor();
 
-  const date = new Today();
+  function addDate() {
+    return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()} г.`;
+  }
+
   const button = document.getElementById('button');
-  button.onclick = () => date.addDate();
+  button.addEventListener('click', () => {
+    document.getElementById('date').innerHTML =addDate();
+  })
 
 };
