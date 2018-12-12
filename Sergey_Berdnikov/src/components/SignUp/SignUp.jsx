@@ -3,25 +3,23 @@ import './SignUp.css';
 //подключаем React
 import React, { Component } from 'react';
 
-//подключаем reactstrap компоненты
-import {
-    Modal,
-    Button,
-    ModalHeader,
-    ModalBody,
-    ModalFooter,
-    Form,
-    FormGroup,
-    Label,
-    Input,
-    FormText
-} from 'reactstrap';
+//Подключаем reactstrap по частям, там меньше расходуется памяти
+import Modal from "reactstrap/lib/Modal";
+import Button from "reactstrap/lib/Button";
+import ModalHeader from "reactstrap/lib/ModalHeader";
+import ModalBody from "reactstrap/lib/ModalBody";
+import ModalFooter from "reactstrap/lib/ModalFooter";
+import Form from "reactstrap/lib/Form";
+import FormGroup from "reactstrap/lib/FormGroup";
+import Label from "reactstrap/lib/Label";
+import FormText from "reactstrap/lib/FormText";
+import Input from "reactstrap/lib/Input";
 
 // Форма регистрации
 const loginForm = (
     <Form>
         <FormGroup>
-            <Label for="exampleДщпшт">Login</Label>
+            <Label for="exampleLogin">Login</Label>
             <Input type="text" name="login" id="exampleLogin" placeholder="Login"/>
         </FormGroup>
         <FormGroup>

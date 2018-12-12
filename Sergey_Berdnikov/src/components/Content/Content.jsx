@@ -2,8 +2,9 @@ import './Content.css';
 
 //React импортируем в каждом файле
 import React, { Component } from 'react';
-//подключаем react-bootstrap компоненты
-import { Row, Col } from 'reactstrap';
+//подключаем reactstrap компоненты по частям, там меньше расходуется памяти
+import Row from "reactstrap/lib/Row";
+import Col from "reactstrap/lib/Col";
 
 const news = [
     'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',

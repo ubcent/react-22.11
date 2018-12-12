@@ -1,23 +1,34 @@
 import './Layout.css';
 //React импортируем в каждом файле
 import React, { Component } from 'react';
-//подключаем reactstrap
-import { Container, Row, Col, Nav, NavItem, NavLink } from 'reactstrap';
+//подключаем reactstrap по частям, там меньше расходуется памяти
+import Nav from "reactstrap/lib/Nav";
+import Container from "reactstrap/lib/Container";
+import Row from "reactstrap/lib/Row";
+import Col from "reactstrap/lib/Col";
+import NavItem from "reactstrap/lib/NavItem";
+import NavLink from "reactstrap/lib/NavLink";
+
 //Подключаем свои компоненты
 import MyNavbar from '../MyNavbar';
 import Content from '../Content';
 
+const navMenu = [
+    {title: 'Some link 1', href: '#'},
+    {title: 'Some link 2', href: '#'},
+    {title: 'Some link 3', href: '#'},
+    {title: 'Some link 4', href: '#'},
+    {title: 'Some link 5', href: '#'},
+];
+
 const navInstance = (
     <Nav vertical>
-        <NavItem>
-            <NavLink href="#">Link 1</NavLink>
-        </NavItem>
-        <NavItem>
-            <NavLink href="#">Link 2</NavLink>
-        </NavItem>
-        <NavItem>
-            <NavLink href="#">Link 3</NavLink>
-        </NavItem>
+        {navMenu.map(value => {
+            return <NavItem>
+                <NavLink href={value.href}>{value.title}</NavLink>
+            </NavItem>
+        })}
+
     </Nav>
 );
 
