@@ -4,7 +4,18 @@ import './SignUp.css';
 import React, { Component } from 'react';
 
 //подключаем reactstrap компоненты
-import { Collapse, Button, CardBody, Card, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import {
+    Modal,
+    Button,
+    ModalHeader,
+    ModalBody,
+    ModalFooter,
+    Form,
+    FormGroup,
+    Label,
+    Input,
+    FormText
+} from 'reactstrap';
 
 // Форма регистрации
 const loginForm = (
@@ -38,7 +49,6 @@ const loginForm = (
                 Remember me
             </Label>
         </FormGroup>
-        <Button>Submit</Button>
     </Form>
 );
 
@@ -46,25 +56,33 @@ export default class SignUp extends Component
 {
     constructor(props) {
         super(props);
+        this.state = {
+            modal: false
+        };
+
         this.toggle = this.toggle.bind(this);
-        this.state = {collapse: false};
     }
 
     toggle() {
-        this.setState({collapse: !this.state.collapse});
+        this.setState({
+            modal: !this.state.modal
+        });
     }
 
     render() {
         return (
             <div>
-                <Button color="success" onClick={this.toggle} style={{marginBottom: '1rem'}}>Login</Button>
-                <Collapse isOpen={this.state.collapse}>
-                    <Card color="dark" className="text-warning">
-                        <CardBody>
-                            {loginForm}
-                        </CardBody>
-                    </Card>
-                </Collapse>
+                <Button color="success" onClick={this.toggle}>Login</Button>
+                <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+                    <ModalHeader toggle={this.toggle}>Registration form</ModalHeader>
+                    <ModalBody>
+                        {loginForm}
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button color="primary" onClick={this.toggle}>Register</Button>{' '}
+                        <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+                    </ModalFooter>
+                </Modal>
             </div>
         );
     }
