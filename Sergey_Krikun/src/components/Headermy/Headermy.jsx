@@ -1,4 +1,4 @@
-import './Header.css';
+import './Headermy.css';
 
 import React, { Component } from 'react';
 import classNames from 'classNames'; //плагин помогает составлять имя класса
@@ -14,7 +14,7 @@ const items = [
 
 ]
 
-export default class Header extends Component {
+export default class Headermy extends Component {
   /* static defaultProps = {
     size: 'big',
   } */ // используется для задания значения параметрам по умолчания
@@ -32,7 +32,7 @@ export default class Header extends Component {
     })
 
     return (
-      <header className={headerClasses}>
+      <headermy className={headerClasses}>
         <div className="logo-wrapper">
           <div className="logo-sign">
             <a href="index.html" className="logo-sign__link">*</a>
@@ -45,7 +45,7 @@ export default class Header extends Component {
           <Menu place="top" items={items} />
           <ModalForm />
         </div>
-      </header>
+      </headermy>
     );
   }
 }
