@@ -1,0 +1,13 @@
+#authButton{
+  width: 80px;
+  height: 35px;
+  color: blue;
+  position: relative;
+  float: right;
+  margin: 5px 15px;
+}
+
+#authButton p {
+  color: white;
+  font-size: 0.9em;
+}

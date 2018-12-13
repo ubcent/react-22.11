@@ -1,0 +1,14 @@
+.header {
+  background-color: lightgreen;
+  height: 150px;
+}
+
+.header-small {
+  background-color: yellow;
+  height: 150px;
+}
+
+.header-big {
+  background-color: lightblue;
+  height: 200px;
+}
