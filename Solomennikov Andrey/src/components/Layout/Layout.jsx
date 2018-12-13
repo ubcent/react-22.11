@@ -20,7 +20,7 @@ export default class Layout extends Component {
                         <Nav/>
                         <Formlogin/>
                     </div>
-                    <div style="clear: both;"></div>
+                    {/*<div style="clear: both;"></div>*/}
                 </div>
                 <div className="footer">
                     All rights reserved

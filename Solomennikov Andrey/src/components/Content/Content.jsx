@@ -22,7 +22,7 @@ export default class Content extends Component
         return (
                 <div className="article">
                     <img id="logo" src="http://dummyimage.com/700x100/cdd61c" />
-                    <p>`{info}`</p>
+                    <p>{info}</p>
                 </div>
         );
     }
