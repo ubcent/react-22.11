@@ -1,0 +1,4 @@
+.navBlock{
+    display: flex;
+    justify-content: space-between;
+}

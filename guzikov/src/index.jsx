@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-import Header from './components/Header';
+import Nav from './components/Nav';
+import Jumbotron from './components/Jumbotron';
 
 class App extends Component {
     render() {
         return (
             <div>
-                <Header size="big" />  
+                <Nav />
+                <Jumbotron/>
             </div>
         );
     }
