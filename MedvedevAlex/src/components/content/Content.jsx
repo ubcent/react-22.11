@@ -3,7 +3,7 @@ import './Content.css';
 import React, {Component} from 'react';
 import classNames from 'classnames';
 
-import Button from '../Button';
+import ModalExample from '../Button';
 import SideNav from '../sideNav'
 
 export default class Content extends Component {
@@ -13,10 +13,6 @@ export default class Content extends Component {
 
     const content = classNames({
       content: true,
-    });
-
-    const loginBtn = classNames({
-      loginBtn: true,
     });
 
     const items = [
@@ -33,10 +29,11 @@ export default class Content extends Component {
       sideNav: true,
     });
 
+    const buttonLabel = 'Login';
 
     return (
       <div className={content}>
-        <Button loginBtn = {loginBtn} btnName= 'Login'  />
+        <ModalExample buttonLabel = {buttonLabel}/>
         <SideNav menuWrapper = {menuWrapper} sideNav={sidenav} items = {items}/>
       </div>
     )
