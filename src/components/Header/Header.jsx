@@ -1,6 +1,7 @@
 import './Header.css';
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import Menu from '../Menu';
@@ -14,6 +15,11 @@ const items = [
 export default class Header extends Component {
   static defaultProps = {
     size: 'big',
+  }
+
+  static propTypes = {
+    size: PropTypes.oneOf(['some', 'big']).isRequired,
+    color: PropTypes.string.isRequired
   }
 
   render() {
