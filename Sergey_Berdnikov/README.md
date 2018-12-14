@@ -4,8 +4,8 @@
 
 [GitHub link](https://github.com/MrLambert13/react-22.11/tree/master/Sergey_Berdnikov)
 
-#####How make components
-```node cli/component.js -n Footer```  
+#####How make new components?
+```npm rum dev:c Footer```  
 Where `Footer` name of new component  
 ***
 #####Start developer mode and browser sync

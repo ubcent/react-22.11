@@ -24,12 +24,15 @@ import React, { Component } from 'react';
 
 export default class ${componentName} extends Component
     {
+        static defaultProps = {}
+        
         render() {
             return (
                <div className="${componentName}"></div>
             );
         }
     };
+    
 `;
 //Создаем файл с кодом из {componentCode}
 fs.writeFileSync(

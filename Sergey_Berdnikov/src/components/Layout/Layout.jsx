@@ -12,6 +12,7 @@ import NavLink from "reactstrap/lib/NavLink";
 //Подключаем свои компоненты
 import MyNavbar from 'components/MyNavbar';
 import Content from 'components/Content';
+import MyContainer from 'components/Container';
 
 const navMenu = [
     {title: 'Some link 1', href: '#'},
@@ -41,7 +42,7 @@ export default class Layout extends Component
                     <MyNavbar/>
                 </header>
                 <main>
-                    <Container>
+                    <MyContainer>
                         <Row>
                             <Col xs="8" sm="10">
                                 <Content/>
@@ -51,9 +52,12 @@ export default class Layout extends Component
 
                             </Col>
                         </Row>
-                    </Container>
+                    </MyContainer>
                 </main>
                 <footer>
+                    <MyContainer text={'asd'}>
+                        <pre>Hello world!</pre>
+                    </MyContainer>
                 </footer>
             </div>
         );
