@@ -10,8 +10,8 @@ import NavItem from "reactstrap/lib/NavItem";
 import NavLink from "reactstrap/lib/NavLink";
 
 //Подключаем свои компоненты
-import MyNavbar from '../MyNavbar';
-import Content from '../Content';
+import MyNavbar from 'components/MyNavbar';
+import Content from 'components/Content';
 
 const navMenu = [
     {title: 'Some link 1', href: '#'},

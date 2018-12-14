@@ -12,7 +12,7 @@ import NavLink from "reactstrap/lib/NavLink";
 import NavbarBrand from "reactstrap/lib/NavbarBrand";
 
 //Подключаем свои компоненты
-import SignUp from '../SignUp';
+import SignUp from 'components/SignUp';
 
 const navMenu = [
     {title: 'Home', href: '/'},

@@ -8,6 +8,17 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
     },
+    resolve: {
+        //задаем короткие имена ("константы") для папок проекта
+        alias: {
+            components: path.resolve(__dirname, 'src', 'components'),
+        },
+        //указываем расширения по умолчанию
+        extensions: [
+            '.js',
+            '.jsx',
+        ],
+    },
 
     //научим вебпак понимать весь синтаксис
     module: {
