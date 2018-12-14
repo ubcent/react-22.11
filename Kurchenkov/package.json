@@ -1,0 +1,25 @@
+{
+  "name": "homeWork2",
+  "version": "1.0.0",
+  "description": "1. Выполнить глобальное подключение webpack и необходимых загрузчиков.\r 2. Разработать структуру проекта. Продумать, какие компоненты будут входить в состав каждого js-элемента. Разработать компонент, выводящий ФИО разработчика.\r 3. Необходимо изменить один из файлов таким образом, чтобы в нем подключался новый компонент и выводился на главной странице.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^16.6.3"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "webpack": "^4.27.1",
+    "webpack-cli": "^3.1.2"
+  }
+}

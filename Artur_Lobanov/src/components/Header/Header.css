@@ -1,0 +1,14 @@
+.header{
+    background-color: #007bff;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.header-big{
+    height: 300px;
+}
+.header-small{
+    height: 100px;
+}
