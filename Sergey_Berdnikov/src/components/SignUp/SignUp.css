@@ -1,0 +1,9 @@
+div .card {
+  position: absolute;
+  right: 0;
+  z-index: 10;
+}
+
+div .collapsing {
+  position: absolute;
+}
