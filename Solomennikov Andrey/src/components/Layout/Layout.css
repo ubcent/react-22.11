@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #333333;
+    text-decoration: none;
+}
+
+a:hover {
+    color: darkorange;
+
+}
+
+body {
+    background-color: #444444;
+    font: 14px "Trebuchet MS";
+}
+
+.wrapper {
+    width: 1000px;
+    background-color: #ffffff;
+    margin: 0 auto;
+}
+
+.content{
+    width: 100%;
+}
+
+.left {
+    width: 780px;
+    padding: 10px;
+    float: left;
+}
+
+.right {
+    width: 200px;
+    float: right;
+    padding-top: 20px;
+}
+
+.footer {
+    width: 100%;
+    padding: 10px;
+    color: #a6a6ff;
+    font-size: 20px;
+}
+
