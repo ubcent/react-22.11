@@ -1,0 +1,10 @@
+#date {
+  margin: 20px 20px;
+  color: dodgerblue;
+  text-transform: capitalize;
+}
+
+#show_date {
+  margin-left: 20px;
+  color: chocolate;
+}
