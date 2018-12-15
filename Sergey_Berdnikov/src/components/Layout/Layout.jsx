@@ -3,9 +3,9 @@ import './Layout.css';
 import React, { Component } from 'react';
 //подключаем reactstrap по частям, там меньше расходуется памяти
 import Nav from "reactstrap/lib/Nav";
-import Container from "reactstrap/lib/Container";
 import Row from "reactstrap/lib/Row";
 import Col from "reactstrap/lib/Col";
+import Container from "reactstrap/lib/Container";
 import NavItem from "reactstrap/lib/NavItem";
 import NavLink from "reactstrap/lib/NavLink";
 
@@ -13,6 +13,8 @@ import NavLink from "reactstrap/lib/NavLink";
 import MyNavbar from 'components/MyNavbar';
 import Content from 'components/Content';
 import MyContainer from 'components/Container';
+import Counter from 'components/Counter';
+import CommentsList from 'components/CommentsList';
 
 const navMenu = [
     {title: 'Some link 1', href: '#'},
@@ -42,7 +44,7 @@ export default class Layout extends Component
                     <MyNavbar/>
                 </header>
                 <main>
-                    <MyContainer>
+                    <Container>
                         <Row>
                             <Col xs="8" sm="10">
                                 <Content/>
@@ -52,11 +54,15 @@ export default class Layout extends Component
 
                             </Col>
                         </Row>
-                    </MyContainer>
+                    </Container>
                 </main>
                 <footer>
-                    <MyContainer text={'asd'}>
+                    <MyContainer text={'text'}>
                         <pre>Hello world!</pre>
+                        <Counter/>
+                        <CommentsList>
+
+                        </CommentsList>
                     </MyContainer>
                 </footer>
             </div>

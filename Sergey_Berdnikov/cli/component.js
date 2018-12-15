@@ -24,11 +24,15 @@ import React, { Component } from 'react';
 
 export default class ${componentName} extends Component
     {
-        static defaultProps = {}
+        static defaultProps = {
+        
+        };
         
         render() {
             return (
-               <div className="${componentName}"></div>
+               <div className="${componentName}">
+               
+               </div>
             );
         }
     };
