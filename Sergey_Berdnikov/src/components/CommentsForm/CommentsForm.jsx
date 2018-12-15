@@ -19,12 +19,13 @@ export default class CommentsForm extends Component
 
         handleFieldChange = (event) => {
             this.setState ({
-
+                [event.target.name]: event.target.name,
             })
         };
 
         handleSend = (event) => {
-            console.log(this.state);
+            const {onComment} = this.props;
+            onComment(this.state);
         };
 
         render() {

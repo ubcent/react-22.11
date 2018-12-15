@@ -19,9 +19,9 @@ export default class CommentsList extends Component
             };
         }
 
-        handleComment = () => {
-
-        };
+        handleComment = (comment) => ({
+            console.log('Comment', comment);
+        });
 
         render() {
             return (
