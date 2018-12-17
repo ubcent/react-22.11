@@ -90,6 +90,7 @@ img{
     content: "";
     display: table;
 }
+
 /* --------------- /базовые настройки ---------*/
 
 html,
@@ -100,6 +101,7 @@ body {
 	min-height: 100%;
 	display: flex;
 	flex-direction: column;
+	position: relative;
 }
 .content {
 	flex: 1;
