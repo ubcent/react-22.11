@@ -49,6 +49,15 @@ aside {
 	margin: 0 0 60px 30px;
 }
 
+.categor li a {
+	text-decoration: none;
+	color: #58c93a;
+}
+
+.categor li a:hover {
+	color: #b9b9b9;
+}
+
 .subscribe {
 	position: relative;
 	width: 100%;
