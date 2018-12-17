@@ -19,11 +19,11 @@ export default class CommentsForm extends Component
 
         handleFieldChange = (event) => {
             this.setState ({
-                [event.target.name]: event.target.name,
-            })
+                [event.target.name]: event.target.value,
+            });
         };
 
-        handleSend = (event) => {
+        handleSend = () => {
             const {onComment} = this.props;
             onComment(this.state);
         };
@@ -33,7 +33,7 @@ export default class CommentsForm extends Component
 
             return (
                <div className="CommentsForm">
-                   <input nam="author" onChange={this.handleFieldChange} value={author} placeholder="Author" type="text"/>
+                   <input name="author" onChange={this.handleFieldChange} value={author} placeholder="Author" type="text"/>
                    <br/>
                    <textarea name="message" onChange={this.handleFieldChange} value={message} placeholder="Message"></textarea>
                    <br/>

@@ -1,4 +1,3 @@
-
 import './CommentsList.css';
 
 //React импортируем в каждом файле
@@ -7,28 +6,32 @@ import CommentsForm from 'components/CommentsForm';
 
 
 export default class CommentsList extends Component
-    {
-        static defaultProps = {
+{
+    static defaultProps = {};
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            comments: [],
         };
+    }
 
-        constructor(props) {
-            super(props);
-            this.state = {
-                comments: []
-            };
-        }
-
-        handleComment = (comment) => {
-            console.log('Comment', comment);
-        };
-
-        render() {
-            return (
-                <div className="CommentsList">
-                    <CommentsForm onComment={this.handleComment()}/>
-                </div>
-            );
-        }
+    handleComment = (comment) => {
+        this.setState((prevState) => ({
+            comments: prevState.comments.concat([comment]),
+        }));
     };
+
+    render() {
+        const {comments} = this.state;
+        return (
+            <div className="CommentsList">
+                <CommentsForm onComment={this.handleComment}/>
+                <ul>
+                    {comments.map((comment)=> <li>{comment.author}: {comment.message}</li>)}
+                </ul>
+            </div>
+        );
+    }
+};
     
