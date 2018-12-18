@@ -7,7 +7,7 @@ import {
     Form,
     FormGroup,
     Label,
-    Input
+    Input,
 } from 'reactstrap';
 
 export default class ModalWindow extends Component {

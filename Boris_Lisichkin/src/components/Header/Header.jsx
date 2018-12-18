@@ -7,7 +7,7 @@ import {
     NavbarBrand,
     Nav,
     NavItem,
-    NavLink
+    NavLink,
 } from 'reactstrap';
 
 import ModalWindow from '../Login';
@@ -18,7 +18,7 @@ export default class Header extends Component {
 
         this.toggle = this.toggle.bind(this);
         this.state = {
-            isOpen: false
+            isOpen: false,
         };
     }
     toggle() {
@@ -49,7 +49,7 @@ export default class Header extends Component {
                             <NavItem>
                                 <NavLink href="/about">About</NavLink>
                             </NavItem>
-                                <ModalWindow nav inNavbar />
+                            <ModalWindow nav inNavbar />
                         </Nav>
                     </Collapse>
                 </Navbar>
