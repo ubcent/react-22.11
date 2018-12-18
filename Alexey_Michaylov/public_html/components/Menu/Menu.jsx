@@ -6,7 +6,7 @@ export default class Menu extends Component {
         const { items } = this.props;
         return(
             <Nav className="mr-auto" navbar>
-                {items.map((item) => <NavItem><NavLink href={item.href}>{item.title}</NavLink></NavItem>)}
+                {items.map((item, idx) => <NavItem key={idx}><NavLink href={item.href}>{item.title}</NavLink></NavItem>)}
             </Nav> 
         )
     }

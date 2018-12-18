@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
-import Sidebar from '../Sidebar';
+import Sidebar from 'components/Sidebar';
 
 export default class Main extends Component {
     render() {

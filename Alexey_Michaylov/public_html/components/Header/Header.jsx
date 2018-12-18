@@ -5,34 +5,34 @@ import {
     Collapse,
     Navbar,
     NavbarToggler,
-    NavbarBrand
+    NavbarBrand,
 } from 'reactstrap';
     
-import Menu from '../Menu';
+import Menu from 'components/Menu';
 
 const items = [
     {title: 'Главная', href: '/'},
     {title: 'Новости', href: '/news'},
     {title: 'Блог', href: '/blog'},
-    {title: 'Контакты', href: '/contacts'}
+    {title: 'Контакты', href: '/contacts',}
 ];
 
-import ModalWindow from '../Login';
+import ModalWindow from 'components/Login';
 
 export default class Header extends Component {
     constructor(props) {
         super(props);
-
-        this.toggle = this.toggle.bind(this);
         this.state = {
             isOpen: false
         };
     }
-    toggle() {
+    
+    toggle = () => {
         this.setState({
             isOpen: !this.state.isOpen
         });
     }
+    
     render() {
         return(
             <header>
