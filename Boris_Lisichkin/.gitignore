@@ -61,5 +61,6 @@ typings/
 .next
 
 .idea
+.vs
 
 dist
