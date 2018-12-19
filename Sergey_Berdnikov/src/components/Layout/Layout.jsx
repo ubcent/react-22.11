@@ -15,6 +15,9 @@ import Content from 'components/Content';
 import MyContainer from 'components/Container';
 import Counter from 'components/Counter';
 import CommentsList from 'components/CommentsList';
+import Search from "components/Search";
+import Categories from "components/Categories";
+import SideWidget from "components/SideWidget";
 
 const navMenu = [
     {title: 'Some link 1', href: '#'},
@@ -24,16 +27,6 @@ const navMenu = [
     {title: 'Some link 5', href: '#'},
 ];
 
-const navInstance = (
-    <Nav vertical>
-        {navMenu.map(value => {
-            return <NavItem>
-                <NavLink href={value.href}>{value.title}</NavLink>
-            </NavItem>
-        })}
-
-    </Nav>
-);
 
 export default class Layout extends Component
 {
@@ -46,12 +39,13 @@ export default class Layout extends Component
                 <main>
                     <Container>
                         <Row>
-                            <Col xs="8" sm="10">
+                            <Col xs="8" sm="8">
                                 <Content/>
                             </Col>
-                            <Col xs="4" sm="2">
-                                {navInstance}
-
+                            <Col xs="4" sm="4">
+                                <Search/>
+                                <Categories/>
+                                <SideWidget/>
                             </Col>
                         </Row>
                     </Container>

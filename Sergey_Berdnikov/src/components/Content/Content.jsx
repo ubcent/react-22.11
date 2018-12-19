@@ -3,70 +3,48 @@ import './Content.css';
 //React импортируем в каждом файле
 import React, { Component } from 'react';
 //подключаем reactstrap компоненты по частям, там меньше расходуется памяти
-import Row from "reactstrap/lib/Row";
-import Col from "reactstrap/lib/Col";
+import {
+    Card, CardImg, CardText, CardBody,
+    CardTitle, CardFooter, Button,
+} from 'reactstrap';
 
 const news = [
-    'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
-    'Donec hendrerit tempor tellus.',
-    'Donec pretium posuere tellus.',
-    'Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.',
-    'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
-    'Nulla posuere.',
-    'Donec vitae dolor.',
-    'Nullam tristique diam non turpis.',
-    'Cras placerat accumsan nulla.',
-    'Nullam rutrum.',
-    'Nam vestibulum accumsan nisl.'
+    'Page Heading',
+    'Secondary Text',
+    'Post Title',
+    'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!',
+    'Read More ->',
+    'Posted on January 1, 2017',
+    'Start Bootstrap',
 ];
+//news.slice(0, 6).join(' ')
 
-const gridInstance = (
-    <Row>
-        <Col>
-            <code>
-                &lt;
-                {'Col sm={6} md={3}'} &gt;
-            </code>
-            <br/>
-            {news.slice(0, 6).join(' ')}
-        </Col>
-        <Col>
-            <code>
-                &lt;
-                {'Col sm={6} md={3}'}&gt;
-            </code>
-            <br/>
-            {news.slice(0, 4).join(' ')}
-        </Col>
-        <Col>
-            <code>
-                &lt;
-                {'Col sm={6} md={3}'}&gt;
-            </code>
-            <br/>
-            {news.slice(0, 6).join(' ')}
-        </Col>
-        <Col>
-            <code>
-                &lt;
-                {'Col sm={6} md={3}'}&gt;
-            </code>
-            <br/>
-            {news.slice(0, 2).join(' ')}
-        </Col>
-    </Row>
+const CardNews = (
+    <div>
+        <Card>
+            <CardImg top width="100%" src="http://placehold.it/750x300" alt="Card image cap"/>
+            <CardBody>
+                <CardTitle>{news.slice(2, 3).join(' ')}</CardTitle>
+                <CardText>{news.slice(3, 4).join(' ')}</CardText>
+                <Button color="primary">{news.slice(4, 5).join(' ')}</Button>
+            </CardBody>
+            <CardFooter>{news.slice(5, 7).join(' by ')}</CardFooter>
+        </Card>
+    </div>
 );
 
 export default class Content extends Component
 {
     render() {
         return (
-            <div>
-                {gridInstance}
-                <hr/>
-                {gridInstance}
-                <hr/>
-                {gridInstance}
+            <div className="Content">
+                <h1>{news.slice(0, 1).join(' ')}</h1>
+                <h2>{news.slice(1, 2).join(' ')}</h2>
+                {CardNews}
+                <br/>
+                {CardNews}
+                <br/>
+                {CardNews}
             </div>
         );
     }
