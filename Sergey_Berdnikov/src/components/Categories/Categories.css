@@ -1,1 +1,9 @@
 .Categories {}
+
+.categories__list {
+  padding: 0;
+}
+
+.categories__list li {
+  list-style-type: none;
+}
