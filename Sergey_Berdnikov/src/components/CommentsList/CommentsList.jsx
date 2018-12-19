@@ -28,7 +28,7 @@ export default class CommentsList extends Component
             <div className="CommentsList">
                 <CommentsForm onComment={this.handleComment}/>
                 <ul>
-                    {comments.map((comment)=> <li>{comment.author}: {comment.message}</li>)}
+                    {comments.map((comment, idx)=> <li key={idx}>{comment.author}: {comment.message}</li>)}
                 </ul>
             </div>
         );

@@ -10,7 +10,7 @@ import NavItem from "reactstrap/lib/NavItem";
 import NavLink from "reactstrap/lib/NavLink";
 
 //Подключаем свои компоненты
-import MyNavbar from 'components/MyNavbar';
+import Header from 'components/Header';
 import Content from 'components/Content';
 import MyContainer from 'components/Container';
 import Counter from 'components/Counter';
@@ -41,7 +41,7 @@ export default class Layout extends Component
         return (
             <div>
                 <header>
-                    <MyNavbar/>
+                    <Header/>
                 </header>
                 <main>
                     <Container>

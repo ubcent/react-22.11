@@ -26,6 +26,7 @@ export default class CommentsForm extends Component
         handleSend = () => {
             const {onComment} = this.props;
             onComment(this.state);
+            this.setState({message: ''});
         };
 
         render() {
