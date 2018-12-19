@@ -1,1 +1,1 @@
-export default from './Media.jsx';
+export { default } from './Media.jsx';
