@@ -1,7 +1,7 @@
 import './Menu.css';
 import React, {Component} from 'react';
 
-import ModalAuthForm from '../ModalAuthForm';
+import ModalAuthForm from 'components/ModalAuthForm';
 
 import {
   Collapse,
