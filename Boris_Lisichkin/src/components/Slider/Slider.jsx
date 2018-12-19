@@ -87,5 +87,4 @@ class Slider extends Component {
     }
 }
 
-
 export default Slider;
