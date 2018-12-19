@@ -1,14 +1,5 @@
 import React, { Component } from 'react';
-import {
-    Button,
-    Modal,
-    ModalHeader,
-    ModalBody,
-    Form,
-    FormGroup,
-    Label,
-    Input,
-} from 'reactstrap';
+import { Button, Form, FormGroup, Input, Label, Modal, ModalBody, ModalHeader } from 'reactstrap';
 
 export default class ModalWindow extends Component {
     constructor(props) {

@@ -1,16 +1,8 @@
 import React, { Component } from 'react';
-import './Header.css';
-import {
-    Collapse,
-    Navbar,
-    NavbarToggler,
-    NavbarBrand,
-    Nav,
-    NavItem,
-    NavLink,
-} from 'reactstrap';
-
+import { Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 import ModalWindow from '../Login';
+import './Header.css';
+
 
 export default class Header extends Component {
     constructor(props) {
@@ -29,8 +21,8 @@ export default class Header extends Component {
     render() {
         return (
             <header>
-                <Navbar dark expand="md">
-                    <NavbarBrand href="/">A-Cloud</NavbarBrand>
+                <Navbar className="header" dark expand="md">
+                    <NavbarBrand href="/">MyCloud</NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>

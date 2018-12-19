@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Container from 'reactstrap';
 import './Footer.css';
 
 export default class Footer extends Component {
@@ -8,7 +7,7 @@ export default class Footer extends Component {
             <footer className="footer__block footer-copyright text-center py-3">
                 
                     &copy; {new Date().getFullYear()} Copyright:{" "}
-                    <a href="https://www.Acloud.com"> Acloud.com </a>
+                    <a href="https://www.mycloud.org"> mycloud.org </a>
                 
             </footer>
         )

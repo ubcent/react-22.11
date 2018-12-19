@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Container, Row, Col } from 'reactstrap';
-import Slider from '../Slider';
-import Sidebar from '../Sidebar';
+import { Col, Container, Row } from 'reactstrap';
 import MediaObj from '../Media';
+import Sidebar from '../Sidebar';
+import Slider from '../Slider';
 
 const news = [
     'Ullamco ullamco pariatur laboris sit enim incididunt.',
@@ -13,27 +13,6 @@ const news = [
     'Quis duis non non veniam est nisi duis voluptate pariatur eiusmod veniam ad et.',
     'Consectetur do aliquip voluptate eu eu. Do consequat esse nostrud qui magna id magna irure quis.',
 ]
-
-const gridInstance = (
-    <Row>
-        <Col>
-            <br />
-            {news}
-        </Col>
-        <Col>
-            <br />
-            {news}
-        </Col>
-        <Col>
-            <br />
-            {news}
-        </Col>
-        <Col>
-            <br />
-            {news}
-        </Col>
-    </Row>
-);
 
 export default class Main extends Component {
     render() {
@@ -54,8 +33,25 @@ export default class Main extends Component {
                         <Col><MediaObj /></Col>
                     </Row>
                     <hr />
-                    {gridInstance}
-                    <hr />
+                    <Row>
+                        <Col>
+                            <br />
+                            {news}
+                        </Col>
+                        <Col>
+                            <br />
+                            {news}
+                        </Col>
+                        <Col>
+                            <br />
+                            {news}
+                        </Col>
+                        <Col>
+                            <br />
+                            {news}
+                        </Col>
+                    </Row>
+                    <br />
                 </Container>
             </main>
         )

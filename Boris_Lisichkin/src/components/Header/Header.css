@@ -1,4 +1,4 @@
-header {
+.header {
     background-color: #0B1F35;
 }
 .close {
@@ -7,13 +7,4 @@ header {
 
 .brand_title {
     font-size: 32px;
-}
-
-.header_img {
-    width: 48px;
-    margin-bottom: 7px;
-}
-
-.header_img:hover {
-    filter: brightness(0.8);
 }
