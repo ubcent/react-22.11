@@ -13,14 +13,14 @@ export default class MainArticle extends Component {
     return (
       <div className="MainArticle">
         {articleItems.map(
-          (item) => <div key={item.key} className="mainArticle-item">
-            <a href={item.href} className="mainArticle_item__link item" >
-              <h2 className="mainArticle_item_title">{item.title}</h2>
-              <h3 className="mainArticle_item_sub-title">{item.content}</h3>
-            </a><p className="mainArticle-author-string">
+            (item) => <div key={item.key} className="mainArticle-item">
+              <a href={item.href} className="mainArticle_item__link item" >
+                <h2 className="mainArticle_item_title">{item.title}</h2>
+                <h3 className="mainArticle_item_sub-title">{item.content}</h3>
+              </a><p className="mainArticle-author-string">
               Posted by <a className="mainArticle-author__link"
-                href={item.authorHref}>{item.author}</a> on
-            {item.articleDate}</p><hr /></div>)}
+                  href={item.authorHref}>{item.author}</a> on
+                {item.articleDate}</p><hr /></div>)}
         <Badge className="mainArticle-olderPosts__link" href="#" >
           OLDER POSTS {String.fromCharCode(8594)}</Badge>
         <br />

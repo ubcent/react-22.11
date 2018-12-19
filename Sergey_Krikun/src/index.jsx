@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'; // нужно импортировать то�
 import Header from './components/Header';
 import MainArticle from 'components/MainArticle';
 import Footer from 'components/Footer';
+import ModalWindow from 'components/ModalWindow';
 
 import './index.css';
 
@@ -47,6 +48,7 @@ class Layout extends Component {
         <Header />
         <div className="MainContent">
           <MainArticle articleItems={mainArticleItems} />
+          <ModalWindow />
           <hr />
         </div>
         <Footer />
