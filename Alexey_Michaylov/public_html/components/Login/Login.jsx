@@ -7,7 +7,7 @@ import {
     Form, 
     FormGroup, 
     Label, 
-    Input 
+    Input,
 } from 'reactstrap';
 
 export default class ModalWindow extends Component {
@@ -16,11 +16,9 @@ export default class ModalWindow extends Component {
         this.state = {
             modal: false
         };
-
-        this.toggle = this.toggle.bind(this);
     }
 
-    toggle() {
+    toggle = () => {
         this.setState({
             modal: !this.state.modal
         });
