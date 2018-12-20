@@ -1,0 +1,27 @@
+.News {
+    background: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: justify;
+}
+
+.newsBlock {
+    margin: 15px 0;
+    padding: 10px 10px;
+    width: 420px;
+    border: 1px solid lightslategrey;
+    border-radius: 7%
+
+}
+
+button {
+    border: 0;
+    border-radius:50%;
+    color: #6998ff;
+    margin-bottom: 5px;
+}
+
+p {
+    margin: 0;
+}

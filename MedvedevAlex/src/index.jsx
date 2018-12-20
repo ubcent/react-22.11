@@ -1,15 +1,20 @@
 import React, {Component} from 'react';
 import ReactDom from 'react-dom';
 
-import Header from './components/header';
-import Content from './components/content';
+import Container from 'components/Container'
+import Header from 'components/Header'
+import Content from 'components/Content';
+import Footer from 'components/Footer';
 
 class App extends Component {
   render() {
     return (
       <div>
-        <Header size="small" color="red"/>
-        <Content/>
+        <Container>
+          <Header />
+          <Content />
+          <Footer />
+        </Container>
       </div>
   );
   }
