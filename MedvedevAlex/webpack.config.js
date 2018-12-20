@@ -8,8 +8,16 @@ module.exports = {
   entry: {main: path.resolve(__dirname, 'src', 'index.jsx')},
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
+
+  resolve: {
+    alias: {
+      components: path.resolve(__dirname, 'src', 'components'),
+    },
+    extensions: ['.js', '.jsx'],
+  },
+
   module: {
     rules: [
       {
@@ -23,15 +31,16 @@ module.exports = {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: ['css-loader']
+          use: ['css-loader'],
         })
       }
     ]
   },
+
   plugins: [
     new ExtractTextPlugin({filename: 'style.css'}),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src', 'index.html'),
       filename: "index.html"})
-  ]
+  ],
 };
