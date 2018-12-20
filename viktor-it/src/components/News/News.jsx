@@ -1,12 +1,10 @@
 import './News.css';
 import React, {Component} from 'react';
-
 import { Card, Button, CardImg, CardTitle, CardText, CardDeck,
  CardSubtitle, CardBody } from 'reactstrap';
 
 export default class News extends Component {
   render(){
-
     return(
     <div class = "newsLine">
     <CardDeck >

@@ -1,8 +1,6 @@
 import './Video.css';
 import React, {Component} from 'react';
-
 import { Card, CardImg, CardText, CardBody, CardLink, CardTitle, CardSubtitle } from 'reactstrap';
-
 
 export default class Video extends Component {
   render(){
