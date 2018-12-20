@@ -2,6 +2,7 @@ import './News.css';
 
 import React, {Component} from 'react';
 
+
 export default class News extends Component {
 constructor(props) {
   super(props);
@@ -27,7 +28,7 @@ showTextButton = (event)=> {
     const {news} = this.props;
     return (
       <div className="News">
-        {news.map((item, idx) => <div key={idx} className="newsBlock"><h3>{item.title}</h3><img src="" alt=""/><p>{item.smallText}</p>
+        {news.map((item, idx) => <div key={idx} className="newsBlock"><h3>{item.title}</h3><img src={item.picFilename} alt=""/><p>{item.smallText}</p>
           <button name={'text' + (idx+1)} onClick={this.showTextButton}>читать далее</button><p>{this.state['text' + (idx+1)] && item.largeText}</p></div>)}
       </div>
     )

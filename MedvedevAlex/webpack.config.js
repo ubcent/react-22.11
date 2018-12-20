@@ -33,7 +33,17 @@ module.exports = {
           fallback: 'style-loader',
           use: ['css-loader'],
         })
-      }
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: 'img/'},
+          },
+        ],
+      },
     ]
   },
 
