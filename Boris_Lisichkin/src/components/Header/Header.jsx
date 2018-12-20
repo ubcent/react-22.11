@@ -20,25 +20,25 @@ export default class Header extends Component {
     render() {
         return (
             <header>
-                <Navbar className="header" dark expand="md">
+                <Navbar className="container" dark expand="md">
                     <NavbarBrand href="/">MyCloud</NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
                             <NavItem>
-                                <NavLink href="/components/">Home</NavLink>
+                                <NavLink href="#">Home</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="/news">News</NavLink>
+                                <NavLink href="#">News</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="/blog">Blog</NavLink>
+                                <NavLink href="#">Blog</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="/contects">Contacts</NavLink>
+                                <NavLink href="#">Contacts</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="/about">About</NavLink>
+                                <NavLink href="#">About</NavLink>
                             </NavItem>
                             <ModalWindow nav inNavbar />
                         </Nav>

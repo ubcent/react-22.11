@@ -3,6 +3,7 @@ import { Col, Container, Row } from 'reactstrap';
 import MediaObj from '../Media';
 import Sidebar from '../Sidebar';
 import Slider from '../Slider';
+import SimpleSnackbar from '../Snackbar';
 
 const news = [
     'Ullamco ullamco pariatur laboris sit enim incididunt.',
@@ -53,6 +54,7 @@ export default class Main extends Component {
                     </Row>
                     <br />
                 </Container>
+                <SimpleSnackbar />
             </main>
         )
     }

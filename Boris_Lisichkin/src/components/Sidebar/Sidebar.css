@@ -45,12 +45,13 @@
 .bm-item {
     display: inline-block;
     text-decoration: none;
-    color: #B5BBC2
+    color: rgba(255, 255, 255, .5)
 }
 
 .bm-item:hover {
     text-decoration: none;
-    color: #EF3124;
+    color: rgba(255, 255, 255, .75);
+    ;
 }
 
 /* Styling of overlay */

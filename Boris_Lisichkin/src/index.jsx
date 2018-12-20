@@ -1,9 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Footer from 'components/Footer';
+import Header from 'components/Header';
+import Main from 'components/Main';
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
-import Footer from './components/Footer';
-import Header from './components/Header';
-import Main from './components/Main';
 
 class App extends Component {
     render () {
