@@ -12,7 +12,7 @@ import NavLink from "reactstrap/lib/NavLink";
 import NavbarBrand from "reactstrap/lib/NavbarBrand";
 import Container from "reactstrap/lib/Container";
 
-const navMenu = [
+let navMenu = [
     {title: 'Home', href: '/', active: true},
     {title: 'About', href: '/', active: false},
     {title: 'Services', href: '/', active: false},
@@ -26,7 +26,7 @@ export default class Header extends Component
 
 
     handleNavChange = () => {
-
+        navMenu[this.target.key] = !this.target.active;
     };
 
     render() {
