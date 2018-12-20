@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import './Header.css';
+import Icon from './icon.png';
 import { 
     Button,
     Collapse,
     Navbar,
     NavbarToggler,
     NavbarBrand,
+    Container,
 } from 'reactstrap';
-    
 import Menu from 'components/Menu';
 
 const items = [
@@ -35,16 +36,16 @@ export default class Header extends Component {
     
     render() {
         return(
-            <header>
-                <Navbar dark expand="md" color="info">
-                    <NavbarBrand href="/">MySuperSite</NavbarBrand>
+            <Navbar dark expand="lg" color="info" fixed="top">
+                <Container>
+                    <NavbarBrand href="/"><img src={Icon} className="logo mr-2" alt="Webpack" />MySuperSite</NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Menu items={items} />
-                        <ModalWindow />   
+                        <ModalWindow />
                     </Collapse>
-                </Navbar>
-            </header> 
+                </Container>
+            </Navbar>
         )
     } 
 }
