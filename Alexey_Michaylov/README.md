@@ -1,5 +1,5 @@
 # react-22.11
-###ReactJS. Базовый курс
+### ReactJS. Базовый курс
 ---
 Проект собирается с помощью *Webpack*, использует компоненты *React Bootstrap 4*
 `index.jsx` отрисовывает страницу по верстке [Start Bootstrap](https://blackrockdigital.github.io/startbootstrap-blog-home/)
@@ -27,6 +27,6 @@
 + `Welcomeblock.jsx`
 Приветственный блок, открытый по умолчанию, скрывается по нажатию на кнопку "Ok!".
 ---
-####Дополнительные плагины
+#### Дополнительные плагины
 [File Loader](https://webpack.js.org/loaders/file-loader/) для загрузки изображений
 [Optimize CSS Assets Webpack Plugin](https://github.com/NMFR/optimize-css-assets-webpack-plugin) для оптимизации/минимизации css в процессе сборки
