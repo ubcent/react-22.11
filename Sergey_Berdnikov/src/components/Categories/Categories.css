@@ -1,4 +1,6 @@
-.Categories {}
+.Categories {
+  margin-top: 10px;
+}
 
 .categories__list {
   padding: 0;

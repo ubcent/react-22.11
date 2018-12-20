@@ -1,4 +1,3 @@
-
 import './CommentsForm.css';
 
 //React импортируем в каждом файле

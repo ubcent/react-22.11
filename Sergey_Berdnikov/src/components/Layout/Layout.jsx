@@ -9,9 +9,7 @@ import Container from "reactstrap/lib/Container";
 //Подключаем свои компоненты
 import Header from 'components/Header';
 import Content from 'components/Content';
-import MyContainer from 'components/Container';
-import Counter from 'components/Counter';
-import CommentsList from 'components/CommentsList';
+import Footer from 'components/Footer';
 import Search from "components/Search";
 import Categories from "components/Categories";
 import SideWidget from "components/SideWidget";
@@ -41,13 +39,7 @@ export default class Layout extends Component
                     </Container>
                 </main>
                 <footer>
-                    <MyContainer text={'text'}>
-                        <pre>Hello world!</pre>
-                        <Counter/>
-                        <CommentsList>
-
-                        </CommentsList>
-                    </MyContainer>
+                    <Footer/>
                 </footer>
             </div>
         );

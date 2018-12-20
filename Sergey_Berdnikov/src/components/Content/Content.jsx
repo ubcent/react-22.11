@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 //подключаем reactstrap компоненты по частям, там меньше расходуется памяти
 import {
     Card, CardImg, CardText, CardBody,
-    CardTitle, CardFooter, Button,
+    CardTitle, CardFooter, Button, CardLink,
 } from 'reactstrap';
 
 const news = [
@@ -28,7 +28,10 @@ const CardNews = (
                 <CardText>{news.slice(3, 4).join(' ')}</CardText>
                 <Button color="primary">{news.slice(4, 5).join(' ')}</Button>
             </CardBody>
-            <CardFooter>{news.slice(5, 7).join(' by ')}</CardFooter>
+            <CardFooter>
+                {news.slice(5, 6).join(' ')} by
+                <CardLink>{news.slice(6, 7).join(' ')}</CardLink>
+            </CardFooter>
         </Card>
     </div>
 );
@@ -38,8 +41,10 @@ export default class Content extends Component
     render() {
         return (
             <div className="Content">
-                <h1>{news.slice(0, 1).join(' ')}</h1>
-                <h2>{news.slice(1, 2).join(' ')}</h2>
+                <div className="head">
+                    <h1>{news.slice(0, 1).join(' ')}</h1>
+                    <h2>{news.slice(1, 2).join(' ')}</h2>
+                </div>
                 {CardNews}
                 <br/>
                 {CardNews}

@@ -13,10 +13,10 @@ import NavbarBrand from "reactstrap/lib/NavbarBrand";
 import Container from "reactstrap/lib/Container";
 
 const navMenu = [
-    {title: 'Home', href: '/'},
-    {title: 'About', href: '/about'},
-    {title: 'Services', href: '/sevices'},
-    {title: 'Contact', href: '/contact'},
+    {title: 'Home', href: '/', active: true},
+    {title: 'About', href: '/', active: false},
+    {title: 'Services', href: '/', active: false},
+    {title: 'Contact', href: '/', active: false},
 
 ];
 
@@ -25,17 +25,23 @@ export default class Header extends Component
     static defaultProps = {};
 
 
+    handleNavChange = () => {
+
+    };
+
     render() {
         return (
             <div className="Header">
-                <Navbar color="dark" light expand="md">
+                <Navbar color="dark" dark expand="md">
                     <Container>
                         <NavbarBrand href="/">Start Bootstrap</NavbarBrand>
                         <NavbarToggler/>
                         <Collapse navbar>
                             <Nav className="ml-auto" navbar>
-                                {navMenu.map(value => {
-                                    return <NavItem><NavLink href={value.href}>{value.title}</NavLink>
+                                {navMenu.map((value, idx) => {
+                                    return <NavItem><NavLink onClick={this.handleNavChange} key={idx}
+                                                             active={value.active}
+                                                             href={value.href}>{value.title}</NavLink>
                                     </NavItem>
                                 })}
                             </Nav>
