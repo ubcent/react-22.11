@@ -1,0 +1,24 @@
+.CommentForm {
+    margin-bottom: 200px;
+}
+
+.CommentForm input {
+    margin: 20px 0;
+}
+
+.CommentForm textarea {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 200px;
+}
+
+.CommentForm button {
+    width: 80px;
+    height: 50px;
+}
+
+.CommentForm button:hover {
+    background-color: blue;
+    color: white;
+}
