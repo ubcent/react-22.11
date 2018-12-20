@@ -42,8 +42,7 @@ class SimpleSnackbar extends React.Component {
                     action={[
                         <Button key="undo" color="secondary" size="small" onClick={this.handleClose}>
                             Х
-            </Button>,
-
+                        </Button>,
                     ]}
                 />
             </div>
