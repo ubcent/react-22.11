@@ -1,0 +1,18 @@
+.logo-menu li {
+	float: left;
+	font-weight: bold;
+	border-left: 1px solid #1e1e1e;
+}
+
+.logo-menu li a {
+	text-decoration: none;
+	color: #FFFFFF;
+	padding: 50px 30px;
+	display: block;
+	border: 3px solid #292929;
+}
+
+.logo-menu li a:hover {
+	color: #58c93a;
+	border-bottom: 3px solid #58c93a;
+}
