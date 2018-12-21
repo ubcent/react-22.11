@@ -4,7 +4,9 @@ import ReactDom from 'react-dom';
 import Header from 'components/Header';
 import Container from 'components/Container';
 import Counter from 'components/Counter';
-import CommentsList from 'components/CommentsList';
+import CommentsList from 'containers/CommentsListContainer';
+import Footer from 'components/Footer';
+import Timer from 'components/Timer';
 
 class App extends Component {
   constructor(props) {
@@ -12,6 +14,7 @@ class App extends Component {
 
     this.state = {
       isShown: false,
+      pageName: 'home',
     };
   }
 
@@ -24,14 +27,8 @@ class App extends Component {
     return (
       <div>
         <Container>
-          <div>Hello world</div>
-          <Counter/>
           <CommentsList />
         </Container>
-
-        <button onClick={this.handleToggleClick}>Toggle</button>
-
-        {isShown && <div>Modal window</div>}
       </div>
     );
   }
