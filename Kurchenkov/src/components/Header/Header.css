@@ -1,0 +1,10 @@
+.header {
+    padding-top: 20px;
+    font-size: 24px;
+    height: 100px;
+    background-color: lemonchiffon;
+}
+
+.login button{
+    font-size: 26px;
+}
