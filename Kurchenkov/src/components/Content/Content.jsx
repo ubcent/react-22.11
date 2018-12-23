@@ -27,7 +27,7 @@ export default class Content extends Component {
                         <Col xs="1"></Col>
                         <Col xs="8">
                             <div class="chatBlock">
-                                <div class="chat"></div>
+                                <div class="chat">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum, impedit.</div>
                             </div>
                         </Col>
                     </Row>
