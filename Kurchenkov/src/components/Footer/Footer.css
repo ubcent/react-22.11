@@ -1,7 +1,6 @@
 .footer {
     padding-left: 15px;
     font-size: 24px;
-    height: 80px;
     background-color: lightblue;
-    flex: 0 0 auto;
+    height: 80px;
 }
