@@ -1,14 +1,13 @@
 import './CommentsList.css';
 
 //React импортируем в каждом файле
-import React, { PureComponent } from 'react';
+import React from 'react';
 
-import { CardBody, CardHeader, Card, Button, CardTitle, CardText } from 'reactstrap';
+import { CardHeader, Card, Button, CardTitle, CardText } from 'reactstrap';
 
-export default class CommentsList extends PureComponent
-{
-    render() {
-        const { comments, loading, onLoadMore } = this.props;
+// сделаем stateless
+export default function CommentsList(props) {
+    const { comments, loading, onLoadMore } = props;
 
         return (
             <div className="CommentsList">
@@ -22,6 +21,5 @@ export default class CommentsList extends PureComponent
                 <Button onClick={onLoadMore} disabled={loading}>Load more</Button>
             </div>
         );
-    }
 };
     

@@ -4,7 +4,7 @@ import './Footer.css';
 import React from 'react';
 
 //stateless
-export default function Footer(props) {
+export default function Footer() {
     return (
         <div className="Footer">
             Copyright © Your Website 2018

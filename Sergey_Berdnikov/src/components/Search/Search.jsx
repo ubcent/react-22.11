@@ -1,10 +1,10 @@
 import './Search.css';
 
 //React импортируем в каждом файле
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Card, CardHeader, CardBody, InputGroup, InputGroupAddon, Input, Button } from 'reactstrap';
 
-export default class Search extends Component
+export default class Search extends PureComponent
 {
     static defaultProps = {};
 

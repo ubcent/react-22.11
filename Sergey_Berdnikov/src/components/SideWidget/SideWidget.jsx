@@ -1,10 +1,10 @@
 import './SideWidget.css';
 
 //React импортируем в каждом файле
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Card, CardHeader, CardBody, CardText } from 'reactstrap';
 
-export default class SideWidget extends Component
+export default class SideWidget extends PureComponent
 {
     static defaultProps = {};
 
