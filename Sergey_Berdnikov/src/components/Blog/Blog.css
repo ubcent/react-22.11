@@ -1,13 +1,13 @@
-.CommentsList {
+.Blog {
   margin-top: 15px;
   overflow-y: auto;
-  height: 800px;
+  height: 1325px;
 }
 
-.CommentsList .card {
+.Blog button {
   margin-top: 10px;
 }
 
-.CommentsList button {
+.Blog .card {
   margin-top: 10px;
 }

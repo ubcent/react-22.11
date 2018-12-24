@@ -16,19 +16,17 @@ fs.mkdirSync(
 );
 
 //код компонента.jsx
-const componentCode = `
-import './${componentName}.css';
+const componentCode = `import './${componentName}.css';
 
 //React импортируем в каждом файле
 import React, { PureComponent } from 'react';
 
 export default class ${componentName} extends PureComponent
     {
-        static defaultProps = {
-        
-        };
         
         render() {
+            const {  } = this.props;
+
             return (
                <div className="${componentName}">
                

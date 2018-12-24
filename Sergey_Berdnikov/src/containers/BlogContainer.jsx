@@ -1,17 +1,17 @@
 import React, { PureComponent, Fragment } from 'react';
 
-import CommentsList from 'components/CommentsList';
+import Blog from 'components/Blog';
 
-export default class CommentsListContainer extends PureComponent
+export default class BlogContainer extends PureComponent
 {
     constructor(props) {
         super(props);
 
         this.state = {
             loading: false,
-            comments: [],
+            text: [],
             page: 0,
-            limit: 3,
+            limit: 5,
         }
     }
 
@@ -21,27 +21,32 @@ export default class CommentsListContainer extends PureComponent
 
     fetchData = () => {
         const { page, limit } = this.state;
+
         this.setState({ loading: true });
-        fetch(`http://jsonplaceholder.typicode.com/comments?_limit=${limit}&_page=${page}`)
+
+        fetch(`http://jsonplaceholder.typicode.com/posts?_limit=${limit}&_page=${page}`)
             .then((response) => response.json())
-            .then((_comments) => {
+            .then((_text) => {
                 this.setState((prevState) => ({
                     ...prevState,
                     loading: false,
-                    comments: prevState.comments.concat(_comments),
+                    text: prevState.text.concat(_text),
                     page: prevState.page + 1,
                 }))
             });
+
     };
 
     render() {
-        const { comments, loading } = this.state;
+        const { text, loading } = this.state;
         return (
             <Fragment>
-                {comments.length === 0
-                    ? 'Loading...'
-                    : <CommentsList onLoadMore={this.fetchData} comments={comments} loading={loading}/>}
+                {text.length === 0
+                    ? 'Loading blog...'
+                    : <Blog onLoadMore={this.fetchData} blogs={text} loading={loading}/>
+                }
             </Fragment>
         );
     }
-};
+}
+    
