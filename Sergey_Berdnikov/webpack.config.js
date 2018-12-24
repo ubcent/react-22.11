@@ -12,6 +12,7 @@ module.exports = {
         //задаем короткие имена ("константы") для папок проекта
         alias: {
             components: path.resolve(__dirname, 'src', 'components'),
+            containers: path.resolve(__dirname, 'src', 'containers'),
         },
         //указываем расширения по умолчанию
         extensions: [

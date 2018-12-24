@@ -10,9 +10,10 @@ import Container from "reactstrap/lib/Container";
 import Header from 'components/Header';
 import Content from 'components/Content';
 import Footer from 'components/Footer';
-import Search from "components/Search";
-import Categories from "components/Categories";
-import SideWidget from "components/SideWidget";
+import Search from 'components/Search';
+import Categories from 'components/Categories';
+import SideWidget from 'components/SideWidget';
+
 
 export default class Layout extends Component
 {
@@ -40,6 +41,7 @@ export default class Layout extends Component
                 </main>
                 <footer>
                     <Footer/>
+
                 </footer>
             </div>
         );

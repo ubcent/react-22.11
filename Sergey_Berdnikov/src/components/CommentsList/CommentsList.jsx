@@ -1,35 +1,19 @@
 import './CommentsList.css';
 
 //React импортируем в каждом файле
-import React, { Component } from 'react';
-import CommentsForm from 'components/CommentsForm';
+import React, { PureComponent } from 'react';
 
 
-export default class CommentsList extends Component
+export default class CommentsList extends PureComponent
 {
-    static defaultProps = {};
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            comments: [],
-        };
-    }
-
-    handleComment = (comment) => {
-        this.setState((prevState) => ({
-            comments: prevState.comments.concat([comment]),
-        }));
-    };
-
     render() {
-        const {comments} = this.state;
+        const { comments, loading, onLoadMore } = this.props;
         return (
             <div className="CommentsList">
-                <CommentsForm onComment={this.handleComment}/>
                 <ul>
-                    {comments.map((comment, idx)=> <li key={idx}>{comment.author}: {comment.message}</li>)}
+                    {comments.map((comment, idx) => <li key={idx}><strong>{comment.name}</strong>: {comment.body}</li>)}
                 </ul>
+                <button onClick={onLoadMore} disabled={loading}>Load more</button>
             </div>
         );
     }

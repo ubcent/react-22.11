@@ -1,19 +1,14 @@
 import './Footer.css';
 
 //React импортируем в каждом файле
-import React, { Component } from 'react';
-import Navbar from "reactstrap/lib/Navbar";
+import React from 'react';
 
-export default class Footer extends Component
-{
-    static defaultProps = {};
-
-    render() {
-        return (
-            <div className="Footer">
-                Copyright © Your Website 2018
-            </div>
-        );
-    }
+//stateless
+export default function Footer(props) {
+    return (
+        <div className="Footer">
+            Copyright © Your Website 2018
+        </div>
+    );
 };
     
