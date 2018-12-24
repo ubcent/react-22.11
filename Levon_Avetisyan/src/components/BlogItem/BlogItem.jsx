@@ -1,35 +1,60 @@
 import React, {Component} from 'react';
 
-import {
-    Card,
-    CardImg,
-    CardText,
-    CardBody,
-    CardTitle,
-    CardSubtitle,
-    Button
-} from 'reactstrap';
+import {InputGroup, InputGroupAddon, InputGroupText, Input, Button} from 'reactstrap';
 
 export default class BlogItem extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            title: '',
+            subtitle: '',
+            text: '',
+            imgsrc: '',
+        }
+    }
+
+    handleFieldChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value,
+        })
+    };
+
+    handleSend = () => {
+        console.log(this.state);
+        const {onBlog} = this.props;
+        onBlog(this.state);
+        this.setState({
+            title: '',
+            subtitle: '',
+            text: '',
+            imgsrc: '',
+        })
+    };
 
     render() {
+        const {title, subtitle, text, imgsrc} = this.state;
+
         return (
             <div className="BlogItems">
-                <Card>
-                    <CardImg top width="100%"
-                             src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180"
-                             alt="Card image cap"/>
-                    <CardBody>
-                        <CardTitle>Blog title</CardTitle>
-                        <CardSubtitle>Blog subtitle</CardSubtitle>
-                        <CardText>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab consequuntur eligendi enim
-                            error eum fugiat harum hic maxime nam nesciunt nulla, perspiciatis praesentium
-                            recusandae rem suscipit, tempora tempore, velit vero!
-                        </CardText>
-                        <Button>Read</Button>
-                    </CardBody>
-                </Card>
+                <InputGroup>
+                    <Input name="title" onChange={this.handleFieldChange} value={title} placeholder="Blog title"/>
+                </InputGroup>
+                <InputGroup>
+                    <Input name="subtitle" onChange={this.handleFieldChange} value={subtitle}
+                           placeholder="Blog subtitle"/>
+                </InputGroup>
+                <InputGroup>
+                    <Input name="imgsrc" onChange={this.handleFieldChange} value={imgsrc} placeholder="Img src"/>
+                </InputGroup>
+                <br/>
+                <InputGroup>
+                    <InputGroupText>
+                        <Input name="text" onChange={this.handleFieldChange} value={text} addon type="text"/>
+                    </InputGroupText>
+                </InputGroup>
+
+                <Button onClick={this.handleSend} color="primary">Send</Button>
             </div>
         )
     }
