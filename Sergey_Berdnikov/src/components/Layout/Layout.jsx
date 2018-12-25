@@ -10,7 +10,7 @@ import Container from "reactstrap/lib/Container";
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 import Search from 'components/Search';
-import Categories from 'components/Categories';
+import from 'components/Categories';
 import SideWidget from 'components/SideWidget';
 import BlogContainer from 'containers/BlogContainer';
 import CommentsListContainer from 'containers/CommentsListContainer';
@@ -32,7 +32,7 @@ export default class Layout extends PureComponent
                             </Col>
                             <Col xs="4" sm="4">
                                 <Search/>
-                                <Categories/>
+                                <Users/>
                                 <SideWidget/>
                                 <CommentsListContainer/>
                             </Col>
