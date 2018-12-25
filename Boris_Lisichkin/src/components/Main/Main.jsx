@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Col, Container, Row } from 'reactstrap';
 import MediaObj from '../Media';
 import Sidebar from '../Sidebar';
@@ -15,7 +15,7 @@ const news = [
     'Consectetur do aliquip voluptate eu eu. Do consequat esse nostrud qui magna id magna irure quis.',
 ]
 
-export default class Main extends Component {
+export default class Main extends PureComponent {
     render() {
         return (
             <main>

@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Media } from 'reactstrap';
 import './Media.css';
 
-export default class MediaObj extends Component {
+export default class MediaObj extends PureComponent {
     render() {
         return (
             <Media className="mediaObj">

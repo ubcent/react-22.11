@@ -1,18 +1,17 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 import ModalWindow from '../Login';
 import './Header.css';
 
-export default class Header extends Component {
+export default class Header extends PureComponent {
     constructor(props) {
         super(props);
 
-        this.toggle = this.toggle.bind(this);
         this.state = {
             isOpen: false,
         };
     }
-    toggle() {
+    toggle = () => {
         this.setState({
             isOpen: !this.state.isOpen
         });

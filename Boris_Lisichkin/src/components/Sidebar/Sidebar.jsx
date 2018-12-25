@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import './Sidebar.css';
 import { slide as Menu } from 'react-burger-menu';
 
-export default class Sidebar extends Component {
+export default class Sidebar extends PureComponent {
     showSettings (event) {
         event.preventDefault();
     }
