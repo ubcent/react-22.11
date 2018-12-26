@@ -1,21 +1,19 @@
 import React, { PureComponent } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import DashboardPage from './pages/DashboardPage';
-import ProfilePage from './pages/ProfilePage';
-import TablesPage from './pages/TablesPage';
-import MapsPage from './pages/MapsPage';
-import NotFoundPage from './pages/NotFoundPage';
+import HomeContainer from 'containers/HomeContainer';
+import BlogContainer from 'containers/BlogContainer';
+import CommentsList from 'containers/CommentsListContainer';
+import UserContainer from 'containers/UserContainer';
 
 export default class Routes extends PureComponent {
   render() {
     return (
       <Switch>
-        <Route path='/' exact component={DashboardPage} />
-        <Route path='/dashboard' component={DashboardPage} />
-        <Route path='/profile' component={ProfilePage} />
-        <Route path='/tables' component={TablesPage} />
-        <Route path='/maps' component={MapsPage} />
-        <Route path='/404' component={NotFoundPage} />
+        <Route path='/' exact component={HomeContainer} />
+        <Route path='/home' component={HomeContainer} />
+        <Route path='/blog' component={BlogContainer} />
+        <Route path='/comment' component={CommentsList} />
+        <Route path='/user' component={UserContainer} />
       </Switch>
     );
   }

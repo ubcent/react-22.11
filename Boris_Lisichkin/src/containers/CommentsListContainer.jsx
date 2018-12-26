@@ -36,7 +36,7 @@ export default class CommentsListContainer extends PureComponent {
         const { comments, loading } = this.state;
         return (
             <Fragment>
-                {comments.length === 0 ? 'Loading...' : <CommentList onLoadMore={this.FetchData} comments={comments} loading={loading} />}
+                {comments.length === 0 ? 'Loading...' : <CommentList onLoadMore={this.fetchData} comments={comments} loading={loading} />}
             </Fragment>
         )
     }

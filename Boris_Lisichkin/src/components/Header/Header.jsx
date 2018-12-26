@@ -25,16 +25,16 @@ export default class Header extends PureComponent {
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
                             <NavItem>
-                                <NavLink href="#">Home</NavLink>
+                                <NavLink exact={true} to="/home" activeClassName="activeClass">Home</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="#">News</NavLink>
+                                <NavLink exact={true} to="/blog" activeClassName="activeClass">Blog</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="#">Blog</NavLink>
+                                <NavLink exact={true} to="/comment" activeClassName="activeClass">Comments</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="#">Contacts</NavLink>
+                                <NavLink exact={true} to="/user" activeClassName="activeClass">Users</NavLink>
                             </NavItem>
                             <NavItem>
                                 <NavLink href="#">About</NavLink>

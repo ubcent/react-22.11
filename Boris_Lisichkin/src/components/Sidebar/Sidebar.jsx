@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import './Sidebar.css';
 import { slide as Menu } from 'react-burger-menu';
+import { NavLink } from 'react-router-dom';
 
 export default class Sidebar extends PureComponent {
     showSettings (event) {
@@ -10,11 +11,12 @@ export default class Sidebar extends PureComponent {
     render() {
         return (
             <Menu>
-                <a id="home" className="menu-item" href="/">Home</a>
-                <a id="about" className="menu-item" href="/news">News</a>
-                <a id="contact" className="menu-item" href="/blog">Blog</a>
-                <a id="contact" className="menu-item" href="/contact">Contact</a>
-                <a id="contact" className="menu-item" href="/about">About</a>
+
+                <NavLink exact={true} to="/home" activeClassName="activeClass" className="menu-item">Home</NavLink>
+                <NavLink exact={true} to="/blog" activeClassName="activeClass" className="menu-item">News</NavLink>
+                <NavLink exact={true} to="/comment" activeClassName="activeClass" className="menu-item">Blog</NavLink>
+                <NavLink exact={true} to="/user" activeClassName="activeClass" className="menu-item">Contact</NavLink>
+                <NavLink exact={true} to="/home" activeClassName="activeClass" className="menu-item">About</NavLink>
                 <a onClick={this.showSettings} className="menu-item--small" href="">Settings</a>
             </Menu>
         );

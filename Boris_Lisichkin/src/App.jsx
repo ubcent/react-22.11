@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
-import Main from 'components/Main';
-import CommentsList from 'containers/CommentsListContainer';
+import Sidebar from 'components/Sidebar';
+import Routes from './Routes';
 
 
 export default class App extends PureComponent {
@@ -25,9 +25,11 @@ handleToggleClick = () => {
         return (
             <div>
                 <Header />
-                <Main />
+                <Sidebar pageWrapId={"page-wrap"} />
+                <main id="content" className="p-5">
+                    <Routes />
+                </main>
                 <Footer />
-                <CommentsList />
             </div>
         );
     }

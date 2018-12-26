@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react';
 import { Col, Container, Row } from 'reactstrap';
-import MediaObj from '../Media';
-import Slider from '../Slider';
-import SimpleSnackbar from '../Snackbar';
+import MediaObj from 'components/Media';
+import Sidebar from 'components/Sidebar';
+import Slider from 'components/Slider';
+import SimpleSnackbar from 'components/Snackbar';
 
 const news = [
     'Ullamco ullamco pariatur laboris sit enim incididunt.',
@@ -14,10 +15,11 @@ const news = [
     'Consectetur do aliquip voluptate eu eu. Do consequat esse nostrud qui magna id magna irure quis.',
 ]
 
-export default class Main extends PureComponent {
+export default class BlogContainer extends PureComponent {
     render() {
         return (
             <main>
+                <Sidebar pageWrapId={"page-wrap"} />
                 <Container>
                     <Row>
                         <Col><Slider /></Col>
