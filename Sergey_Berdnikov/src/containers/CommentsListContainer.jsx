@@ -10,7 +10,7 @@ export default class CommentsListContainer extends PureComponent
         this.state = {
             loading: false,
             comments: [],
-            page: 0,
+            page: 1,
             limit: 3,
         }
     }
@@ -24,14 +24,14 @@ export default class CommentsListContainer extends PureComponent
         this.setState({ loading: true });
         fetch(`http://jsonplaceholder.typicode.com/comments?_limit=${limit}&_page=${page}`)
             .then((response) => response.json())
-            .then((_comments) => {
+            .then((_comments) =>
                 this.setState((prevState) => ({
                     ...prevState,
                     loading: false,
                     comments: prevState.comments.concat(_comments),
                     page: prevState.page + 1,
                 }))
-            });
+            );
     };
 
     render() {

@@ -10,7 +10,7 @@ export default class BlogContainer extends PureComponent
         this.state = {
             loading: false,
             text: [],
-            page: 0,
+            page: 1,
             limit: 5,
         }
     }
@@ -26,14 +26,14 @@ export default class BlogContainer extends PureComponent
 
         fetch(`http://jsonplaceholder.typicode.com/posts?_limit=${limit}&_page=${page}`)
             .then((response) => response.json())
-            .then((_text) => {
+            .then((_text) =>
                 this.setState((prevState) => ({
                     ...prevState,
                     loading: false,
                     text: prevState.text.concat(_text),
                     page: prevState.page + 1,
                 }))
-            });
+            );
 
     };
 

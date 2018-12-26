@@ -9,13 +9,13 @@ export default class UsersContainer extends PureComponent
 
         this.state = {
             loading: false,
-            page: 0,
+            page: 1,
             text: [],
-            limit: 5,
+            limit: 1,
         }
     }
 
-    componenDidMount() {
+    componentDidMount() {
         this.fetchData();
     }
 
@@ -23,17 +23,20 @@ export default class UsersContainer extends PureComponent
         const { page, limit } = this.state;
         this.setState({ loading: true });
         fetch(`http://jsonplaceholder.typicode.com/users?_limit=${limit}&_page=${page}`)
-            .then((response) => {
-                response.json()
-            })
-            .then((_text) => {
+            .then((response) => response.json())
+            .then((_text) =>
+                /**
+                 * Вот такой вариант записи вызвал бы мутирование стейта
+                 * this.state.text = _text
+                 */
+
                 this.setState((prevState) => ({
                     ...prevState,
                     loading: false,
-                    text: prevState.text.concat(_text),
+                    text: _text,
                     page: prevState.page + 1,
                 }))
-            });
+            );
     };
 
     render() {
@@ -43,7 +46,7 @@ export default class UsersContainer extends PureComponent
             <Fragment>
                 {text.length === 0
                     ? 'Loading...'
-                    : <Users onLoadMore={this.fetchData} text={text} loading {loading}/>}
+                    : <Users onLoadNext={this.fetchData} text={text} loading={loading}/>}
             </Fragment>
         );
     }
