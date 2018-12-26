@@ -31,7 +31,10 @@ export default class Menu extends Component {
                             <NavLink href="/">Blogs</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink href="/">Contacts</NavLink>
+                            <NavLink href="/">Conmments</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink href="/">Users</NavLink>
                         </NavItem>
                         <NavItem>
                             <ModalLogIn buttonLabel='Log In'/>
