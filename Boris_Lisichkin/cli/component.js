@@ -15,10 +15,10 @@ fs.mkdirSync(
     path.resolve(__dirname, '..', 'src', 'components', componentName),
 );
 
-const componentCode = `import React, { Component } from 'react';
+const componentCode = `import React, { PureComponent } from 'react';
 import './${componentName}.css';
 
-export default class ${componentName} extends Component {
+export default class ${componentName} extends PureComponent {
     static defaultProps = {}
 
     render() {
