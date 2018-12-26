@@ -33,11 +33,13 @@ export default class BlogListContainer extends PureComponent {
             });
     };
 
+
+
     render() {
         const { posts, loading } = this.state;
         return (
             <Fragment>
-                {posts.length === 0 ? 'Loading...' :  <BlogList posts={posts} loading={loading}/>}
+                {posts.length === 0 ? 'Loading...' :  <BlogList onShowMore={this.fetchData} posts={posts} loading={loading}/>}
             </Fragment>
         )
     }
