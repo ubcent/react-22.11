@@ -7,16 +7,16 @@ export default class Linklist extends Component {
     static propTypes = {
         items: PropTypes.array.isRequired,
         column: PropTypes.oneOf(['2','3']),
-        addclass: PropTypes.string,
+        className: PropTypes.string,
     }
     
     render() {
-        const { items, column, addclass } = this.props;
+        const { items, column, className } = this.props;
         const listClasses = classNames({
             'list-unstyled': true,
             'two-column': column === '2',
             'three-column': column === '3',
-        }, addclass);
+        }, className);
 
         return (
             <ul className={listClasses}>

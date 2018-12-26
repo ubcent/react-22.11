@@ -45,7 +45,7 @@ export default class Main extends Component {
                             </InputGroup>
                         </Widget>
                         <Widget head="Categories">
-                            <Linklist items={links} column="2" addclass="mb-0" />
+                            <Linklist items={links} column="2" className="mb-0" />
                         </Widget>
                     </Col>
                 </Row>

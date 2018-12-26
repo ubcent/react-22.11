@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Pagination, PaginationItem, PaginationLink, } from 'reactstrap';
+import { Pagination, PaginationItem, PaginationLink } from 'reactstrap';
 
 export default class Paging extends Component {
     render() {
