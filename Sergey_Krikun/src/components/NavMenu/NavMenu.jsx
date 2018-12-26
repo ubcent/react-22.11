@@ -11,6 +11,7 @@ export default class NavMenu extends Component {
     const { items } = this.props;
     return (
       <Nav className="NavMenu ml-auto" navbar>
+
         {items.map((item) =>
           <NavItem key={item.key}>
             <NavLink className="menu-item__link" href={item.href}>
