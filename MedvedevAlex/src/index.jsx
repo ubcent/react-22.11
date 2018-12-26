@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ReactDom from 'react-dom';
+import 'normalize.css';
 
 import Container from 'components/Container'
 import Header from 'components/Header'
