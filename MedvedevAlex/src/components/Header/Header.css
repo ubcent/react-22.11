@@ -1,5 +1,7 @@
 .container {
     width: 1140px;
+    display: flex;
+    align-items: center;
 }
 
 .Header {
