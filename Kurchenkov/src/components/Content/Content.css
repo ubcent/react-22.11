@@ -1,0 +1,19 @@
+.content {
+    display: table-row;
+    height: 100%;
+}
+
+.leftMenu {
+    font-size: 22px;
+    border: 1px solid lightblue;
+}
+
+.chatBlock {
+    background-color: #fff;
+}
+
+.chat {
+    margin: 10px;
+    border: 1px dashed lightblue;
+    height: 50%;
+}

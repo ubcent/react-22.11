@@ -1,38 +1,36 @@
 import './Header.css';
-
 import React, { Component } from 'react';
-import classNames from 'classnames';
-
-import Menu from '../Menu';
-
-const items = [
-    {title: 'Home', href: '/' },
-    {title: 'News', href: '/news' },
-    {title: 'Blog', href: '/blog' },
-];
+import { Container, Row, Col } from 'reactstrap';
+import { Button } from 'reactstrap';
+import { Nav, NavItem, NavLink } from 'reactstrap';
 
 export default class Header extends Component {
-    //статическое свойство класса
-    static defaultProps = {
-        size: 'big',
-    }
-
-    render(){
-        const { size, color } = this.props;
-
-        const headerClasses = classNames({
-            //перечислим имена классов и условия для из подключения
-
-            //true означает, что класс применяется всегда
-            header: true,
-            'header-small': size === 'small',
-            'header-big': size === 'big',
-        });
-
-        return(
-            <header className={headerClasses}>
-                <Menu items={ items } />
+    render() {
+        return (
+            <header class="header">
+                <Container>
+                    <Row>
+                        <Col xs="9">
+                            <Nav>
+                                <NavItem>
+                                    <NavLink href="/">Main page</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink href="#">Contacts</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink href="#">Help</NavLink>
+                                </NavItem>
+                            </Nav>
+                        </Col>
+                        <Col xs="3">
+                            <div class="login">
+                                <Button outline color="primary">Log In</Button>{' '}
+                            </div>
+                        </Col>
+                    </Row>
+                </Container>
             </header>
-        )
-    }
-}
+        );
+    };
+};

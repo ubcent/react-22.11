@@ -7,7 +7,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     //точка входа - отсюда webpack собирает проект, __dirname - встроенная переменная, указывает на папку запуска
-    entry: { main: path.resolve(__dirname, 'src', 'index.js')},
+    entry: { main: path.resolve(__dirname, 'src', 'index.jsx')},
     // укажем, куда готовое приложение должно сохранятся, по умолчанию - dist
     output: {
         //папка, куда все надо складывать
@@ -25,7 +25,7 @@ module.exports = {
         rules: [
             {
                 //свойство test - регулярное выражение к имени файла, webpack определяет применять ли правило к файлу или нет.
-                test: /\.js$/,
+                test: /\.jsx?$/,
                 //укажем, какие папки надо исключить, например, node_modules собирать не надо, т.к. она уже собрана
                 exclude: /node_modules/,
                 //указываем loader(загрузчик), который будет сдесь применяться
