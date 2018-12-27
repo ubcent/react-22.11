@@ -11,18 +11,19 @@ import {
     NavLink
 } from 'reactstrap';
 
+import UserSideContainer from 'containers/UserSideContainer';
+
 export default class BlogList extends PureComponent {
 
     render() {
-        const { posts, loading, onShowMore } = this.props;
-        console.log(posts);
+        const {posts, loading, onShowMore} = this.props;
         return (
             <div className="BlogList">
                 {posts.map((post, idx) =>
                     <Card key={idx}>
                         <CardBody>
                             <CardTitle>{post.title}</CardTitle>
-                            <Button color="info" size="sm">Posted by user {post.userId}</Button>
+                            <UserSideContainer user={post.userId}/>
                             <CardText>{post.body}</CardText>
                             <Button>Read</Button>
                         </CardBody>

@@ -18,8 +18,8 @@ export default class BlogListContainer extends PureComponent {
     }
 
     fetchData = () => {
-        const { page } = this.state;
-        this.setState({ loading: true });
+        const {page} = this.state;
+        this.setState({loading: true});
         fetch(`https://jsonplaceholder.typicode.com/posts?_limit=5&_page=${page}`)
             .then((response) => response.json())
             .then((_posts) => {
@@ -29,17 +29,17 @@ export default class BlogListContainer extends PureComponent {
                     posts: prevState.posts.concat(_posts),
                     page: prevState.page + 1,
                 }));
-                console.log(this.state)
             });
+
     };
 
 
-
     render() {
-        const { posts, loading } = this.state;
+        const {posts, loading} = this.state;
         return (
             <Fragment>
-                {posts.length === 0 ? 'Loading...' :  <BlogList onShowMore={this.fetchData} posts={posts} loading={loading}/>}
+                {posts.length === 0 ? 'Loading...' :
+                    <BlogList onShowMore={this.fetchData} posts={posts} loading={loading}/>}
             </Fragment>
         )
     }

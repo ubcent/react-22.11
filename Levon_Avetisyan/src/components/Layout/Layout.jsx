@@ -1,3 +1,5 @@
+import './Layout.css';
+
 import React, {Component} from 'react';
 
 import Header from '../Header';
@@ -8,7 +10,9 @@ export default class Layout extends Component {
         return (
             <div className="layout container">
                 <Header/>
-                <BlogListContainer/>
+                <div className="main">
+                    <BlogListContainer/>
+                </div>
             </div>
         )
     }

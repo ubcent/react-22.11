@@ -1,45 +1,50 @@
 import React, {PureComponent, Fragment} from 'react';
+import {
+    Button
+} from 'reactstrap';
 
-import BlogList from 'components/BlogList';
+import UserSide from 'components/UserSide';
 
-export default class BlogListContainer extends PureComponent {
+export default class UserSideContainer extends PureComponent {
     constructor(props) {
         super(props);
 
         this.state = {
-            loading: false,
-            posts: [],
-            page: 0,
+            user: this.props.user,
+            modal: false
         }
     }
 
-    componentDidMount() {
-        this.fetchData();
-    }
+    toggle = () => {
+        this.setState({
+            modal: !this.state.modal
+        });
+    };
 
-    fetchData = () => {
-        const { page } = this.state;
-        this.setState({ loading: true });
-        fetch(`https://jsonplaceholder.typicode.com/posts?_limit=5&_page=${page}`)
+    getUser = () => {
+        const { user } = this.props;
+        this.state = {
+            user: user,
+        };
+        fetch(`https://jsonplaceholder.typicode.com/users/${user}`)
             .then((response) => response.json())
-            .then((_posts) => {
-                this.setState((prevState) => ({
-                    ...prevState,
-                    loading: false,
-                    posts: prevState.posts.concat(_posts),
-                    page: prevState.page + 1,
+            .then((_user) => {
+                this.setState(() => ({
+                    user: _user,
                 }));
-                console.log(this.state)
             });
+        this.toggle();
+        console.log(this.props);
+        console.log(this.state);
     };
 
 
-
     render() {
-        const { posts, loading } = this.state;
+        const {user, modal} = this.state;
+        console.log(this.props);
         return (
             <Fragment>
-                {posts.length === 0 ? 'Loading...' :  <BlogList onShowMore={this.fetchData} posts={posts} loading={loading}/>}
+                <UserSide onShowUserModal={this.getUser} user={user} modal={modal} toggle={this.toggle}/>
             </Fragment>
         )
     }
