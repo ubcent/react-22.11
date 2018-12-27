@@ -1,0 +1,11 @@
+.centered
+{
+	margin: 0 auto;
+	height: 401px;
+	width: 801px;
+}
+
+.loginButton
+{
+	margin-left: 10px;
+}

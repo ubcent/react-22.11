@@ -3,17 +3,28 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: {main: path.resolve(__dirname, 'src', 'index.js')},
+    entry: {main: path.resolve(__dirname, 'src', 'index.jsx')},
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: "bundle.js",
+        filename: 'bundle.js',
+    },
+    resolve: {
+        //задаем короткие имена ("константы") для папок проекта
+        alias: {
+            components: path.resolve(__dirname, 'src', 'components'),
+        },
+        //указываем расширения по умолчанию
+        extensions: [
+            '.js',
+            '.jsx',
+        ],
     },
 
     //научим вебпак понимать весь синтаксис
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.jsx?$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader'
@@ -32,7 +43,7 @@ module.exports = {
       new ExtractTextPlugin({filename: 'style.css'}),
       new HtmlWebpackPlugin({
           template: path.resolve(__dirname, 'src', 'index.html'),
-          filename: "index.html",
+          filename: 'index.html',
       })
     ]
 };
