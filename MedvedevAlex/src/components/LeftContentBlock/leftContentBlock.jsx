@@ -1,17 +1,15 @@
 import './leftContentBlock.css';
 
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 
-import News from 'components/News';
+import NewsContainer from 'containers/NewsContainer';
 import NewsJson from 'components/LeftContentBlock/news.json'
 
-export default class LeftContentBlock extends Component {
-    render() {
-    const news = NewsJson;
-    return (
-      <div className="leftContentBlock">
-          <News news = {news} />
-      </div>
-    )
-  }
+export default function LeftContentBlock() {
+  const news = NewsJson;
+  return (
+    <div className="leftContentBlock">
+      <NewsContainer news={news}/>
+    </div>
+  )
 }

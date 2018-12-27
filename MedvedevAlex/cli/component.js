@@ -16,10 +16,10 @@ fs.mkdirSync(
 
 const componentCode = `import './${componentName}.css';
 
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import classNames from 'classnames';
 
-export default class ${componentName} extends Component {
+export default class ${componentName} extends PureComponent {
   render() {
     return (
       <div className="${componentName}">

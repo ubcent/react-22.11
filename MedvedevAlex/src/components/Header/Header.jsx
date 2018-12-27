@@ -1,27 +1,24 @@
 import './Header.css';
 
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 
 import Menu from 'components/Menu'
+import Brand from 'components/Brand'
 
 const items = [
-  {title: 'Home' ,href: '/'},
-  {title: 'PlayStation' ,href: '/playStation'},
-  {title: 'Nintendo' ,href: '/nintendo'},
-  {title: 'Xbox' ,href: '/xbox'},
-  {title: 'Игры' ,href: '/xbox'},
-  {title: 'Рейтинг' ,href: '/xbox'},
-  {title: 'Форум' ,href: '/xbox'},
+  {title: 'Домашняя', href: '#'},
+  {title: 'Личный кабинет', href: '#'},
+  {title: 'Комментарии', href: '#'},
+  {title: 'Рейтинг блогеров', href: '#'},
 ];
 
-export default class Header extends Component {
-  render() {
-    return (
-      <header className="Header">
-        <div className="container">
-          <Menu items={items} />
-        </div>
-      </header>
-    )
-  }
+export default function Header() {
+  return (
+    <header className="Header">
+      <div className="container">
+        <Brand/>
+        <Menu items={items}/>
+      </div>
+    </header>
+  )
 }

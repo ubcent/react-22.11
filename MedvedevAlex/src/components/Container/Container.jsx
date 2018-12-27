@@ -1,15 +1,13 @@
 import './Container.css';
 
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 
-export default class Container extends Component {
-  render() {
-    const {children} = this.props;
-    return (
-      <div className="Container">
-        {children}
-      </div>
-    )
-  }
+export default function Container(props) {
+  const {children} = props;
+  return (
+    <div className="Container">
+      {children}
+    </div>
+  )
 }
 

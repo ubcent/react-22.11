@@ -1,16 +1,13 @@
 import './Footer.css';
 
-import React, {Component} from 'react';
-import Menu from "components/Menu";
+import React, {PureComponent} from 'react';
 
-export default class Footer extends Component {
-  render() {
-    return (
-      <div className="Footer">
-        <div className="container">
-          Copyright Alexander Medvedev
-        </div>
+export default function Footer() {
+  return (
+    <div className="Footer">
+      <div className="container">
+        Copyright Alexander Medvedev
       </div>
-    )
-  }
+    </div>
+  )
 }

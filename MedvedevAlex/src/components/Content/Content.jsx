@@ -1,18 +1,12 @@
 import './Content.css';
 
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 
-import LeftContentBlock from 'components/LeftContentBlock'
-import RightContentBlock from 'components/RightContentBlock'
-
-
-export default class Content extends Component {
-  render() {
-    return (
-      <div className="Content">
-        <LeftContentBlock />
-        <RightContentBlock />
-      </div>
-    )
-  }
+export default function Content(props) {
+  const { children } = props;
+  return (
+    <div className="Content">
+      {children}
+    </div>
+  )
 }
