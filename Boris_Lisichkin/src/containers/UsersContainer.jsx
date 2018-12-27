@@ -10,7 +10,7 @@ class UsersContainer extends PureComponent {
         this.state = {
             loading: false,
             users: [],
-            page: 0,
+            page: 1,
         }
     }
 

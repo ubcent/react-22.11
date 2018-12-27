@@ -10,7 +10,7 @@ class CommentsListContainer extends PureComponent {
         this.state = {
             loading: false,
             comments: [],
-            page: 0,
+            page: 1,
         }
     }
 
