@@ -2,35 +2,38 @@ import React, { PureComponent } from 'react';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
 import Sidebar from 'components/Sidebar';
-import Routes from './Routes';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import HomeContainer from 'containers/HomeContainer';
+import BlogContainer from 'containers/BlogContainer';
+import CommentsList from 'containers/CommentsListContainer';
+import UsersContainer from 'containers/UsersContainer';
+import SimpleSnackbar from 'components/Snackbar';
 
 
 export default class App extends PureComponent {
     constructor(props) {
         super(props);
-
-    this.state = {
-        isShown: false,
-        pageName: 'home'
-    };
-}
-
-handleToggleClick = () => {
-    this.setState((prevState) => ({isShown: !prevState.isShown}))
-}
-
+    }
 
     render() {
-        const { isShown } = this.state;
         return (
-            <div>
-                <Header />
-                <Sidebar pageWrapId={"page-wrap"} />
-                <main id="content" className="p-5">
-                    <Routes />
-                </main>
-                <Footer />
-            </div>
+            <Router>
+                <div>
+                    <Header />
+                    <Sidebar pageWrapId={"page-wrap"} />
+                    <main id="content" className="p-5">
+                        <Switch>
+                            <Route path='/' exact component={HomeContainer} />
+                            <Route path='/home' component={HomeContainer} />
+                            <Route path='/blog' component={BlogContainer} />
+                            <Route path='/comment' component={CommentsList} />
+                            <Route path='/user' component={UsersContainer} />
+                        </Switch>
+                    </main>
+                    <SimpleSnackbar />
+                    <Footer />
+                </div>
+            </Router>
         );
     }
 }

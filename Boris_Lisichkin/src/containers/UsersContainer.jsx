@@ -1,15 +1,15 @@
-import React, { PureComponent, Fragment } from 'react';
+import React, { PureComponent } from 'react';
 import { Container } from 'reactstrap';
 
-import CommentList from 'components/CommentsList';
+import UserCard from 'components/UserCard';
 
-class CommentsListContainer extends PureComponent {
+class UsersContainer extends PureComponent {
     constructor(props) {
         super(props);
 
         this.state = {
             loading: false,
-            comments: [],
+            users: [],
             page: 0,
         }
     }
@@ -21,28 +21,26 @@ class CommentsListContainer extends PureComponent {
     fetchData = () => {
         const { page } = this.state;
         this.setState({ loading: true });
-        fetch(`https://jsonplaceholder.typicode.com/comments?_limit=10&_page=${page}`)
+        fetch(`https://jsonplaceholder.typicode.com/users?_limit=3&_page=${page}`)
             .then((response) => response.json())
-            .then((_comments) => {
+            .then((_users) => {
                 this.setState((prevState) => ({
                     ...prevState,
                     loading: false,
-                    comments: prevState.comments.concat(_comments),
+                    users: prevState.users.concat(_users),
                     page: prevState.page + 1,
                 }))
             });
     }
 
     render() {
-        const { comments, loading } = this.state;
+        const { users, loading } = this.state;
         return (
             <Container>
-                <Fragment>
-                    {comments.length === 0 ? 'Loading...' : <CommentList onLoadMore={this.fetchData} comments={comments} loading={loading} />}
-                </Fragment>
+                {users.length === 0 ? 'Loading...' : <UserCard onLoadMore={this.fetchData} users={users} loading={loading} />}
             </Container>
         )
     }
 }
 
-export default CommentsListContainer;
+export default UsersContainer;

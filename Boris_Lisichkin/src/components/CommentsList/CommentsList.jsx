@@ -1,18 +1,29 @@
 import React, { PureComponent } from 'react';
-import './CommentsList.css';
-import CommentsForm from 'components/CommentsForm';
+import { Button, Container, Media } from 'reactstrap';
 
 export default class CommentsList extends PureComponent {
     render() {
         const { comments, loading, onLoadMore } = this.props;
 
         return (
-           < div className = "CommentsList">
-           <ul>
-               {comments.map((comment, idx) => <li key={idx}>{comment.name}: {comment.body}</li>)}
-           </ul>
-           <button onClick={onLoadMore} disabled={loading}>LoadMore</button>
-           </div>
+            < div className="CommentsList">
+                <Container>
+                    <h1 className="my-4">Comments</h1>
+
+                    {comments.map((comment, idx) =>
+                        <Media key={idx} className="border rounded p-2 my-3">
+                            <Media body>
+                                <Media heading>
+                                    {comment.name}
+                                </Media>
+                                {comment.body}
+                            </Media>
+                        </Media>
+                    )}
+
+                    <Button onClick={onLoadMore} size="sm" block color="danger" disabled={loading}>LoadMore</Button>
+                </Container>
+            </div>
         )
     }
 }

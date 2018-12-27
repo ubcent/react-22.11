@@ -1,7 +1,9 @@
 import React, { PureComponent } from 'react';
-import { Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
+import { NavLink } from "react-router-dom";
+import { Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem } from 'reactstrap';
 import ModalWindow from '../Login';
 import './Header.css';
+
 
 export default class Header extends PureComponent {
     constructor(props) {
@@ -9,15 +11,23 @@ export default class Header extends PureComponent {
 
         this.state = {
             isOpen: false,
+            exact: false,
         };
     }
+
+    handleClick = (event) => {
+        this.setState({ exact: !this.state.exact });
+    }
+
     toggle = () => {
         this.setState({
             isOpen: !this.state.isOpen
         });
     }
     render() {
+
         return (
+
             <header>
                 <Navbar className="container" dark expand="md">
                     <NavbarBrand href="/">MyCloud</NavbarBrand>
@@ -25,19 +35,16 @@ export default class Header extends PureComponent {
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
                             <NavItem>
-                                <NavLink exact={true} to="/home" activeClassName="activeClass">Home</NavLink>
+                                <NavLink exact to="/" onClick={this.handleClick} activeClassName="border-bottom border-danger">Home</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink exact={true} to="/blog" activeClassName="activeClass">Blog</NavLink>
+                                <NavLink to="/blog" onClick={this.handleClick} activeClassName="border-bottom border-danger">Blog</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink exact={true} to="/comment" activeClassName="activeClass">Comments</NavLink>
+                                <NavLink to="/comment" onClick={this.handleClick} activeClassName="border-bottom border-danger">Comments</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink exact={true} to="/user" activeClassName="activeClass">Users</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink href="#">About</NavLink>
+                                <NavLink to="/user" onClick={this.handleClick} activeClassName="border-bottom border-danger">Users</NavLink>
                             </NavItem>
                             <ModalWindow nav inNavbar />
                         </Nav>

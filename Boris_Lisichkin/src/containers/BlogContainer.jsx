@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Col, Container, Row } from 'reactstrap';
 import MediaObj from 'components/Media';
-import Sidebar from 'components/Sidebar';
 import Slider from 'components/Slider';
 import SimpleSnackbar from 'components/Snackbar';
 
@@ -19,7 +18,6 @@ export default class BlogContainer extends PureComponent {
     render() {
         return (
             <main>
-                <Sidebar pageWrapId={"page-wrap"} />
                 <Container>
                     <Row>
                         <Col><Slider /></Col>
@@ -54,7 +52,6 @@ export default class BlogContainer extends PureComponent {
                     </Row>
                     <br />
                 </Container>
-                <SimpleSnackbar />
             </main>
         )
     }
