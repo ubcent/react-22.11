@@ -4,7 +4,6 @@ import CommentsNew from 'components/CommentsNew';
 import PageOfArticle from 'components/PageOfArticle';
 import UserService from 'containers/UserService';
 import UserPage from 'components/UserPage';
-import { finished } from 'stream';
 
 export default class FetchingSelectedData extends PureComponent {
   constructor(props) {
@@ -29,27 +28,28 @@ export default class FetchingSelectedData extends PureComponent {
     const stringOfUrl = `https://jsonplaceholder.typicode.com${stringUrl}`;
 
     fetch(stringOfUrl)
-        .then((response) => {
-          if (response.ok) {
-            const res = response.headers.get('x-total-count');
-            this.setState(() => ({ [`${name}TotalItems`]: res }));
-            return response.json();
-          } else {
-            throw new Error('Something went wrong ...');
-          }
-        })
-        .then((_data) => {
-          this.setState((prevState) => ({
-            ...prevState,
-            loading: false,
-            [`${name}`]: prevState[`${name}`].concat(_data),
-          }));
-        })
-        .catch((error) => this.setState((prevState) => ({
+      .then((response) => {
+        if (response.ok) {
+          const res = response.headers.get('x-total-count');
+          this.setState(() => ({ [`${name}TotalItems`]: res }));
+          return response.json();
+        } else {
+          throw new Error('Something went wrong ...');
+        }
+      })
+      .then((_data) => {
+        console.log(_data);
+        this.setState((prevState) => ({
           ...prevState,
-          error,
           loading: false,
-        })));
+          [`${name}`]: prevState[`${name}`].concat(_data),
+        }));
+      })
+      .catch((error) => this.setState((prevState) => ({
+        ...prevState,
+        error,
+        loading: false,
+      })));
   }
 
   componentDidMount() {
