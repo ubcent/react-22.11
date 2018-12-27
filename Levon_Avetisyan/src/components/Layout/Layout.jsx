@@ -1,14 +1,18 @@
+import './Layout.css';
+
 import React, {Component} from 'react';
 
 import Header from '../Header';
-import BlogItem from '../BlogItem';
+import BlogListContainer from 'containers/BlogListContainer';
 
 export default class Layout extends Component {
     render() {
         return (
             <div className="layout container">
                 <Header/>
-                <BlogItem/>
+                <div className="main">
+                    <BlogListContainer/>
+                </div>
             </div>
         )
     }

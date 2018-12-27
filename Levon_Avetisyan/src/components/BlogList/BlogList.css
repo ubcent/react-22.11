@@ -1,0 +1,8 @@
+.BlogList {
+    width: 600px;
+}
+
+.BlogList .card {
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
