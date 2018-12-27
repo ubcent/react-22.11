@@ -1,10 +1,10 @@
 import './Header.css';
 
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import HeaderOverlay from 'components/HeaderOverlay';
 import Blognavbar from 'components/Blognavbar';
 
-export default class Header extends Component {
+export default class Header extends PureComponent {
   static defaultProps = {}
 
   render() {

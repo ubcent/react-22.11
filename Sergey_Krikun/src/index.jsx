@@ -1,5 +1,7 @@
 import React, { PureComponent } from 'react'; // импортируем в каждом файлк jsx
 import ReactDOM from 'react-dom'; // нужно импортировать только в точке входа
+
+import { Button } from 'reactstrap';
 import Header from './components/Header';
 import MainArticle from 'components/MainArticle';
 import Footer from 'components/Footer';
@@ -51,7 +53,6 @@ class Layout extends PureComponent {
       ...prevState,
       content: page,
     }));
-    console.log(this.state); // после первого нажатия в консоле - content: ''
 
   }
 
@@ -62,19 +63,28 @@ class Layout extends PureComponent {
     const userId = 1;
     const limitOfComments = 3;
     const { content } = this.state;
-    console.log(content);
+
+
 
     return (
       <div className="layout_main_wrapper">
         <Header />
-        <div className="MainContent">
-          <p>To change the content use buttons</p>
-          <br />
-          <button onClick={() => this.checkContent('One_page')}>One article with comments</button>
-          <button onClick={() => this.checkContent('Author_page')}>Author page</button>
-          <button onClick={() => this.checkContent('List_of_comments')}>List comments</button>
-          <button onClick={() => this.checkContent('Aticles_list')}>List of articles</button>
-          <br />
+        <div className="main-content">
+          <div className="buttons-wrapper">
+            <p>To change the content use buttons</p>
+            <br />
+            <Button color="info" onClick={() => this.checkContent('Aticles_list')}
+              className={(this.state.content === 'Aticles_list') ? 'active' : null}>List of articles</Button>
+            <Button color="info" onClick={() => this.checkContent('One_page')}
+              className={(this.state.content === 'One_page') ? 'active' : null}>One article with comments</Button>
+            <Button color="info" onClick={() => this.checkContent('Author_page')}
+              className={(this.state.content === 'Author_page') ? 'active' : null}>Author page</Button>
+            <Button color="info" onClick={() => this.checkContent('List_of_comments')}
+              className={(this.state.content === 'List_of_comments') ? 'active' : null}>List comments</Button>
+
+            <br />
+          </div>
+
 
 
 
@@ -94,8 +104,9 @@ class Layout extends PureComponent {
 
           <hr />
         </div>
-        <Footer />
-      </div>
+        <Footer className="footer" />
+
+      </div >
     );
   }
 }

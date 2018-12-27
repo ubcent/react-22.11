@@ -1,10 +1,10 @@
 import './NavMenu.css';
 
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Nav, NavItem, NavLink } from 'reactstrap';
 import PropTypes from 'prop-types';
 
-export default class NavMenu extends Component {
+export default class NavMenu extends PureComponent {
   static defaultProps = {};
 
   render() {

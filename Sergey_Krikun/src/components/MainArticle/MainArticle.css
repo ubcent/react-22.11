@@ -1,8 +1,13 @@
 .MainArticle {
-  width: 50%;
+  width: 65%;
   margin: auto;
   margin-bottom: 20px;
   position: relative;
+  margin-top: 40px;
+
+}
+.MainArticle>h2 {
+  text-align: center;
 }
 
 a.mainArticle_item__link {
@@ -40,7 +45,7 @@ a.mainArticle_item__link:hover {
 
 
 .mainArticle-item {
-  margin-top:45px;
+  margin-top:15px;
 }
 
 .mainArticle-olderPosts__link.badge {

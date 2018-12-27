@@ -1,6 +1,6 @@
 import './Blognavbar.css';
 
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import NavMenu from 'components/NavMenu';
 import PropTypes from 'prop-types';
 
@@ -11,7 +11,7 @@ import {
   NavbarBrand,
 } from 'reactstrap';
 
-export default class Blognavbar extends Component {
+export default class Blognavbar extends PureComponent {
   static propTypes = {
     logoString: PropTypes.string,
     logoHref: PropTypes.string,

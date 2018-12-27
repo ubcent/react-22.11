@@ -1,10 +1,10 @@
 import './HeaderOverlay.css';
 
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Card, CardTitle, CardText } from 'reactstrap';
 
 
-export default class HeaderOverlay extends Component {
+export default class HeaderOverlay extends PureComponent {
   render() {
     return (
       <Card className="img-overlay-container" inverse >

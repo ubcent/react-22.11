@@ -16,6 +16,10 @@ export default class FetchingSelectedData extends PureComponent {
       comments: [],
       users: [],
       page: 1,
+      pageComments: 1,
+      postsTotalItems: 0,
+      commentsTotalItems: 0,
+      usersTotalItems: 0,
     }
 
 
@@ -30,7 +34,13 @@ export default class FetchingSelectedData extends PureComponent {
 
     fetch(stringOfUrl)
       .then((response) => {
-        return response.json();
+        if (response.ok) {
+          const res = response.headers.get('x-total-count');
+          this.setState(() => ({ [`${name}TotalItems`]: res }));
+          return response.json();
+        } else {
+          throw new Error('Something went wrong ...');
+        }
       })
       .then((_data) => {
         this.setState((prevState) => ({
@@ -54,41 +64,50 @@ export default class FetchingSelectedData extends PureComponent {
 
     if (postsStringUrl) {
       this.fetchData(postsStringUrl, 'posts');
-       this.setState((prevState) => (
-         {
-           ...prevState,
-           page: prevState.page + 1,
-         }))
+      this.addPage();
     }
     if (commentsStringUrl) {
       this.fetchData(commentsStringUrl, 'comments');
+      this.addPage('Comments');
     }
     if (usersStringUrl) {
       this.fetchData(usersStringUrl, 'users');
     }
   }
 
-  onLoadMore = () => {
-    const { postsStringUrl, usersStringUrl } = this.props;
-    const { page } = this.state;
+  onLoadMore = (content) => {
+    const { postsStringUrl, usersStringUrl, commentsStringUrl } = this.props;
+    const { page, pageComments } = this.state;
     const postsStringWithPages = `${postsStringUrl}&_page=${page}`;
 
+
+
+    if (content == 'Comments') {
+      const commentsStringWithPages =
+        `${commentsStringUrl}&_page=${pageComments}`;
+      this.addPage(content);
+      this.fetchData(commentsStringWithPages, 'comments');
+      return
+    }
+
+    this.addPage();
+    this.fetchData(postsStringWithPages, 'posts');
+    this.fetchData(usersStringUrl, 'users');
+  }
+
+  addPage = (componentName = '') => {
     this.setState((prevState) => (
       {
         ...prevState,
-        page: prevState.page + 1,
+        [`page${componentName}`]: prevState[`page${componentName}`] + 1,
       }));
-  
-    this.fetchData(postsStringWithPages, 'posts');
-    this.fetchData(usersStringUrl, 'users');
-
   }
 
   render() {
     const { mainPage, commentsPage, pageOfArticle, articleNumber, getUsers,
-      userPage, error, postsStringUrl } = this.props;
-    const { comments, loading, users, posts } = this.state;
-
+      userPage, postsStringUrl } = this.props;
+    const { comments, loading, users, posts, commentsTotalItems, error } = this.state;
+    
     if (error) {
       return (<p>'The error', {error}</p>);
     }
@@ -97,7 +116,7 @@ export default class FetchingSelectedData extends PureComponent {
         <Fragment>
           {(users.length === 0)
             ? 'Loading...' :
-            <UserPage articleItems={posts} commentsItems={comments} userItems={users} />}
+            <UserPage articleItems={posts} commentsItems={comments} userItems={users} commentsTotalItems={commentsTotalItems} />}
         </Fragment>
       )
     }
@@ -115,16 +134,13 @@ export default class FetchingSelectedData extends PureComponent {
           {/*   <MainArticle articleItems={this.state.posts}
               authorItems={this.state.users} /> */}
 
-          {(comments.length === 0) ? 'Loading...' : <CommentsNew commentsList={comments} authorItems={users}></CommentsNew>}
+          {(comments.length === 0) ? 'Loading...' : <CommentsNew commentsList={comments} onLoadMore={this.onLoadMore} authorItems={users} commentsTotalItems={commentsTotalItems} ></CommentsNew>}
         </Fragment>
       );
     }
     if (mainPage == 'true') {
       return (
         <Fragment>
-          {/*   <MainArticle articleItems={this.state.posts}
-                authorItems={this.state.users} /> */}
-
           {(posts.length === 0 || users.length === 0) ? 'Loading...' : <MainArticle articleItems={posts} loading={loading} onLoadMore={this.onLoadMore} authorItems={users}></MainArticle>}
         </Fragment>
       );
@@ -135,7 +151,7 @@ export default class FetchingSelectedData extends PureComponent {
           {(posts.length === 0 || users.length === 0 || comments.length === 0)
             ? 'Loading...'
             : <PageOfArticle articleItems={posts} authorItems={users}
-              comments={comments} numberOfArticle={articleNumber}></PageOfArticle>}
+              comments={comments} numberOfArticle={articleNumber} onLoadMore={this.onLoadMore} commentsTotalItems={commentsTotalItems}></PageOfArticle>}
         </Fragment>
       );
     }

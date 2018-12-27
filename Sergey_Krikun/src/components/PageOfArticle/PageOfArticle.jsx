@@ -28,7 +28,7 @@ export default class PageOfArticle extends PureComponent {
 
 
   render() {
-    const { articleItems, authorItems, numberOfArticle } = this.props;
+    const { articleItems, authorItems, numberOfArticle, onLoadMore, commentsTotalItems } = this.props;
     const foundArticle = articleItems.find((item) => {
       return item.id == numberOfArticle
     });
@@ -44,7 +44,9 @@ export default class PageOfArticle extends PureComponent {
               href={`/user${this.findAuthor(foundArticle.userId).id}`}> {this.findAuthor(foundArticle.userId).name}</a></p>
           <p className="PageOfArticle_item_sub-title">{foundArticle.body}</p>
         </div>
-        <CommentsNew commentsList={foundComments} />
+        <CommentsNew commentsList={foundComments}
+          commentsTotalItems={commentsTotalItems}
+          onLoadMore={onLoadMore} />
       </div>
     );
   }

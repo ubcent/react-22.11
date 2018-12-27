@@ -1,10 +1,10 @@
 import './ModalWindow.css';
 
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 
-export default class ModalExample extends Component {
+export default class ModalExample extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {

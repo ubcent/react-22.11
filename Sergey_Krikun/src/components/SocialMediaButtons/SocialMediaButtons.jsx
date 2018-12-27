@@ -1,10 +1,10 @@
 import './SocialMediaButtons.css';
 
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 
-export default class SocialMediaButtons extends Component {
+export default class SocialMediaButtons extends PureComponent {
   static defaultProps = {}
 
   render() {

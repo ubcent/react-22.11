@@ -19,21 +19,31 @@ export default class CommentsNew extends PureComponent {
     return foundAuthor;
   }
 
+  /*   isMoreComments() {
+      const { commentsList, totalItems } = this.props;
+      if (commentsList.length === totalItems) {retu}
+  
+    } */
+
   render() {
-    const { commentsList, loading } = this.props;
+    const { commentsList, loading, onLoadMore, commentsTotalItems } = this.props;
+
+
+    const isShowButton = (commentsList.length != commentsTotalItems) ? true : false;
+
 
     return (
-      <div>
+      <div className="CommentsNew">
         <h2>List of Comments</h2>
 
-        <ul className="Comments">
-          {commentsList.map((item, idx) => <li key={idx}>
+        <ul className="comments-list">
+          {commentsList.map((item, idx) => <li className="comment-item" key={idx}>
             <h5>Name: {item.name}</h5>
             <p>Text:</p>
             <p>{item.body}</p>
           </li>)}
         </ul>
-
+        {(onLoadMore && isShowButton) ? <button onClick={() => { onLoadMore('Comments') }} disabled={loading}>MORE COMMENTS {String.fromCharCode(8594)}</button> : null}
       </div>
     );
   }

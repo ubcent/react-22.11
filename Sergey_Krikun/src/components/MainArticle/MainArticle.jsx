@@ -1,9 +1,9 @@
 import './MainArticle.css';
 
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-export default class MainArticle extends Component {
+export default class MainArticle extends PureComponent {
   static defaultProps = {
     articleItems: [],
     authorItems: []
@@ -17,15 +17,15 @@ export default class MainArticle extends Component {
 
   render() {
     const { articleItems, onLoadMore, loading } = this.props;
-    console.log(onLoadMore);
 
     return (
       <div className="MainArticle">
+        <h2> List of articles </h2>
         {articleItems.map(
           (item, idx) => <div key={idx} className="mainArticle-item">
             <a href={`/posts${item.id}`} className="mainArticle_item__link item" >
-              <h2 className="mainArticle_item_title">{item.title}</h2>
-              <h3 className="mainArticle_item_sub-title">{item.body}</h3>
+              <h4 className="mainArticle_item_title">{item.title}</h4>
+              <h5 className="mainArticle_item_sub-title">{item.body}</h5>
               <p>Article number: {item.id}</p>
             </a><p className="mainArticle-author-string">
               Posted by <a className="mainArticle-author__link"

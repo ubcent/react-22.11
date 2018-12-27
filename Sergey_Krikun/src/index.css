@@ -4,14 +4,21 @@
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  flex:1;
 }
 
 .main-content {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
   width: 100%;
   margin: 30px;
-  flex: 8;
+}
+
+.footer {
+
+}
+.main-content>.buttons-wrapper>button {
+  margin: 10px;
 }
 
