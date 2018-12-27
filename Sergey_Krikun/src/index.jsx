@@ -3,49 +3,20 @@ import ReactDOM from 'react-dom'; // нужно импортировать то�
 
 import { Button } from 'reactstrap';
 import Header from './components/Header';
-import MainArticle from 'components/MainArticle';
 import Footer from 'components/Footer';
 import ModalWindow from 'components/ModalWindow';
-import FetchingData from 'containers/FetchingData';
-import CommentsNew from 'components/CommentsNew';
 import FetchingSelectedData from 'containers/FetchingSelectedData';
 
 import './index.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 class Layout extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      comments: [],
       content: 'Aticles_list',
     };
-  }
-
-  fetchDataUrl(urlString) {
-    let functionComments = [];
-    const result = fetch(urlString)
-      .then((response) => {
-        response.json();
-      })
-      .then((data) => {
-        this.setState((prevState) => ({
-          ...prevState,
-          comments: prevState.comments.concat(data),
-        }))
-
-
-        /*   return comments; */
-      });
-
-    /*  return this.comments;    */
-  }
-
-  componentDidMount() {
-    this.fetchDataUrl('https://jsonplaceholder.typicode.com/users?_limit=4');
-
   }
 
   checkContent(page) {
@@ -53,18 +24,13 @@ class Layout extends PureComponent {
       ...prevState,
       content: page,
     }));
-
   }
 
-
   render() {
-
     const numberOfPost = 3;
     const userId = 1;
     const limitOfComments = 3;
     const { content } = this.state;
-
-
 
     return (
       <div className="layout_main_wrapper">
@@ -73,33 +39,62 @@ class Layout extends PureComponent {
           <div className="buttons-wrapper">
             <p>To change the content use buttons</p>
             <br />
-            <Button color="info" onClick={() => this.checkContent('Aticles_list')}
-              className={(this.state.content === 'Aticles_list') ? 'active' : null}>List of articles</Button>
-            <Button color="info" onClick={() => this.checkContent('One_page')}
-              className={(this.state.content === 'One_page') ? 'active' : null}>One article with comments</Button>
-            <Button color="info" onClick={() => this.checkContent('Author_page')}
-              className={(this.state.content === 'Author_page') ? 'active' : null}>Author page</Button>
-            <Button color="info" onClick={() => this.checkContent('List_of_comments')}
-              className={(this.state.content === 'List_of_comments') ? 'active' : null}>List comments</Button>
-
+            <Button color="info"
+              onClick={() => this.checkContent('Aticles_list')}
+              className={(this.state.content === 'Aticles_list')
+                ? 'active' : null}>
+              List of articles
+            </Button>
+            <Button color="info"
+              onClick={() => this.checkContent('One_page')}
+              className={(this.state.content === 'One_page')
+                ? 'active' : null}>
+              One article with comments
+            </Button>
+            <Button color="info"
+              onClick={() => this.checkContent('Author_page')}
+              className={(this.state.content === 'Author_page')
+                ? 'active' : null}>
+              Author page
+            </Button>
+            <Button color="info"
+              onClick={() => this.checkContent('List_of_comments')}
+              className={(this.state.content === 'List_of_comments')
+                ? 'active' : null}>
+              List comments
+            </Button>
             <br />
           </div>
 
-
-
-
           {content == 'Aticles_list' &&
-            <FetchingSelectedData postsStringUrl="/posts?_limit=10" usersStringUrl="/users" mainPage="true" />}
+            <FetchingSelectedData
+              postsStringUrl="/posts?_limit=10"
+              usersStringUrl="/users"
+              mainPage="true"
+            />
+          }
 
           {content == 'One_page' &&
-            <FetchingSelectedData postsStringUrl={`/posts/${numberOfPost}`} usersStringUrl={`/users/${userId}`} commentsStringUrl={`/comments?postId=${numberOfPost}&_limit=${limitOfComments}`} articleNumber={numberOfPost} pageOfArticle="true" />
+            <FetchingSelectedData
+              postsStringUrl={`/posts/${numberOfPost}`}
+              usersStringUrl={`/users/${userId}`}
+              commentsStringUrl=
+                {`/comments?postId=${numberOfPost}&_limit=${limitOfComments}`}
+              articleNumber={numberOfPost}
+              pageOfArticle="true"
+            />
           }
 
           {content == 'List_of_comments' &&
-            <FetchingSelectedData commentsStringUrl="/comments?_limit=20" commentsPage="true" />}
+            <FetchingSelectedData
+              commentsStringUrl="/comments?_limit=10" commentsPage="true"
+            />
+          }
 
           {content == 'Author_page' &&
-            <FetchingSelectedData getUsers="true" usersStringUrl="/users?id=1" />
+            <FetchingSelectedData getUsers="true"
+              usersStringUrl="/users?id=1"
+            />
           }
 
           <hr />

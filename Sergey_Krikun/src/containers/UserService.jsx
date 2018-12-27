@@ -9,18 +9,17 @@ export default class UserService extends PureComponent {
       postsUrl: '/posts?userId=',
       userUrl: '/users?id=',
       urlOfData: 'https://jsonplaceholder.typicode.com',
-    }
+    };
   }
 
-  makingUrl=()=> {
+  makingUrl = () => {
     const { userObject } = this.props;
 
     this.setState({
-      postsUrl:  this.state.postsUrl + userObject.id,
+      postsUrl: this.state.postsUrl + userObject.id,
       commentsUrl: this.state.commentsUrl + userObject.email,
       userUrl: this.state.userUrl + userObject.id,
-    })
-    
+    });
   }
 
   componentWillMount() {
@@ -29,15 +28,18 @@ export default class UserService extends PureComponent {
 
   render() {
     const { postsUrl, commentsUrl, userUrl } = this.state;
-    
 
-    return(
-        <Fragment>
-          <FetchingSelectedData postsStringUrl={postsUrl} commentsStringUrl={commentsUrl} usersStringUrl={userUrl} userPage="true"/>
-        </Fragment>
 
-    )
+    return (
+      <Fragment>
+        <FetchingSelectedData
+          postsStringUrl={postsUrl}
+          commentsStringUrl={commentsUrl}
+          usersStringUrl={userUrl}
+          userPage="true"
+        />
+      </Fragment>
+
+    );
   }
-
-
 }

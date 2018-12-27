@@ -20,13 +20,10 @@ export default class FetchingSelectedData extends PureComponent {
       postsTotalItems: 0,
       commentsTotalItems: 0,
       usersTotalItems: 0,
-    }
-
-
+    };
   }
 
   fetchData = (stringUrl, name) => {
-
     this.setState({ loading: true });
 
     const stringOfUrl = `https://jsonplaceholder.typicode.com${stringUrl}`;
@@ -49,13 +46,12 @@ export default class FetchingSelectedData extends PureComponent {
           [`${name}`]: prevState[`${name}`].concat(_data),
         }));
       })
-      .catch(error => this.setState(prevState => ({
+      .catch((error) => this.setState((prevState) => ({
         ...prevState,
         error,
         loading: false,
       })));
   }
-
 
 
   componentDidMount() {
@@ -81,13 +77,12 @@ export default class FetchingSelectedData extends PureComponent {
     const postsStringWithPages = `${postsStringUrl}&_page=${page}`;
 
 
-
     if (content == 'Comments') {
       const commentsStringWithPages =
         `${commentsStringUrl}&_page=${pageComments}`;
       this.addPage(content);
       this.fetchData(commentsStringWithPages, 'comments');
-      return
+      return;
     }
 
     this.addPage();
@@ -107,41 +102,61 @@ export default class FetchingSelectedData extends PureComponent {
     const { mainPage, commentsPage, pageOfArticle, articleNumber, getUsers,
       userPage, postsStringUrl } = this.props;
     const { comments, loading, users, posts, commentsTotalItems, error } = this.state;
-    
+
     if (error) {
-      return (<p>'The error', {error}</p>);
+      return (<p>The error, {error}</p>);
     }
-    if (userPage == "true") {
-      return (
-        <Fragment>
-          {(users.length === 0)
-            ? 'Loading...' :
-            <UserPage articleItems={posts} commentsItems={comments} userItems={users} commentsTotalItems={commentsTotalItems} />}
-        </Fragment>
-      )
-    }
-    if (getUsers == "true") {
+    if (userPage == 'true') {
       return (
         <Fragment>
           {(users.length === 0) ? 'Loading...' :
-            <UserService userObject={users[0]} />}
+            <UserPage
+              articleItems={posts}
+              commentsItems={comments}
+              userItems={users}
+              commentsTotalItems={commentsTotalItems}
+            />
+          }
         </Fragment>
-      )
+      );
+    }
+    if (getUsers == 'true') {
+      return (
+        <Fragment>
+          {(users.length === 0) ? 'Loading...' :
+            <UserService
+              userObject={users[0]}
+            />
+          }
+        </Fragment>
+      );
     }
     if (commentsPage == 'true') {
       return (
         <Fragment>
-          {/*   <MainArticle articleItems={this.state.posts}
-              authorItems={this.state.users} /> */}
-
-          {(comments.length === 0) ? 'Loading...' : <CommentsNew commentsList={comments} onLoadMore={this.onLoadMore} authorItems={users} commentsTotalItems={commentsTotalItems} ></CommentsNew>}
+          {(comments.length === 0) ? 'Loading...' :
+            <CommentsNew
+              commentsList={comments}
+              onLoadMore={this.onLoadMore}
+              authorItems={users}
+              commentsTotalItems={commentsTotalItems}
+            />
+          }
         </Fragment>
       );
     }
     if (mainPage == 'true') {
       return (
         <Fragment>
-          {(posts.length === 0 || users.length === 0) ? 'Loading...' : <MainArticle articleItems={posts} loading={loading} onLoadMore={this.onLoadMore} authorItems={users}></MainArticle>}
+          {(posts.length === 0 || users.length === 0) ? 'Loading...' :
+            <MainArticle
+              articleItems={posts}
+              loading={loading}
+              onLoadMore={this.onLoadMore}
+              authorItems={users}
+            >
+            </MainArticle>
+          }
         </Fragment>
       );
     }
@@ -149,18 +164,19 @@ export default class FetchingSelectedData extends PureComponent {
       return (
         <Fragment>
           {(posts.length === 0 || users.length === 0 || comments.length === 0)
-            ? 'Loading...'
-            : <PageOfArticle articleItems={posts} authorItems={users}
-              comments={comments} numberOfArticle={articleNumber} onLoadMore={this.onLoadMore} commentsTotalItems={commentsTotalItems}></PageOfArticle>}
+            ? 'Loading...' :
+            <PageOfArticle
+              articleItems={posts}
+              authorItems={users}
+              comments={comments}
+              numberOfArticle={articleNumber}
+              onLoadMore={this.onLoadMore}
+              commentsTotalItems={commentsTotalItems}>
+            </PageOfArticle>}
         </Fragment>
       );
     }
-
-
-
   };
-
 }
-
 
 

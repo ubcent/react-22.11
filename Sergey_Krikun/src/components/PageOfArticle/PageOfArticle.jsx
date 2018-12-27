@@ -11,26 +11,30 @@ export default class PageOfArticle extends PureComponent {
 
   findAuthor = (articleAuthorId) => {
     const { authorItems } = this.props;
-    const foundAuthor = authorItems.find((item) => { return item.id == articleAuthorId });
+    const foundAuthor = authorItems.find((item) => {
+      return item.id == articleAuthorId;
+    });
     return foundAuthor;
   }
-
 
 
   findComments = (id) => {
     const { comments } = this.props;
 
-    const foundComments = comments.filter((item) => { if (item.postId == id) { return true } });
+    const foundComments = comments.filter((item) => {
+      if (item.postId == id) {
+        return true;
+      }
+    });
 
     return foundComments;
   }
 
 
-
   render() {
     const { articleItems, authorItems, numberOfArticle, onLoadMore, commentsTotalItems } = this.props;
     const foundArticle = articleItems.find((item) => {
-      return item.id == numberOfArticle
+      return item.id == numberOfArticle;
     });
     const foundComments = this.findComments(numberOfArticle);
 
