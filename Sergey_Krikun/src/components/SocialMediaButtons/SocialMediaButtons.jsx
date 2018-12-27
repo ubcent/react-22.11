@@ -13,7 +13,8 @@ export default class SocialMediaButtons extends PureComponent {
     return (
       <div className="SocialMediaButtons icons-wrapper">
         {icons.map((item) =>
-          <a className="icon-item-wrapper" key={key++} href={item.href}>
+          <a className="icon-item-wrapper" key={key++}
+            href={item.href}>
             <FontAwesomeIcon className="cocial-network_icon" icon={item.icon} />
           </a>
         )}

@@ -28,7 +28,7 @@ export default class Footer extends PureComponent {
       <footer className="Footer">
         <SocialMediaButtons icons={socialIcons} />
         <p className="footer-copyright">Copyright © Your Website 2018</p>
-      </footer >
+      </footer>
     );
   }
 }

@@ -79,7 +79,7 @@ class Layout extends PureComponent {
               postsStringUrl={`/posts/${numberOfPost}`}
               usersStringUrl={`/users/${userId}`}
               commentsStringUrl=
-                {`/comments?postId=${numberOfPost}&_limit=${limitOfComments}`}
+              {`/comments?postId=${numberOfPost}&_limit=${limitOfComments}`}
               articleNumber={numberOfPost}
               pageOfArticle="true"
             />
@@ -101,7 +101,7 @@ class Layout extends PureComponent {
         </div>
         <Footer className="footer" />
 
-      </div >
+      </div>
     );
   }
 }

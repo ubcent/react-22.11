@@ -28,31 +28,29 @@ export default class FetchingSelectedData extends PureComponent {
 
     const stringOfUrl = `https://jsonplaceholder.typicode.com${stringUrl}`;
 
-
     fetch(stringOfUrl)
-      .then((response) => {
-        if (response.ok) {
-          const res = response.headers.get('x-total-count');
-          this.setState(() => ({ [`${name}TotalItems`]: res }));
-          return response.json();
-        } else {
-          throw new Error('Something went wrong ...');
-        }
-      })
-      .then((_data) => {
-        this.setState((prevState) => ({
+        .then((response) => {
+          if (response.ok) {
+            const res = response.headers.get('x-total-count');
+            this.setState(() => ({ [`${name}TotalItems`]: res }));
+            return response.json();
+          } else {
+            throw new Error('Something went wrong ...');
+          }
+        })
+        .then((_data) => {
+          this.setState((prevState) => ({
+            ...prevState,
+            loading: false,
+            [`${name}`]: prevState[`${name}`].concat(_data),
+          }));
+        })
+        .catch((error) => this.setState((prevState) => ({
           ...prevState,
+          error,
           loading: false,
-          [`${name}`]: prevState[`${name}`].concat(_data),
-        }));
-      })
-      .catch((error) => this.setState((prevState) => ({
-        ...prevState,
-        error,
-        loading: false,
-      })));
+        })));
   }
-
 
   componentDidMount() {
     const { postsStringUrl, commentsStringUrl, usersStringUrl }
@@ -103,6 +101,7 @@ export default class FetchingSelectedData extends PureComponent {
       userPage, postsStringUrl } = this.props;
     const { comments, loading, users, posts, commentsTotalItems, error } = this.state;
 
+
     if (error) {
       return (<p>The error, {error}</p>);
     }
@@ -147,17 +146,17 @@ export default class FetchingSelectedData extends PureComponent {
     }
     if (mainPage == 'true') {
       return (
-        <Fragment>
+
+        <div>
           {(posts.length === 0 || users.length === 0) ? 'Loading...' :
             <MainArticle
               articleItems={posts}
               loading={loading}
               onLoadMore={this.onLoadMore}
-              authorItems={users}
-            >
+              authorItems={users}>
             </MainArticle>
           }
-        </Fragment>
+        </div>
       );
     }
     if (pageOfArticle == 'true') {

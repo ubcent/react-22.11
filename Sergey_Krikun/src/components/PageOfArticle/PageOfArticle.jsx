@@ -32,7 +32,11 @@ export default class PageOfArticle extends PureComponent {
 
 
   render() {
-    const { articleItems, authorItems, numberOfArticle, onLoadMore, commentsTotalItems } = this.props;
+    const {
+      articleItems,
+      numberOfArticle,
+      onLoadMore,
+      commentsTotalItems } = this.props;
     const foundArticle = articleItems.find((item) => {
       return item.id == numberOfArticle;
     });
@@ -42,7 +46,9 @@ export default class PageOfArticle extends PureComponent {
       <div className="PageOfArticle">
         <h2>Article 1 with comments</h2>
         <div className="PageOfArticle-item">
-          <h3 className="PageOfArticle_item_title">{foundArticle.title}</h3>
+          <h3 className="PageOfArticle_item_title">
+            {foundArticle.title}
+          </h3>
           <p className="PageOfArticle-author-string">
             Posted by <a className="PageOfArticle-author__link"
               href={`/user${this.findAuthor(foundArticle.userId).id}`}> {this.findAuthor(foundArticle.userId).name}</a></p>
