@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { 
     Card, 
     CardImg, 
@@ -10,32 +10,29 @@ import {
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 
-export default class Blogpost extends Component {
-    static defaultProps = {
-        img: 'http://placehold.it/750x300',
-    }
-    
-    static propTypes = {
-        head: PropTypes.string.isRequired,
-        date: PropTypes.string.isRequired,
-        author: PropTypes.string.isRequired,
-        img: PropTypes.string,
-    }
-        
-    render() {
-        const { head, date, author, img, children } = this.props;
-        return (
-            <Card className="mb-4">
-                <CardImg top src={img} alt={head} />
-                <CardBody>
-                    <CardTitle tag="h2">{head}</CardTitle>
-                    <CardText>{children}</CardText>
-                    <Button tag="a" href="#" color="primary">Read More →</Button>
-                </CardBody>
-                <CardFooter className="text-muted">
-                    Posted on {date} by <a href="#">{author}</a>
-                </CardFooter>
-            </Card>
-        )
-    }
+export default function Blogpost(props) {
+    return (
+        <Card className="mb-4">
+            <CardImg top src={props.img} alt={props.head} />
+            <CardBody>
+                <CardTitle tag="h2">{props.head}</CardTitle>
+                <CardText>{props.children}</CardText>
+                <Button tag="a" href="#" color="primary">Read More →</Button>
+            </CardBody>
+            <CardFooter className="text-muted">
+                Posted on {props.date} by <a href="#">{props.author}</a>
+            </CardFooter>
+        </Card>
+    )
 }
+Blogpost.defaultProps = {
+    date: '26.12.18',
+    author: 'Alex',
+    img: 'http://placehold.it/750x300',
+};
+Blogpost.propTypes = {
+    head: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+    img: PropTypes.string,
+};

@@ -16,8 +16,8 @@ fs.mkdirSync(
 );
 
 const componentCode = `import './${componentName}.css';
-import React, { Component } from 'react';
-export default class ${componentName} extends Component {
+import React, { PureComponent } from 'react';
+export default class ${componentName} extends PureComponent {
     static defaultProps = {}
     render() {
         return (

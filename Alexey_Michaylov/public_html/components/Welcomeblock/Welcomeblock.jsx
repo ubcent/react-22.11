@@ -1,8 +1,8 @@
 import './Welcomeblock.css';
-import React, { Component } from 'react';
-import { Jumbotron, Button, } from 'reactstrap';
+import React, { PureComponent } from 'react';
+import { Jumbotron, Button } from 'reactstrap';
 
-export default class Welcomeblock extends Component {
+export default class Welcomeblock extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
@@ -12,7 +12,7 @@ export default class Welcomeblock extends Component {
     
     handleToggleClick = () => {
         this.setState((prevstate) => ({
-            isShown: !prevstate.isShown
+            isShown: !prevstate.isShown,
         }));
     }
     
