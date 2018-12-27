@@ -1,15 +1,13 @@
 import './rightContentBlock.css';
 
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 
-import Form from 'components/Form';
+import FormContainer from 'containers/FormContainer';
 
-export default class RightContentBlock extends Component {
-  render() {
-    return (
-      <div className="rightContentBlock">
-        <Form />
-      </div>
-    )
-  }
+export default function RightContentBlock() {
+  return (
+    <div className="rightContentBlock">
+      <FormContainer/>
+    </div>
+  )
 }
