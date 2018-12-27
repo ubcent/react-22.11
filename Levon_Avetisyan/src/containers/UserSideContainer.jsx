@@ -1,7 +1,4 @@
 import React, {PureComponent, Fragment} from 'react';
-import {
-    Button
-} from 'reactstrap';
 
 import UserSide from 'components/UserSide';
 

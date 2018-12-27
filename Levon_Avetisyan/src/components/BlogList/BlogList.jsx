@@ -2,13 +2,10 @@ import './BlogList.css'
 import React, {PureComponent} from 'react';
 import {
     Card,
-    CardImg,
     CardText,
     CardBody,
     CardTitle,
-    CardSubtitle,
     Button,
-    NavLink
 } from 'reactstrap';
 
 import UserSideContainer from 'containers/UserSideContainer';

@@ -3,14 +3,11 @@ import React, {PureComponent} from 'react';
 
 import {
     Card,
-    CardImg,
     CardText,
     CardLink,
     CardBody,
-    CardTitle,
     CardSubtitle,
     Button,
-    NavLink,
     Modal,
     ModalHeader,
     ModalBody,
