@@ -1,37 +1,25 @@
 import './CommentsList.css';
 
 //React импортируем в каждом файле
-import React, { Component } from 'react';
-import CommentsForm from 'components/CommentsForm';
+import React from 'react';
 
+import { CardHeader, Card, Button, CardTitle, CardText } from 'reactstrap';
 
-export default class CommentsList extends Component
-{
-    static defaultProps = {};
+// сделаем stateless
+export default function CommentsList(props) {
+    const { comments, loading, onLoadMore } = props;
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            comments: [],
-        };
-    }
-
-    handleComment = (comment) => {
-        this.setState((prevState) => ({
-            comments: prevState.comments.concat([comment]),
-        }));
-    };
-
-    render() {
-        const {comments} = this.state;
-        return (
-            <div className="CommentsList">
-                <CommentsForm onComment={this.handleComment}/>
-                <ul>
-                    {comments.map((comment, idx)=> <li key={idx}>{comment.author}: {comment.message}</li>)}
-                </ul>
-            </div>
-        );
-    }
+    return (
+        <div className="CommentsList">
+            <CardHeader>Comments</CardHeader>
+            {comments.map((comment) => <Card body className="text-right">
+                    <CardTitle>{comment.name}</CardTitle>
+                    <CardText>{comment.body}</CardText>
+                    <Button>Go to User</Button>
+                </Card>
+            )}
+            <Button onClick={onLoadMore} disabled={loading}>Load more</Button>
+        </div>
+    );
 };
     

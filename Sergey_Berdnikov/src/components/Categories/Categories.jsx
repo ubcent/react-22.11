@@ -1,7 +1,7 @@
 import './Categories.css';
 
 //React импортируем в каждом файле
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Card, CardHeader, CardBody, Container, Row, Col } from "reactstrap";
 
 const leftLink = [
@@ -16,7 +16,7 @@ const rightLink = [
     {title: 'Tutorials', href: '#'},
 ];
 
-export default class Categories extends Component
+export default class Categories extends PureComponent
 {
     static defaultProps = {};
 

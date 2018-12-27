@@ -1,0 +1,10 @@
+.Users {
+  margin-top: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.Users button {
+  margin-left: 15px;
+  margin-bottom: 15px;
+}

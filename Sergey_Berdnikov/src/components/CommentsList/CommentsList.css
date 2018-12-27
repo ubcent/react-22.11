@@ -1,1 +1,21 @@
-.CommentsList {}
+.CommentsList {
+  margin-top: 15px;
+  overflow-y: auto;
+  height: 800px;
+}
+
+.CommentsList .card {
+  margin-top: 10px;
+}
+
+.CommentsList .card-text {
+  font-size: small;
+}
+
+.CommentsList .card-title {
+  font-size: small;
+}
+
+.CommentsList button {
+  margin-top: 10px;
+}
