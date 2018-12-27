@@ -1,11 +1,11 @@
 import './Video.css';
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import { Card, CardImg, CardText, CardBody, CardLink, CardTitle, CardSubtitle } from 'reactstrap';
 
-export default class Video extends Component {
+export default class Video extends PureComponent {
   render(){
     return(
-      <div class="videoLine">
+      <div className="videoLine">
         <Card>
           <CardBody>
             <CardTitle>Video1</CardTitle>

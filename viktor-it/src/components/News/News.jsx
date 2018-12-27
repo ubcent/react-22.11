@@ -1,12 +1,12 @@
 import './News.css';
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import { Card, Button, CardImg, CardTitle, CardText, CardDeck,
  CardSubtitle, CardBody } from 'reactstrap';
 
-export default class News extends Component {
+export default class News extends PureComponent {
   render(){
     return(
-    <div class = "newsLine">
+    <div className = "newsLine">
     <CardDeck >
       <Card>
         <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180" alt="Card image cap" />

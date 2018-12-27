@@ -1,15 +1,17 @@
 import './Layout.css';
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import Header from 'components/Header';
 import FormInput from 'components/FormInput';
 import FotoBlock from 'components/FotoBlock';
 import News from 'components/News';
-import Video from 'components/Video';
 import Footer from 'components/Footer';
+import Timer from 'components/Timer';
+import CommentsList from 'containers/CommentListContainer';
+import PostContainer from 'containers/PostContainer';
 
-export default class Layout extends Component {
-  static defaultProps = {}
+export default class Layout extends PureComponent {
+  static defaultProps = {};
 
   constructor(props) {
     super(props);
@@ -17,14 +19,14 @@ export default class Layout extends Component {
     this.state = {
       gender: '',
     }
-  }
+  };
 
   handleInfo = (info) => {
     this.setState((prevState) => ({
       gender: prevState.gender.concat([info]),
     }));
     console.log('Из Layout', this.state);
-  }
+  };
 
   render(){
     const { gender } = this.state;
@@ -41,10 +43,17 @@ export default class Layout extends Component {
         <Row>
           <Col><News /></Col>
         </Row>
+        <br/>
         <Row>
-          <Col><Video /></Col>
+          <Col><PostContainer /></Col>
         </Row>
         <br/>
+        <Row>
+          <Col><CommentsList /></Col>
+        </Row>
+        <Row>
+          <Col><Timer /></Col>
+        </Row>
         <Row>
           <Col><Footer /></Col>
         </Row>

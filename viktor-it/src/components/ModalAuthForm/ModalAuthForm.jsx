@@ -1,18 +1,16 @@
 import './ModalAuthForm.css';
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input } from 'reactstrap';
 
-class ModalAuthForm extends Component {
+class ModalAuthForm extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
       modal: false
     };
-
-    this.toggle = this.toggle.bind(this);
   }
 
-  toggle() {
+  toggle = ()=>{
     this.setState({
       modal: !this.state.modal
     });

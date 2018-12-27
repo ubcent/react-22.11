@@ -1,8 +1,6 @@
 import './Menu.css';
-import React, {Component} from 'react';
-
+import React, {PureComponent} from 'react';
 import ModalAuthForm from 'components/ModalAuthForm';
-
 import {
   Collapse,
   Navbar,
@@ -13,18 +11,16 @@ import {
   NavLink,
   } from 'reactstrap';
 
-export default class Menu extends Component {
+export default class Menu extends PureComponent {
 
   constructor(props) {
     super(props);
-
-    this.toggle = this.toggle.bind(this);
     this.state = {
       isOpen: false
     };
   };
 
-  toggle() {
+  toggle = ()=> {
     this.setState({
       isOpen: !this.state.isOpen
     });
@@ -32,7 +28,7 @@ export default class Menu extends Component {
 
   render(){
     return(
-      <div class="navBarMenu">
+      <div className="navBarMenu">
         <Navbar color="light" light expand="md">
           <NavbarBrand href="/">Главная</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
