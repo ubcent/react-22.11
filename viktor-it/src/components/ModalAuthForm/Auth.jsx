@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 
 import { Button, Form, FormGroup, Label, Input, } from 'reactstrap';
 
-export default class AuthForm extends Component {
+export default class AuthForm extends PureComponent {
   render() {
     return (
       <Form inline>

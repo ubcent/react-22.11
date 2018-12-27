@@ -1,19 +1,18 @@
 import './FormInput.css';
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import { Form, Input, Button } from 'reactstrap';
 
-export default class FormInput extends Component {
+export default class FormInput extends PureComponent {
   static defaultProps = {}
 
   constructor(props){
     super(props);
-    this.handleGetUserInput = this.handleGetUserInput.bind(this);
     this.state = {
       gender:'normalWomen',
     };
   }
 
-  handleGetUserInput(event){
+  handleGetUserInput = (event)=>{
     event.preventDefault();
     const { onInfo } = this.props;
     onInfo(this.state);
@@ -29,7 +28,7 @@ export default class FormInput extends Component {
   render() {
     const {gender} = this.state;
     return (
-      <div class = "divForm">
+      <div className = "divForm">
       <Form id = "formInput">
       <p>Введите ваши параметры</p>
         <Input type = "text" placeholder="Ваш возраст" bsSize="sm" />
