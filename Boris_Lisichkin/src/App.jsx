@@ -20,14 +20,14 @@ export default class App extends PureComponent {
             <Router>
                 <div>
                     <Header />
-                    <Sidebar pageWrapId={"page-wrap"} />
+                    <Sidebar pageWrapId="page-wrap" />
                     <main id="content" className="p-5">
                         <Switch>
-                            <Route path='/' exact component={HomeContainer} />
-                            <Route path='/home' component={HomeContainer} />
-                            <Route path='/blog' component={BlogContainer} />
-                            <Route path='/comment' component={CommentsList} />
-                            <Route path='/user' component={UsersContainer} />
+                            <Route path="/" exact component={HomeContainer} />
+                            <Route path="/home" component={HomeContainer} />
+                            <Route path="/blog" component={BlogContainer} />
+                            <Route path="/comment" component={CommentsList} />
+                            <Route path="/user" component={UsersContainer} />
                         </Switch>
                     </main>
                     <SimpleSnackbar />
