@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
     Container,
     Row,
@@ -21,35 +21,30 @@ const links = [
     {title: 'Tutorials', href: '#'},
 ];
 
-export default class Main extends Component {
-    render() {
-        const { head, second, children } = this.props;
-
-        return(
-            <Container>
-                <Row>
-                    <Col xs="12" md="8">
-                        <h1 className="my-4">
-                            {head} {second && <small>{second}</small>}
-                        </h1>
-                        {children}
-                        <Paging />
-                    </Col>
-                    <Col xs="12" md="4">
-                        <Widget head="Search">
-                            <InputGroup>
-                                <Input placeholder="Search for..." />
-                                <InputGroupAddon addonType="append">
-                                    <Button>Go!</Button>
-                                </InputGroupAddon>
-                            </InputGroup>
-                        </Widget>
-                        <Widget head="Categories">
-                            <Linklist items={links} column="2" className="mb-0" />
-                        </Widget>
-                    </Col>
-                </Row>
-            </Container>
-        )
-    }
+export default function Main(props) {
+    return(
+        <Container>
+            <Row>
+                <Col xs="12" md="8">
+                    <h1 className="my-4">
+                        {props.head} {props.second && <small>{props.second}</small>}
+                    </h1>
+                    {props.children}
+                </Col>
+                <Col xs="12" md="4">
+                    <Widget head="Search">
+                        <InputGroup>
+                            <Input placeholder="Search for..." />
+                            <InputGroupAddon addonType="append">
+                                <Button>Go!</Button>
+                            </InputGroupAddon>
+                        </InputGroup>
+                    </Widget>
+                    <Widget head="Categories">
+                        <Linklist items={links} column="2" className="mb-0" />
+                    </Widget>
+                </Col>
+            </Row>
+        </Container>
+    )
 }

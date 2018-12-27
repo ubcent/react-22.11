@@ -1,8 +1,8 @@
 import './Welcomeblock.css';
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Jumbotron, Button } from 'reactstrap';
 
-export default class Welcomeblock extends Component {
+export default class Welcomeblock extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {

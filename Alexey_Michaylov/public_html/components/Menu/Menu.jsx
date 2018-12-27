@@ -1,13 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Nav, NavItem, NavLink } from 'reactstrap';
 
-export default class Menu extends Component {        
-    render() {
-        const { items } = this.props;
-        return(
-            <Nav className="mr-auto" navbar>
-                {items.map((item, idx) => <NavItem key={idx}><NavLink href={item.href}>{item.title}</NavLink></NavItem>)}
-            </Nav> 
-        )
-    }
+export default function Menu(props) {        
+    return(
+        <Nav className="mr-auto" navbar>
+            {props.items.map((item, idx) => <NavItem key={idx}><NavLink href={item.href} onClick={props.toggle}>{item.title}</NavLink></NavItem>)}
+        </Nav> 
+    )
 }

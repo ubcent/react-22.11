@@ -1,9 +1,9 @@
 import './Linklist.css';
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-export default class Linklist extends Component {            
+export default class Linklist extends PureComponent {            
     static propTypes = {
         items: PropTypes.array.isRequired,
         column: PropTypes.oneOf(['2','3']),

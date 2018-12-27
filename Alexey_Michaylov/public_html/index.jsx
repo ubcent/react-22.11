@@ -1,28 +1,58 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import ReactDom from 'react-dom';
 import Header from 'components/Header';
 import Main from 'components/Main';
-import Blogpost from 'components/Blogpost';
+import BlogpostList from 'containers/BlogpostListContainer';
 import Footer from 'components/Footer';
 import Welcomeblock from 'components/Welcomeblock';
+import postImage from './img/react.jpg';
+import CommentsList from 'containers/CommentsListContainer';
+import UsersList from 'containers/UsersListContainer';
 
-class App extends Component {
+class App extends PureComponent {
+    constructor(props) {
+        super(props);
+        this.state = {
+            pageName: '/',
+        };
+    }
+    
+    handleTogglePage = (e) => {
+        e.preventDefault();
+        const page = e.target.getAttribute('href');
+        this.setState({
+            pageName: page,
+        });
+    }
+    
     render() {
-        const postImage = require('./img/react.jpg');
+        const { pageName } = this.state;
         
         return (
             <div>
-                <Header />
-                <Main head="Page Heading" second="Secondary Text">
-                    <Blogpost head="Post Title" date="18.12.2018" author="Alex" img={postImage}>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!
-                    </Blogpost>
-                    <Blogpost head="Side Widget" date="10.12.2018" author="Start Bootstrap">
-                        You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
-                    </Blogpost>
-                </Main>
-                <Welcomeblock />
+                <Header onChangePage={this.handleTogglePage} />
+                    {pageName === '/' &&
+                        <Main head="Главная" second="home">
+                            <img src={postImage} alt="" className="img-fluid mb-4" />
+                            <Welcomeblock />
+                        </Main>
+                    }
+                    {pageName === '/blog' &&
+                        <Main head="Блог" second="blog">
+                            <BlogpostList />
+                        </Main>
+                    }
+                    {pageName === '/comments' &&
+                        <Main head="Коментарии">
+                            <CommentsList />
+                        </Main>
+                    }
+                    {pageName === '/users' &&
+                        <Main head="Пользователи">
+                            <UsersList />
+                        </Main>
+                    }
                 <Footer />
             </div>
         );
