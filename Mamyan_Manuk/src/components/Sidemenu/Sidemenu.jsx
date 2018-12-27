@@ -2,6 +2,9 @@ import './Sidemenu.css';
 
 import React, {Component} from 'react';
 import Content from "components/Content/Content";
+import Comments from 'containers/CommentsContainer'
+import Users from 'containers/UsersContainer'
+import Posts from 'containers/PostsContainer'
 
 export default class Sidemenu extends Component {
     render() {
@@ -50,7 +53,7 @@ export default class Sidemenu extends Component {
                         <a href="#">Meteor </a>
                     </div>
                 </div>
-                <Content />
+                <Posts />
             </div>
         )
     }

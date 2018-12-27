@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+.Comments {
+    font-family: 'Montserrat', sans-serif;
+    height: 200px;
+    margin-left: 50px;
+    margin-top: 50px;
+    width: 78%;
+}
+
+.Comments h1 {
+    margin-bottom: 30px;
+}
+
+
+.Comments button:hover {
+    background-color: blue;
+    color: white;
+}
