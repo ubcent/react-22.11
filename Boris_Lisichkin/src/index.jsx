@@ -1,23 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Footer from 'components/Footer';
-import Header from 'components/Header';
-import Main from 'components/Main';
-import React, { Component } from 'react';
+import 'react-router-dom/umd/react-router-dom.min.js';
+import React from 'react';
 import ReactDom from 'react-dom';
+import App from './App';
 
-class App extends Component {
-    render () {
-        return (
-            <div>
-                <Header />
-                <Main />
-                <Footer />
-            </div>
-        );
-    }
-}
-
-ReactDom.render (
+ReactDom.render(
     <App />,
     document.getElementById('root')
 )

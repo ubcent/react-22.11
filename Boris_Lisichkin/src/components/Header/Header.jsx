@@ -1,24 +1,33 @@
-import React, { Component } from 'react';
-import { Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
+import React, { PureComponent } from 'react';
+import { NavLink } from "react-router-dom";
+import { Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem } from 'reactstrap';
 import ModalWindow from '../Login';
 import './Header.css';
 
-export default class Header extends Component {
+
+export default class Header extends PureComponent {
     constructor(props) {
         super(props);
 
-        this.toggle = this.toggle.bind(this);
         this.state = {
             isOpen: false,
+            exact: false,
         };
     }
-    toggle() {
+
+    handleClick = (event) => {
+        this.setState({ exact: !this.state.exact });
+    }
+
+    toggle = () => {
         this.setState({
             isOpen: !this.state.isOpen
         });
     }
     render() {
+
         return (
+
             <header>
                 <Navbar className="container" dark expand="md">
                     <NavbarBrand href="/">MyCloud</NavbarBrand>
@@ -26,19 +35,16 @@ export default class Header extends Component {
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
                             <NavItem>
-                                <NavLink href="#">Home</NavLink>
+                                <NavLink exact to="/" onClick={this.handleClick} activeClassName="border-bottom border-danger">Home</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="#">News</NavLink>
+                                <NavLink to="/blog" onClick={this.handleClick} activeClassName="border-bottom border-danger">Blog</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="#">Blog</NavLink>
+                                <NavLink to="/comment" onClick={this.handleClick} activeClassName="border-bottom border-danger">Comments</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="#">Contacts</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink href="#">About</NavLink>
+                                <NavLink to="/user" onClick={this.handleClick} activeClassName="border-bottom border-danger">Users</NavLink>
                             </NavItem>
                             <ModalWindow nav inNavbar />
                         </Nav>
