@@ -34,7 +34,7 @@ export default class TopBlogersContainer extends PureComponent {
     const { blogers, loading} = this.state;
     return (
       <Fragment>
-        {blogers.length === 0 ? 'Loading' : <TopBlogers onLoadMore={this.fetchData} blogers={blogers} loading={loading} />  }
+        {blogers.length === 0 ? 'Loading' : <TopBlogers onLoadMore={this.fetchData} blogers={blogers} loading={loading}/>}
       </Fragment>
     )
   }
