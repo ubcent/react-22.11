@@ -15,6 +15,7 @@ module.exports = {
       components: path.resolve(__dirname, 'src', 'components'), // необходимо
       // чтобы могли из любой папки системы иметь доступ к папке components,
       // без длинного пути
+      containers: path.resolve(__dirname, 'src', 'containers'),
       img: path.resolve(__dirname, 'src', 'img'),
     },
     extensions: ['.js', '.jsx'], // расширения которые будет проверять система

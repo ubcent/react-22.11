@@ -1,11 +1,11 @@
 import './Footer.css';
 
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import SocialMediaButtons from 'components/SocialMediaButtons';
 import { faFacebookF, faTwitter, faGithub } from
   '@fortawesome/free-brands-svg-icons';
 
-export default class Footer extends Component {
+export default class Footer extends PureComponent {
   static defaultProps = {}
 
   render() {
@@ -28,7 +28,7 @@ export default class Footer extends Component {
       <footer className="Footer">
         <SocialMediaButtons icons={socialIcons} />
         <p className="footer-copyright">Copyright © Your Website 2018</p>
-      </footer >
+      </footer>
     );
   }
 }

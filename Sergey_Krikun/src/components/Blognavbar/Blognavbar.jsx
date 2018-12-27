@@ -1,6 +1,6 @@
 import './Blognavbar.css';
 
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import NavMenu from 'components/NavMenu';
 import PropTypes from 'prop-types';
 
@@ -11,7 +11,7 @@ import {
   NavbarBrand,
 } from 'reactstrap';
 
-export default class Blognavbar extends Component {
+export default class Blognavbar extends PureComponent {
   static propTypes = {
     logoString: PropTypes.string,
     logoHref: PropTypes.string,
@@ -20,32 +20,39 @@ export default class Blognavbar extends Component {
   constructor(props) {
     super(props);
 
-    this.toggle = this.toggle.bind(this);
+
     this.state = {
       isOpen: false,
       class: 'Blognavbar',
+      prevPos: null,
     };
   }
-  toggle() {
+  toggle = () => {
     this.setState({
       isOpen: !this.state.isOpen,
     });
   }
 
+  scrollFunction = () => {
+    const currentPos = window.pageYOffset;
+    if (this.state.prevPos > currentPos) {
+      this.setState({ class: 'Blognavbar show-nav' });
+    } else {
+      this.setState({ class: 'Blognavbar hide-nav' });
+    };
+    if (currentPos <= 1) {
+      this.setState({ class: 'Blognavbar' });
+    };
+    this.state.prevPos = currentPos;
+  }
+
   componentDidMount() {
-    let prevPos = window.pageYOffset;
-    window.addEventListener('scroll', () => {
-      const currentPos = window.pageYOffset;
-      if (prevPos > currentPos) {
-        this.setState({ class: 'Blognavbar show-nav' });
-      } else {
-        this.setState({ class: 'Blognavbar hide-nav' });
-      };
-      if (currentPos <= 1) {
-        this.setState({ class: 'Blognavbar' });
-      };
-      prevPos = currentPos;
-    });
+    this.state.prevPos = window.pageYOffset;
+    window.addEventListener('scroll', this.scrollFunction);
+  };
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.scrollFunction);
   };
 
   render() {
@@ -54,13 +61,13 @@ export default class Blognavbar extends Component {
         key: '1', title: 'HOME', href: '#',
       },
       {
-        key: '2', title: 'ABOUT', href: '#',
+        key: '2', title: 'List of Posts', href: '#',
       },
       {
-        key: '3', title: 'SAMPLE POST', href: '#',
+        key: '3', title: 'One Atticle with comments', href: '#',
       },
       {
-        key: '4', title: 'CONTACT', href: '#',
+        key: '4', title: 'Author', href: '#',
       },
     ];
 
