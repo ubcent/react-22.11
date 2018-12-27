@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Card, Button, CardHeader, CardBody, Input, InputGroup, InputGroupAddon,} from 'reactstrap';
+import {Card, Button, CardHeader, CardBody,} from 'reactstrap';
 
 export default class Search extends Component {
     render() {

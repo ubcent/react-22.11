@@ -1,14 +1,12 @@
-import React, {Component} from 'react';
-import {Container,} from 'reactstrap';
+import React from 'react';
+import {Container} from 'reactstrap';
 
-export default class Footer extends Component {
-    render() {
-        return (
-            <div className="py-5 bg-dark">
-                <Container>
-                    <p className="m-0 text-center text-white">Copyright © Your Website 2018</p>
-                </Container>
-            </div>
-        )
-    }
+export default function Footer() {
+    return (
+        <footer className="py-5 mt-4 bg-dark">
+            <Container>
+                <p className="m-0 text-center text-white">Copyright © Your Website 2018</p>
+            </Container>
+        </footer>
+    )
 }
