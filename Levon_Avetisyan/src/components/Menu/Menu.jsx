@@ -16,7 +16,7 @@ export default class Menu extends Component {
         return (
             <div className="menu">
                 <Navbar color="light" light expand="md">
-                    <NavbarBrand href="/">Blog by Avetisyn</NavbarBrand>
+                    <NavbarBrand href="/">Blog by Avetisyan</NavbarBrand>
                     <Nav className="ml-auto" navbar>
                         <NavItem>
                             <NavLink href="/">Main</NavLink>
