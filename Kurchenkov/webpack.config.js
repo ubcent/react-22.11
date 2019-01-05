@@ -15,6 +15,16 @@ module.exports = {
         //имя файла, в который все будет сохраняться
         filename: 'bundle.js',
     },
+    //специальное свойство
+    resolve:{
+        // свойство, помогает с путями для импорта (делает имена путей короче)
+        alias:{
+            components: path.resolve(__dirname, 'src', 'components'),
+        },
+        // сойство, указывающее те расширения, которые нас интересуют
+        extensions: ['.js', '.jsx'],
+    },
+
     //webpack должен понимать последний синтаксис js, используем расширение loader с транспилятором babel
     //npm i -D babel-core babel-loader@7 babel-preset-env babel-preset-stage-0
     //сообщаем babel о существовании пресетов через файл .babelrc
