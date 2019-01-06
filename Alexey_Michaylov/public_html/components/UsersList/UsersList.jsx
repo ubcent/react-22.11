@@ -20,9 +20,8 @@ export default class UsersList extends PureComponent {
     }
 
     handleSelectUser = (e) => {
-        const target = e.target.dataset.id;
         this.setState({
-            user: target,
+            user: e.target.dataset.id,
         });
     }
 
@@ -39,8 +38,8 @@ export default class UsersList extends PureComponent {
                 </Col>
                 <Col xs="6" md="8">
                     <Card inverse color="dark">
-                        <CardHeader>{user === null ? 'Select user' : users[user].username}</CardHeader>
-                        {user != null &&
+                        <CardHeader>{!user ? 'Select user' : users[user].username}</CardHeader>
+                        {user &&
                             <CardBody>
                                 <CardTitle>{users[user].name}</CardTitle>
                                 <CardText>

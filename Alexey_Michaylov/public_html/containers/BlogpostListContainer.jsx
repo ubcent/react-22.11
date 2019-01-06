@@ -20,10 +20,10 @@ export default class BlogpostListContainer extends PureComponent {
   
     fetchData = (e) => {
         const { page, countPage } = this.state;
-        const addition = e ? e.target.name === 'prev' ? -1 : 1 : 1;
+        const addition = e && e.target.name === 'prev' ? -1 : 1;
         const currentPage = page + addition;
-        currentPage > 1 ? this.setState({ prev: false }) : this.setState({ prev: true });
-        currentPage < countPage ? this.setState({ next: false }) : this.setState({ next: true });
+        this.setState({ prev: currentPage <= 1 });
+        this.setState({ next: currentPage >= countPage});
         fetch(`https://jsonplaceholder.typicode.com/posts?_limit=3&_page=${currentPage}`)
             .then((response) => response.json())
             .then((_posts) => {
