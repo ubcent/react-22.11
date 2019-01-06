@@ -15,28 +15,38 @@ import Container from 'reactstrap/lib/Container';
 import { NavLink as RRNavLink, withRouter } from 'react-router-dom';
 
 const navMenu = [
-    { title: 'Home', href: '/', active: true },
-    { title: 'Posts', href: '/posts', active: false },
-    { title: 'Comments', href: '/comments', active: false },
-    { title: 'Users', href: '/users', active: false },
+    { title: 'Home', href: '/' },
+    { title: 'Posts', href: '/posts' },
+    { title: 'Comments', href: '/comments' },
+    { title: 'Users', href: '/users' },
 
 ];
 
-class Header extends PureComponent {
-    render() {
-        console.log(this.props);
 
+
+class Header extends PureComponent {
+    getActive = (href) => {
+        const { location } = this.props;
+
+        const substr = location.pathname.substr(0, href.length());
+        if (href.length === 1 && location.pathname.length !== 1) {
+            return '';
+        }
+
+        return substr === href;
+    };
+
+    render() {
         return (
             <div className="Header">
                 <Navbar color="dark" dark expand="md">
                     <Container>
-                        <NavbarBrand href="/">Start Bootstrap</NavbarBrand>
+                        <NavbarBrand tag={RRNavLink} to="/">Start Bootstrap</NavbarBrand>
                         <NavbarToggler/>
                         <Collapse navbar>
                             <Nav className="ml-auto" navbar>
                                 {navMenu.map((value, idx) => {
                                     return <NavItem><NavLink key={idx}
-                                                             active={value.active}
                                                              tag={RRNavLink}
                                                              to={value.href}>{value.title}</NavLink>
                                     </NavItem>
@@ -48,6 +58,6 @@ class Header extends PureComponent {
             </div>
         );
     }
-};
+}
 
 export default withRouter(Header);

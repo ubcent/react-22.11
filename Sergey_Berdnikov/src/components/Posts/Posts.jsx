@@ -19,7 +19,7 @@ export default class Blog extends PureComponent
                         <CardBody>
                             <CardTitle>{elem.title}</CardTitle>
                             <CardText>{elem.body}</CardText>
-                            <Link to={`/post/${elem.id}`} color="primary">Read</Link>
+                            <Link to={`/posts/${elem.id}`} color="primary">Read</Link>
                         </CardBody>
                         <CardFooter>
                             by

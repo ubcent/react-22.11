@@ -1,6 +1,7 @@
 import Layout from 'components/Layout';
-import Blog from 'containers/PostsContainer';
+import Post from 'containers/PostsContainer';
 import PostsContainer from 'containers/PostContainer';
+import NotFound from 'components/NotFound';
 
 export default [
     {
@@ -11,12 +12,15 @@ export default [
     {
         path: '/posts',
         exact: true,
-        component: Blog,
+        component: Post,
     },
     {
-        path: '/post/:id',
+        path: '/posts/:id',
         exact: true,
         component: PostsContainer,
     },
+    {
+        component: NotFound,
+    }
 
 ]
