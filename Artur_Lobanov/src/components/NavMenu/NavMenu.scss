@@ -1,0 +1,14 @@
+.NavMenu > a{
+    color: white;
+    text-decoration: none;
+}
+
+.nav_item{
+    margin-left: 20px;
+    transition: 0.5s;
+}
+
+.nav_item:hover{
+    color: lightgrey;
+    
+}
