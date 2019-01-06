@@ -15,8 +15,10 @@ export default class PostFormComments extends PureComponent {
             <div className="PostFormComments">
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
                     {comments.map((comment) => <CardContent key={comment.id}>
-                            <Typography paragraph>{comment.name}</Typography>
-                            <Typography paragraph>
+                            <Typography variant="subtitle2">
+                                {comment.name}
+                            </Typography>
+                            <Typography>
                                 {comment.body}
                             </Typography>
                         </CardContent>
