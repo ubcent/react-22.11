@@ -1,8 +1,8 @@
 import React, { PureComponent, Fragment } from 'react';
 
-import Blog from 'components/Blog';
+import Posts from 'components/Posts';
 
-export default class BlogContainer extends PureComponent
+export default class PostsContainer extends PureComponent
 {
     constructor(props) {
         super(props);
@@ -43,7 +43,7 @@ export default class BlogContainer extends PureComponent
             <Fragment>
                 {text.length === 0
                     ? 'Loading blog...'
-                    : <Blog onLoadMore={this.fetchData} blogs={text} loading={loading}/>
+                    : <Posts onLoadMore={this.fetchData} blogs={text} loading={loading}/>
                 }
             </Fragment>
         );

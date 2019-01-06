@@ -3,10 +3,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    'extends': [
-        'google',
-        'plugin:react/recommended'
-    ],
     entry: {main: path.resolve(__dirname, 'src', 'index.jsx')},
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -43,6 +39,9 @@ module.exports = {
                 })
             }
         ]
+    },
+    devServer: {
+        historyApiFallback: true,
     },
     plugins: [
       new ExtractTextPlugin({filename: 'style.css'}),

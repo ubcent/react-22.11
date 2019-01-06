@@ -1,9 +1,10 @@
-import './Blog.css';
+import './Posts.css';
 
 //React импортируем в каждом файле
 import React, { PureComponent } from 'react';
 
 import { Button, Card, CardBody, CardFooter, CardLink, CardText, CardTitle } from "reactstrap";
+import { Link } from 'react-router-dom';
 
 export default class Blog extends PureComponent
 {
@@ -13,12 +14,12 @@ export default class Blog extends PureComponent
 
         return (
             <div className="Blog">
-                {blogs.map((elem, idx) => {
-                    return <Card key={idx}>
+                {blogs.map((elem) => {
+                    return <Card key={elem.id}>
                         <CardBody>
                             <CardTitle>{elem.title}</CardTitle>
                             <CardText>{elem.body}</CardText>
-                            <Button color="primary">Read</Button>
+                            <Link to={`/post/${elem.id}`} color="primary">Read</Link>
                         </CardBody>
                         <CardFooter>
                             by

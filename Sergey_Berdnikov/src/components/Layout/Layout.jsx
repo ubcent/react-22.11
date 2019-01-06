@@ -7,12 +7,11 @@ import Col from 'reactstrap/lib/Col';
 import Container from 'reactstrap/lib/Container';
 
 //Подключаем свои компоненты
-import Header from 'components/Header';
 import Footer from 'components/Footer';
 import Search from 'components/Search';
 import UsersContainer from 'containers/UsersContainer';
 import SideWidget from 'components/SideWidget';
-import BlogContainer from 'containers/BlogContainer';
+import PostsContainer from 'containers/PostsContainer';
 import CommentsListContainer from 'containers/CommentsListContainer';
 
 
@@ -21,14 +20,12 @@ export default class Layout extends PureComponent
     render() {
         return (
             <div>
-                <header>
-                    <Header/>
-                </header>
+
                 <main>
                     <Container>
                         <Row>
                             <Col xs="8" sm="8">
-                                <BlogContainer/>
+                                <PostsContainer/>
                             </Col>
                             <Col xs="4" sm="4">
                                 <Search/>
@@ -40,7 +37,6 @@ export default class Layout extends PureComponent
                     </Container>
                 </main>
                 <footer>
-                    <Footer/>
 
                 </footer>
             </div>
