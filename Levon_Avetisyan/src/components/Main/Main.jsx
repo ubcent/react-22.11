@@ -12,7 +12,7 @@ export default class Main extends PureComponent {
         return (
             <div className="Main">
                 {posts.map((post) => <PostForm key={post.id} user={users.find((user) => user.id === post.userId)}
-                                               title={post.title} body={post.body}/>)}
+                                               title={post.title} body={post.body} postId={post.id}/>)}
                 <ButtonLoadMore onLoadMore={onLoadMore} loading={loading}/>
             </div>
         )

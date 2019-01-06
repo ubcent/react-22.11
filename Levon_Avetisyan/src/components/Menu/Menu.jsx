@@ -29,7 +29,6 @@ class Menu extends PureComponent {
 
     render() {
         const {classes} = this.props;
-        console.log(classes);
         return (
             <div className="Menu">
                 <div className={classes.root}>
