@@ -26,6 +26,9 @@ const styles = theme => ({
 });
 
 class PostFormAction extends PureComponent {
+    static propTypes = {
+        classes: PropTypes.object.isRequired,
+    };
 
     render() {
         const { classes, expanded, onHandleClick  } = this.props;

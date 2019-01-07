@@ -29,6 +29,9 @@ const styles = theme => ({
 });
 
 class PostForm extends PureComponent {
+    static propTypes = {
+        classes: PropTypes.object.isRequired,
+    };
 
     render() {
         const {classes, user, title, body, postId} = this.props;

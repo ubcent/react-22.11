@@ -1,7 +1,6 @@
 import './PostFormComments.css'
 import React, {PureComponent} from 'react';
 
-import PropTypes from 'prop-types';
 import CardContent from '@material-ui/core/CardContent';
 import Collapse from '@material-ui/core/Collapse';
 import Typography from '@material-ui/core/Typography';

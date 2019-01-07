@@ -1,5 +1,7 @@
 import './Menu.css'
 import React, {PureComponent} from 'react';
+import {Link} from 'react-router-dom';
+
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -37,10 +39,10 @@ class Menu extends PureComponent {
                             <Typography variant="h6" color="inherit" className={classes.grow}>
                                 Blog by Avetisyan
                             </Typography>
-                            <Button color="inherit">Main</Button>
-                            <Button color="inherit">Blogs</Button>
-                            <Button color="inherit">Comments</Button>
-                            <Button color="inherit">Users</Button>
+                            <Link className="link" to="/"><Button color="inherit"> Main</Button></Link>
+                            <Link className="link" to="/blogs"><Button color="inherit">Blogs</Button></Link>
+                            <Link className="link" to="/comments"><Button color="inherit">Comments</Button></Link>
+                            <Link className="link" to="/users"><Button color="inherit">Users</Button></Link>
                             <Button color="inherit">Login</Button>
                         </Toolbar>
                     </AppBar>
