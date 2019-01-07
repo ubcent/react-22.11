@@ -1,8 +1,6 @@
 .Blog {
   max-width: 800px;
   margin: auto;
-  overflow-y: auto;
-  height: 1325px;
 }
 
 .Blog button {

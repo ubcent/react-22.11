@@ -1,37 +1,37 @@
 import React, { PureComponent, Fragment } from 'react';
 
-import Post from 'components/Post';
+import Comment from 'components/Comment';
 
-export default class PostsContainer extends PureComponent {
+export default class CommentContainer extends PureComponent {
     constructor(props) {
         super(props);
 
         this.state = {
             loading: false,
-            text: [],
+            comment: [],
         }
     }
 
     componentDidMount() {
         const { match } = this.props;
         this.setState({ loading: true });
-        fetch(`http://jsonplaceholder.typicode.com/posts/${match.params.id}`)
+        fetch(`http://jsonplaceholder.typicode.com/comments/${match.params.id}`)
             .then((response) => response.json())
-            .then((_text) =>
+            .then((_comment) =>
                 this.setState((prevState) => ({
                     ...prevState,
                     loading: false,
-                    text: _text,
+                    comments: _comment,
                 }))
             );
     }
 
     render() {
-        const { text, loading } = this.state;
+        const { comment, loading } = this.state;
+        console.log(comment);
         return (
             <Fragment>
-                {loading ? 'Loading post...' : <Post {...text}/>
-                }
+                {loading ? 'Loading comment...' : <Comment {...comment}/>}
             </Fragment>
         );
     }
