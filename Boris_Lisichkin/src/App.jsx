@@ -3,11 +3,9 @@ import Footer from 'components/Footer';
 import Header from 'components/Header';
 import Sidebar from 'components/Sidebar';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import HomeContainer from 'containers/HomeContainer';
-import BlogContainer from 'containers/BlogContainer';
-import CommentsList from 'containers/CommentsListContainer';
-import UsersContainer from 'containers/UsersContainer';
 import SimpleSnackbar from 'components/Snackbar';
+
+import routes from './routes';
 
 
 export default class App extends PureComponent {
@@ -23,11 +21,7 @@ export default class App extends PureComponent {
                     <Sidebar pageWrapId="page-wrap" />
                     <main id="content" className="p-5">
                         <Switch>
-                            <Route path="/" exact component={HomeContainer} />
-                            <Route path="/home" component={HomeContainer} />
-                            <Route path="/blog" component={BlogContainer} />
-                            <Route path="/comment" component={CommentsList} />
-                            <Route path="/user" component={UsersContainer} />
+                            {routes.map((route, idx) => <Route key={idx} {...route} />)}
                         </Switch>
                     </main>
                     <SimpleSnackbar />
