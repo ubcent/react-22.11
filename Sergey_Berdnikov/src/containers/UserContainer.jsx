@@ -1,37 +1,38 @@
 import React, { PureComponent, Fragment } from 'react';
 
-import Comment from 'components/Comment';
+import User from 'components/User';
 
-export default class CommentContainer extends PureComponent {
+export default class UserContainer extends PureComponent {
     constructor(props) {
         super(props);
 
         this.state = {
             loading: false,
-            comment: [],
+            user: [],
         }
     }
 
     componentDidMount() {
         const { match } = this.props;
-        this.setState({ loading: true });
-        fetch(`http://jsonplaceholder.typicode.com/comments/${match.params.id}`)
+        fetch(`http://jsonplaceholder.typicode.com/users/${match.params.id}`)
             .then((response) => response.json())
-            .then((_comment) =>
+            .then((_user) =>
                 this.setState((prevState) => ({
                     ...prevState,
+                    user: _user,
                     loading: false,
-                    comment: _comment,
                 }))
-            );
+            )
     }
 
     render() {
-        const { comment, loading } = this.state;
+        const { loading, user } = this.state;
         return (
             <Fragment>
-                {loading ? 'Loading comment...' : <Comment {...comment}/>}
+                {loading ? 'Loading ...' : <User {...user}/>}
             </Fragment>
         );
     }
 }
+
+    

@@ -13,15 +13,17 @@ function CommentsList(props) {
     return (
         <div className="CommentsList">
             <CardHeader>Comments</CardHeader>
-            {comments.map((comment) => <Card body className="text-right">
+            {comments.map((comment) => <Card key={comment.id} body className="text-right">
                     <CardTitle>{comment.name}</CardTitle>
-                    <CardText>{comment.body}</CardText>
-                <Button tag={RRNavLink} to={`/comments/${comment.id}`}>Go to User</Button>
+                <CardText>{comment.body.substr(0, 80)}...</CardText>
+                <Button tag={RRNavLink} to={`/comments/${comment.id}`}>Info</Button>
                 </Card>
             )}
-            <Button onClick={onLoadMore} disabled={loading}>Load more</Button>
+            {match.path === '/'
+                ? ''
+                : <Button onClick={onLoadMore} disabled={loading}>Load more</Button>}
         </div>
     );
-};
+}
 
 export default withRouter(CommentsList);

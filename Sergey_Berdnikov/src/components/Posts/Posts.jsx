@@ -4,13 +4,13 @@ import './Posts.css';
 import React, { PureComponent } from 'react';
 
 import { Button, Card, CardBody, CardFooter, CardLink, CardText, CardTitle } from "reactstrap";
-import { NavLink as RRNavLink } from 'react-router-dom';
+import { NavLink as RRNavLink, withRouter } from 'react-router-dom';
 
-export default class Blog extends PureComponent
+class Blog extends PureComponent
 {
 
     render() {
-        const { blogs, loading, onLoadMore } = this.props;
+        const { blogs, loading, onLoadMore, match } = this.props;
 
         return (
             <div className="Blog">
@@ -18,20 +18,23 @@ export default class Blog extends PureComponent
                     return <Card key={elem.id}>
                         <CardBody>
                             <CardTitle>{elem.title}</CardTitle>
-                            <CardText>{elem.body}</CardText>
+                            <CardText>{elem.body.substr(0, 90)}...</CardText>
                             <Button tag={RRNavLink} to={`/posts/${elem.id}`} color="primary">
                                 Read
                             </Button>
                         </CardBody>
                         <CardFooter>
                             by
-                            <CardLink> UserId = {elem.userId}</CardLink>
+                            <CardLink tag={RRNavLink} to={`/users/${elem.userId}`}> Author id {elem.userId}</CardLink>
                         </CardFooter>
                     </Card>
                 })}
-                <Button color="primary" onClick={onLoadMore} disabled={loading}>Load more</Button>
+                {match.path === '/'
+                    ? ''
+                    : <Button color="primary" onClick={onLoadMore} disabled={loading}>Load more</Button>}
             </div>
         );
     }
-};
-    
+}
+
+export default withRouter(Blog);

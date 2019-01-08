@@ -25,7 +25,7 @@ import React from 'react';
 export default function ${componentName}(props) {
     return (
         <div className="${componentName}">
-            Copyright © Your Website 2018
+            
         </div>
     );
 };

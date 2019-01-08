@@ -7,7 +7,6 @@ import Col from 'reactstrap/lib/Col';
 import Container from 'reactstrap/lib/Container';
 
 //Подключаем свои компоненты
-import Footer from 'components/Footer';
 import Search from 'components/Search';
 import UsersContainer from 'containers/UsersContainer';
 import SideWidget from 'components/SideWidget';
@@ -42,4 +41,5 @@ export default class Layout extends PureComponent
             </div>
         );
     }
-};
+}
+

@@ -46,7 +46,7 @@ class Header extends PureComponent {
                         <Collapse navbar>
                             <Nav className="ml-auto" navbar>
                                 {navMenu.map((value, idx) => {
-                                    return <NavItem><NavLink key={idx}
+                                    return <NavItem key={idx}><NavLink
                                                              tag={RRNavLink}
                                                              to={value.href}>{value.title}</NavLink>
                                     </NavItem>

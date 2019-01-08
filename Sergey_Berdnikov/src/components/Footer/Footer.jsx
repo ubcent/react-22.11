@@ -9,9 +9,10 @@ export default function Footer() {
     return (
         <div className="Footer">
             <Navbar color="dark" dark expand="md" fixed="bottom">
-                <text className="tac">Copyright © Your Website 2019</text>
+                <strong className="tac">Copyright © Your Website 2019</strong>
             </Navbar>
         </div>
     );
-};
+}
+
     

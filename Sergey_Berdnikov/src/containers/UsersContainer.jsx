@@ -11,7 +11,7 @@ export default class UsersContainer extends PureComponent
             loading: false,
             page: 1,
             text: [],
-            limit: 1,
+            limit: 10,
         }
     }
 

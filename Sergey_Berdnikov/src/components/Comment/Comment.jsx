@@ -7,14 +7,15 @@ export default class Comment extends PureComponent {
 
     render() {
         const { name, email, body } = this.props;
-        console.log(this.props);
         return (
             <div className="Comment">
-                <h2>Name: {name}</h2>
-                <h3>E-Mail: {email}</h3>
-                <h4>Text: {body}</h4>
+                <h4>Name: </h4>
+                <p>{name}</p>
+                <h5>E-Mail:</h5>
+                <p>{email}</p>
+                <h6>Text:</h6>
+                <p>{body}</p>
             </div>
         );
     }
 };
-    
