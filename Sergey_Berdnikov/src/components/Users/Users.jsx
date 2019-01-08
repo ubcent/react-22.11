@@ -1,12 +1,11 @@
 import './Users.css';
 
 //React импортируем в каждом файле
-import React, { PureComponent } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default class Users extends PureComponent {
-    render() {
-        const { text } = this.props;
+export default function Users(props) {
+    const { text } = props;
 
         return (
             <div className="Users">
@@ -19,5 +18,4 @@ export default class Users extends PureComponent {
                 </ul>
             </div>
         );
-    }
 };

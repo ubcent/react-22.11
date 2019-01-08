@@ -1,7 +1,7 @@
 import './SignUp.css';
 
 //подключаем React
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 //Подключаем reactstrap по частям, там меньше расходуется памяти
 import Modal from "reactstrap/lib/Modal";
@@ -50,7 +50,7 @@ const loginForm = (
     </Form>
 );
 
-export default class SignUp extends Component
+export default class SignUp extends PureComponent
 {
     constructor(props) {
         super(props);
