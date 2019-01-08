@@ -28,7 +28,7 @@ export default class UsersContainer extends PureComponent {
                 }))
             });
     };
-    
+
     render() {
         const {rows} = this.state;
         return (
