@@ -10,29 +10,40 @@ export default class BlogpostListContainer extends PureComponent {
             prev: true,
             posts: [],
             page: 0,
-            countPage: 10,
+            countPage: 0,
+            limit: 3,
         }
     }
-    
+
     componentDidMount() {
         this.fetchData();
     }
-  
+
     fetchData = (e) => {
-        const { page, countPage } = this.state;
+        const { page, limit, countPage } = this.state;
+        const count = e ? countPage : this.getCountPade();
         const addition = e && e.target.name === 'prev' ? -1 : 1;
         const currentPage = page + addition;
         this.setState({ prev: currentPage <= 1 });
-        this.setState({ next: currentPage >= countPage});
-        fetch(`https://jsonplaceholder.typicode.com/posts?_limit=3&_page=${currentPage}`)
+        this.setState({ next: currentPage >= count });
+        fetch(`https://jsonplaceholder.typicode.com/posts?_limit=${limit}&_page=${currentPage}`)
             .then((response) => response.json())
             .then((_posts) => {
                 this.setState((prevState) => ({
                     ...prevState,
                     posts: _posts,
                     page: currentPage,
-            }))
-        });
+                }))
+            });
+    }
+
+    getCountPade = () => {
+        const { limit } = this.state;
+        fetch(`https://jsonplaceholder.typicode.com/posts`)
+            .then((response) => response.json())
+            .then((_posts) => {
+                this.setState({ countPage: Math.ceil(_posts.length / limit) })
+            });
     }
 
     render() {
