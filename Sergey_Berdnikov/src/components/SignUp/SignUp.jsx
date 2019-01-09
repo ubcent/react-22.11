@@ -58,10 +58,9 @@ export default class SignUp extends PureComponent
             modal: false
         };
 
-        this.toggle = this.toggle.bind(this);
     }
 
-    toggle() {
+    toggle = () => {
         this.setState({
             modal: !this.state.modal
         });
