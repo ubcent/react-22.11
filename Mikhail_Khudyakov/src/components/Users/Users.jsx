@@ -1,13 +1,13 @@
 import React from 'react';
 import {Button, Card, CardBody, CardHeader, CardText, CardTitle} from "reactstrap";
+import {Link} from "react-router-dom";
 
 export default function Users(props) {
     return (
         <div>
             <h1 className="my-4">Users Page <small>Secondary Text</small></h1>
-
-            {props.users.map((user, idx) =>
-                <Card className="mb-4" key={idx}>
+            {props.users.map((user) =>
+                <Card className="mb-4" key={user.id}>
                     <CardHeader>{user.name}
                         <small>{user.email}</small>
                     </CardHeader>
@@ -20,7 +20,7 @@ export default function Users(props) {
                                 <li>City: {user.address.city}</li>
                             </ul>
                         </CardText>
-                        <Button disabled>More</Button>
+                        <Button tag={Link} to={`/users/${user.id}`}>More</Button>
                     </CardBody>
                 </Card>
             )}
