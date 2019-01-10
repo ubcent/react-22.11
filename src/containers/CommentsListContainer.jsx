@@ -13,10 +13,10 @@ class CommentsListContainer extends PureComponent {
 
 
   render() {
-    const { comments, loading } = this.props;
+    const { comments, loading, load } = this.props;
     return (
       <Fragment>
-        {comments.length === 0 ? 'Loading...' : <CommentsList onLoadMore={this.fetchData} comments={comments} loading={loading} />}
+        {comments.length === 0 ? 'Loading...' : <CommentsList onLoadMore={load} comments={comments} loading={loading} />}
       </Fragment>
     )
   }  
