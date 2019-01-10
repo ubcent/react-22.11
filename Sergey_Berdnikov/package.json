@@ -23,14 +23,14 @@
   },
   "homepage": "https://github.com/ubcent/react-22.11#readme",
   "dependencies": {
-    "bootstrap": "^4.1.3",
+    "bootstrap": "^4.2.1",
     "classname": "0.0.0",
-    "moment": "^2.22.2",
+    "moment": "^2.23.0",
     "npm": "^6.5.0",
-    "react": "^16.6.3",
+    "react": "^16.7.0",
     "react-bootstrap": "^0.32.4",
-    "react-calendar": "^2.17.5",
-    "react-dom": "^16.6.3",
+    "react-dom": "^16.7.0",
+    "react-router-dom": "^4.3.1",
     "reactstrap": "^6.5.0"
   },
   "devDependencies": {
@@ -40,6 +40,8 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "css-loader": "^1.0.1",
+    "eslint": "^5.11.1",
+    "eslint-plugin-react": "^7.12.2",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "fs": "0.0.1-security",
     "html-webpack-plugin": "^3.2.0",
@@ -47,8 +49,8 @@
     "path": "^0.12.7",
     "prop-types": "^15.6.2",
     "style-loader": "^0.23.1",
-    "webpack": "^4.27.1",
-    "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.10"
+    "webpack": "^4.28.3",
+    "webpack-cli": "^3.2.0",
+    "webpack-dev-server": "^3.1.14"
   }
 }

@@ -7,6 +7,9 @@
 ##### How make new components?  
 ```npm rum dev:c Footer```  
 Where `Footer` name of new component  
+```npm rum dev:ss Header```  
+   Where `Header` name of new stateless component  ```npm rum dev:con Component```  
+   Where `Component` name of new container  
 ***
 ##### Start developer mode and browser sync  
 ```npm run dev```  
