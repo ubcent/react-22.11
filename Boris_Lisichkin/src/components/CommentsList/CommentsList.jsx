@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Button, Container, Media } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 export default class CommentsList extends PureComponent {
     render() {
@@ -10,11 +11,13 @@ export default class CommentsList extends PureComponent {
                 <Container>
                     <h1 className="my-4">Comments</h1>
 
-                    {comments.map((comment, idx) =>
-                        <Media key={idx} className="border rounded p-2 my-3">
+                    {comments.map((comment) =>
+                        <Media key={comment.id} className="border rounded p-2 my-3">
                             <Media body>
                                 <Media heading>
-                                    {comment.name}
+                                    <Link to={`/comment/${comment.id}`}>
+                                        {comment.name}
+                                    </Link>
                                 </Media>
                                 {comment.body}
                             </Media>
