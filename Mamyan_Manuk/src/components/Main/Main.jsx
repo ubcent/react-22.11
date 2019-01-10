@@ -1,4 +1,5 @@
-import './Sidemenu.css';
+import './Main.css';
+import {Switch, Route, Link} from 'react-router-dom';
 
 import React, {Component} from 'react';
 import Content from "components/Content/Content";
@@ -6,7 +7,7 @@ import Comments from 'containers/CommentsContainer'
 import Users from 'containers/UsersContainer'
 import Posts from 'containers/PostsContainer'
 
-export default class Sidemenu extends Component {
+export default class Main extends Component {
     render() {
         return (
             <div className="mycontainer">
@@ -53,7 +54,20 @@ export default class Sidemenu extends Component {
                         <a href="#">Meteor </a>
                     </div>
                 </div>
-                <Posts />
+                <div>
+                    <div className="pageNav">
+                        <Link to="/">Home</Link>{' '}
+                        <Link to="/posts">Posts</Link>{' '}
+                        <Link to="/comments">Comments</Link>{' '}
+                        <Link to="/users">Users</Link>
+                    </div>
+                    <Switch>
+                        <Route exact path="/" component={Content}/>
+                        <Route exact path="/posts" component={Posts}/>
+                        <Route exact path="/users" component={Users}/>
+                        <Route exact path="/comments" component={Comments}/>
+                    </Switch>
+                </div>
             </div>
         )
     }
