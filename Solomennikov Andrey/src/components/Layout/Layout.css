@@ -31,12 +31,13 @@ body {
 .left {
     width: 780px;
     padding: 10px;
-    float: left;
+    display: inline-block;
 }
 
 .right {
+    vertical-align: top;
     width: 200px;
-    float: right;
+    display: inline-block;
     padding-top: 20px;
 }
 
