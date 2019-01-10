@@ -1,20 +1,15 @@
 import React from 'react';
-import { Media, Button } from 'reactstrap';
+import { Button } from 'reactstrap';
+import Comment from 'components/Comment';
+import Main from 'components/Main';
 
 export default function CommentsList(props) {
     return (
-        <section>
-            {props.comments.map((comment, idx) =>
-                <Media key={idx} className="mb-4">
-                    <Media object src="http://placehold.it/50x50" alt="Generic placeholder image" className="mr-3 rounded-circle" />
-                    <Media body>
-                        <Media heading tag="h5" className="mt-0">{comment.name}</Media>{comment.body}
-                    </Media>
-                </Media>)
-            }
+        <Main head="Коментарии">
+            {props.comments.map((comment, idx) => <Comment key={idx} {...comment} />)}
             <p className="text-center mb-4">
                 <Button outline color="info" onClick={props.onLoadMore} disabled={props.loading}>LoadMore</Button>
             </p>
-        </section>
+        </Main>
     )
 }

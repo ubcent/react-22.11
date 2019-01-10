@@ -13,6 +13,7 @@ module.exports = {
         alias: {
             components: path.resolve(__dirname, 'public_html', 'components'),
             containers: path.resolve(__dirname, 'public_html', 'containers'),
+            img: path.resolve(__dirname, 'public_html', 'img'),
         },
         extensions: ['.js', '.jsx']
     },
@@ -45,6 +46,9 @@ module.exports = {
                 ]
             },
         ]
+    },
+    devServer: {
+        historyApiFallback: true,
     },
     plugins: [
         new ExtractTextPlugin({ filename: 'style.css' }),
