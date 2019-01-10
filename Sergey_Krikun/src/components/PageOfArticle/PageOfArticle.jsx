@@ -1,7 +1,8 @@
 import './PageOfArticle.css';
 
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Component } from 'react';
 import CommentsNew from 'components/CommentsNew';
+import { Link } from 'react-router-dom';
 
 export default class PageOfArticle extends PureComponent {
   static defaultProps = {}
@@ -42,16 +43,19 @@ export default class PageOfArticle extends PureComponent {
     });
     const foundComments = this.findComments(numberOfArticle);
 
+
+
+
     return (
       <div className="PageOfArticle">
-        <h2>Article 1 with comments</h2>
+        <h2>Article {foundArticle.id} with comments</h2>
         <div className="PageOfArticle-item">
           <h3 className="PageOfArticle_item_title">
             {foundArticle.title}
           </h3>
           <p className="PageOfArticle-author-string">
-            Posted by <a className="PageOfArticle-author__link"
-              href={`/user${this.findAuthor(foundArticle.userId).id}`}> {this.findAuthor(foundArticle.userId).name}</a></p>
+            Posted by <Link className="PageOfArticle-author__link"
+              to={`/authorPage/${this.findAuthor(foundArticle.userId).id}`}> {this.findAuthor(foundArticle.userId).name}</Link></p>
           <p className="PageOfArticle_item_sub-title">{foundArticle.body}</p>
         </div>
         <CommentsNew commentsList={foundComments}
