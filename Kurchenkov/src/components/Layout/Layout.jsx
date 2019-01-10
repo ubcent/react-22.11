@@ -1,12 +1,16 @@
 import './Layout.css';
-import React, { Component } from 'react';
-import { Container, Row, Col } from 'reactstrap';
-import Wrapper from '../Wrapper';
+import React from 'react';
+import Header from '../Header';
+import Content from '../Content';
+import Footer from '../Footer';
 
-export default class Layout extends Component {
-    render() {
-        return (
-            <Wrapper />
-        );
-    };
+// stateless
+export default function Layout(props) {
+    return (
+        <div>
+            <Header />
+            <Content />
+            <Footer />
+        </div>
+    );
 };

@@ -1,6 +1,10 @@
 .footer {
-    padding-left: 15px;
-    font-size: 24px;
-    background-color: lightblue;
-    height: 80px;
+    background-color: #121214be;
+    color: white;
+    padding: 40px 0;
+}
+
+.copyright{
+    display: flex;
+    justify-content: center;
 }
