@@ -1,35 +1,20 @@
 import React, { PureComponent, Fragment } from 'react';
+import { connect } from 'react-redux';
 
 import Comment from 'components/Comment';
+import { load as loadComments } from 'actions/comments';
 
-export default class CommentContainer extends PureComponent {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      loading: false,
-      comment: {},
-    }
-  }
-
+class CommentContainer extends PureComponent {
   componentDidMount() {
-    const { match } = this.props;
-    this.setState({ loading: true });
-    fetch(`https://jsonplaceholder.typicode.com/comments/${match.params.id}`)
-      .then((response) => response.json())
-      .then((_comment) => {
-        this.setState((prevState) => {
-          return {
-            ...prevState,
-            loading: false,
-            comment: _comment,
-          }
-        })
-      });
+    const { load, comment } = this.props;
+    
+    if(!comment) {
+      load();
+    }
   } 
 
   render() {
-    const { comment, loading } = this.state;
+    const { comment, loading } = this.props;
     return (
       <Fragment>
         {loading ? 'Loading...' : <Comment {...comment} />}
@@ -37,3 +22,21 @@ export default class CommentContainer extends PureComponent {
     )
   }  
 }
+
+function mapStateToProps(state, props) {
+  const { match } = props;
+  
+  const comment = state.comments.entities.find((comment) => comment.id === +match.params.id);
+  return {
+    comment,
+    loading: state.comments.loading,
+  }
+}
+
+function mapDispatchToProps(dispatch, props) {
+  return {
+    load: () => dispatch(loadComments()),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CommentContainer);
