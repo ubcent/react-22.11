@@ -1,3 +1,9 @@
 .ml-auto li {
   padding-top: 20px;
 }
+
+#mainHref {
+  padding-top: 20px;
+  font-size: 1.5em;
+  color: rgba(0,0,0,.7);
+}

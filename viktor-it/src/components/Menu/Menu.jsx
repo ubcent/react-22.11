@@ -10,47 +10,31 @@ import {
   NavItem,
   NavLink,
   } from 'reactstrap';
-
+  import {NavLink as NavLinkRRD} from 'react-router-dom';
+  
 export default class Menu extends PureComponent {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      isOpen: false
-    };
-  };
-
-  toggle = ()=> {
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
-  };
-
   render(){
     return(
       <div className="navBarMenu">
         <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">Главная</NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
+          <NavLink id = "mainHref" to="/" tag={NavLinkRRD}>Главная</NavLink>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/About">О нас</NavLink>
+                <NavLink to="/AboutPage" tag={NavLinkRRD}>О нас</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/News">Новостной блог</NavLink>
+                <NavLink to="/NewsPage" tag={NavLinkRRD}>Новостной блог</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/Video">Видео блог</NavLink>
+                <NavLink to="/VideoPage" tag={NavLinkRRD}>Видео блог</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/Contacts">Контакты</NavLink>
+                <NavLink to="/ContactsPage" tag={NavLinkRRD}>Контакты</NavLink>
               </NavItem>
               <NavItem>
                 <ModalAuthForm />
               </NavItem>
             </Nav>
-          </Collapse>
         </Navbar>
       </div>
     );

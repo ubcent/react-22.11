@@ -7,14 +7,14 @@ export default class AuthForm extends PureComponent {
     return (
       <Form inline>
         <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-          <Label for="exampleEmail" className="mr-sm-2">Email</Label>
+          <Label for="exampleEmail" className="mr-sm-2">Email-почта</Label>
           <Input type="email" name="email" id="exampleEmail" placeholder="something@idk.cool" />
         </FormGroup>
         <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-          <Label for="examplePassword" className="mr-sm-2">Password</Label>
+          <Label for="examplePassword" className="mr-sm-2">Пароль</Label>
           <Input type="password" name="password" id="examplePassword" placeholder="don't tell!" />
         </FormGroup>
-        <Button>Submit</Button>
+        <Button>Отправить</Button>
       </Form>
     );
   };

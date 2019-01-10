@@ -11,3 +11,12 @@
   color: white;
   font-size: 0.9em;
 }
+
+#exampleEmail {
+  margin-left: 28px;
+  width: 303px;
+}
+
+#examplePassword {
+  width: 303px;
+}
