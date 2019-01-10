@@ -8,8 +8,7 @@ import Menu from '../Menu';
 
 const items = [
   { title: 'Home', href: '/' },
-  { title: 'News', href: '/news' },
-  { title: 'Blog', href: '/blog' },
+  { title: 'Comments', href: '/comments' },
 ]
 
 export default class Header extends Component {

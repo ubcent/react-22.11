@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 
 import Header from 'components/Header';
 import Container from 'components/Container';
-import Counter from 'components/Counter';
-import CommentsList from 'containers/CommentsListContainer';
 import Footer from 'components/Footer';
-import Timer from 'components/Timer';
+
+import routes from './routes';
 
 class App extends Component {
   constructor(props) {
@@ -23,11 +23,13 @@ class App extends Component {
   }
 
   render() {
-    const { isShown } = this.state;
     return (
       <div>
+        <Header />
         <Container>
-          <CommentsList />
+          <Switch>
+            {routes.map((route, idx) => <Route key={idx} {...route} />)}
+          </Switch>
         </Container>
       </div>
     );
@@ -35,6 +37,6 @@ class App extends Component {
 }
 
 ReactDom.render(
-  <App />,
+  <BrowserRouter><App /></BrowserRouter>,
   document.getElementById('root'),
 )
