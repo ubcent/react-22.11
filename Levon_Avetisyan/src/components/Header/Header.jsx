@@ -1,14 +1,15 @@
-import './Header.css';
+import './Header.css'
+import React, {PureComponent} from 'react';
 
-import React, {Component} from 'react';
+import Menu from 'components/Menu';
 
-import Menu from '../Menu';
-
-export default class Header extends Component {
+export default class Header extends PureComponent {
+    static defaultProps = {}
+    
     render() {
         return (
-            <div className="header">
-                <Menu/>
+            <div className="Header">
+                <Menu />
             </div>
         )
     }
