@@ -1,0 +1,13 @@
+.Blog {
+  max-width: 800px;
+  margin: auto;
+  margin-bottom: 45px;
+}
+
+.Blog button {
+  margin-top: 10px;
+}
+
+.Blog .card {
+  margin-top: 10px;
+}

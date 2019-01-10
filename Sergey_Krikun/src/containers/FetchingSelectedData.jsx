@@ -1,11 +1,11 @@
-import React, { PureComponent, Fragment } from 'react';
+import React, { PureComponent, Component, Fragment } from 'react';
 import MainArticle from 'components/MainArticle';
 import CommentsNew from 'components/CommentsNew';
 import PageOfArticle from 'components/PageOfArticle';
 import UserService from 'containers/UserService';
 import UserPage from 'components/UserPage';
 
-export default class FetchingSelectedData extends PureComponent {
+export default class FetchingSelectedData extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -38,9 +38,7 @@ export default class FetchingSelectedData extends PureComponent {
         }
       })
       .then((_data) => {
-        console.log(_data);
         this.setState((prevState) => ({
-          ...prevState,
           loading: false,
           [`${name}`]: prevState[`${name}`].concat(_data),
         }));
@@ -52,12 +50,23 @@ export default class FetchingSelectedData extends PureComponent {
       })));
   }
 
-  componentDidMount() {
+  componetWillMount() {
+    this.setState((prevState) => ({
+      ...prevState,
+      posts: [],
+    }))
+  }
+
+  componentDidMount = () => {
     const { postsStringUrl, commentsStringUrl, usersStringUrl }
       = this.props;
 
+
+
     if (postsStringUrl) {
+
       this.fetchData(postsStringUrl, 'posts');
+
       this.addPage();
     }
     if (commentsStringUrl) {
@@ -68,6 +77,7 @@ export default class FetchingSelectedData extends PureComponent {
       this.fetchData(usersStringUrl, 'users');
     }
   }
+
 
   onLoadMore = (content) => {
     const { postsStringUrl, usersStringUrl, commentsStringUrl } = this.props;
@@ -96,10 +106,28 @@ export default class FetchingSelectedData extends PureComponent {
       }));
   }
 
+  getData() {
+    const { postsStringUrl, commentsStringUrl, usersStringUrl }
+      = this.props;
+
+    if (postsStringUrl) {
+      this.fetchData(postsStringUrl, 'posts');
+      this.addPage();
+    }
+    if (commentsStringUrl) {
+      this.fetchData(commentsStringUrl, 'comments');
+      this.addPage('Comments');
+    }
+    if (usersStringUrl) {
+      this.fetchData(usersStringUrl, 'users');
+    }
+  }
   render() {
     const { mainPage, commentsPage, pageOfArticle, articleNumber, getUsers,
       userPage, postsStringUrl } = this.props;
     const { comments, loading, users, posts, commentsTotalItems, error } = this.state;
+
+
 
 
     if (error) {

@@ -1,7 +1,9 @@
 .CommentsList {
   margin-top: 15px;
-  overflow-y: auto;
-  height: 800px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 45px;
 }
 
 .CommentsList .card {

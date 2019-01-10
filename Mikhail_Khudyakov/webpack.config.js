@@ -3,7 +3,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: { main: path.resolve(__dirname, 'src', 'index.jsx') },
+    entry: {main: path.resolve(__dirname, 'src', 'index.jsx')},
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
@@ -33,8 +33,11 @@ module.exports = {
             }
         ]
     },
+    devServer: {
+        historyApiFallback: true,
+    },
     plugins: [
-        new ExtractTextPlugin({ filename: 'style.css' }),
+        new ExtractTextPlugin({filename: 'style.css'}),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src', 'index.html'),
             filename: 'index.html',

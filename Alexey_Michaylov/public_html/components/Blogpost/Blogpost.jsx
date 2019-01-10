@@ -8,19 +8,21 @@ import {
     CardFooter, 
     Button,
 } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 export default function Blogpost(props) {
+    const { postId, head, date, author, img, children } = props;
     return (
         <Card className="mb-4">
-            <CardImg top src={props.img} alt={props.head} />
+            <CardImg top src={img} alt={head} />
             <CardBody>
-                <CardTitle tag="h2">{props.head}</CardTitle>
-                <CardText>{props.children}</CardText>
-                <Button tag="a" href="#" color="primary">Read More →</Button>
+                <CardTitle tag="h2">{head}</CardTitle>
+                <CardText>{children}</CardText>
+                <Button tag={Link} to={`/blog/${postId}`} color="primary">Read More →</Button>
             </CardBody>
             <CardFooter className="text-muted">
-                Posted on {props.date} by <a href="#">{props.author}</a>
+                Posted on {date} by <a href="#">{author}</a>
             </CardFooter>
         </Card>
     )
@@ -31,6 +33,7 @@ Blogpost.defaultProps = {
     img: 'http://placehold.it/750x300',
 };
 Blogpost.propTypes = {
+    postId: PropTypes.string.isRequired,
     head: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,

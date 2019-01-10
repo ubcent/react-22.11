@@ -1,10 +1,7 @@
-.header {
-    padding-top: 20px;
-    font-size: 24px;
-    height: 100px;
-    background-color: lemonchiffon;
+.header{
+    background-color: #121214be;
 }
 
-.login button{
-    font-size: 26px;
+.header .item{
+    color: white;
 }

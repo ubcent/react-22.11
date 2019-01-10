@@ -30,7 +30,7 @@ export default class FormInput extends PureComponent {
     return (
       <div className = "divForm">
       <Form id = "formInput">
-      <p>Введите ваши параметры</p>
+      <p>Введите параметры</p>
         <Input type = "text" placeholder="Ваш возраст" bsSize="sm" />
         <Input type = "text" placeholder="Ваш рост" bsSize="sm" />
         <Input  type = "text" placeholder="Ваш вес" bsSize="sm" />

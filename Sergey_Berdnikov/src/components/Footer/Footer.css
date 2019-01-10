@@ -1,8 +1,8 @@
 .Footer {
-  display: flex;
-  height: 120px;
-  align-items: center;
-  justify-content: center;
-  background-color: #343a40;
   color: #fff;
+}
+
+.Footer .tac {
+  text-align: center;
+  width: 100%
 }

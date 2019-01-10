@@ -8,13 +8,13 @@ class ModalAuthForm extends PureComponent {
     this.state = {
       modal: false
     };
-  }
+  };
 
   toggle = ()=>{
     this.setState({
       modal: !this.state.modal
     });
-  }
+  };
 
   render() {
     const externalCloseBtn = <button className="close" style={{ position: 'absolute', top: '15px', right: '15px' }} onClick={this.toggle}>&times;</button>;
@@ -42,7 +42,7 @@ class ModalAuthForm extends PureComponent {
         </Modal>
       </div>
     );
-  }
-}
+  };
+};
 
 export default ModalAuthForm;

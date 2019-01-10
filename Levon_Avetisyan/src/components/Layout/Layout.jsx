@@ -1,18 +1,17 @@
-import './Layout.css';
+import './Layout.css'
+import React, {PureComponent} from 'react';
 
-import React, {Component} from 'react';
+import Header from 'components/Header';
 
-import Header from '../Header';
-import BlogListContainer from 'containers/BlogListContainer';
-
-export default class Layout extends Component {
+export default class Layout extends PureComponent {
+    static defaultProps = {}
+    
     render() {
+        const { children } = this.props;
         return (
-            <div className="layout container">
+            <div className="Layout">
                 <Header/>
-                <div className="main">
-                    <BlogListContainer/>
-                </div>
+                { children }
             </div>
         )
     }

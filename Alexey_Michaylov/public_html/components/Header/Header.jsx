@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import './Header.css';
 import Icon from './icon.png';
 import { 
@@ -20,7 +20,7 @@ const items = [
 
 import ModalWindow from 'components/Login';
 
-export default class Header extends PureComponent {
+export default class Header extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -35,15 +35,13 @@ export default class Header extends PureComponent {
     }
     
     render() {
-        const { onChangePage } = this.props;
-
         return(
             <Navbar dark expand="lg" color="info" fixed="top">
                 <Container>
-                    <NavbarBrand href="/"><img src={Icon} className="logo mr-2" alt="Webpack" onClick={onChangePage} />MySuperSite</NavbarBrand>
+                    <NavbarBrand href="/"><img src={Icon} className="logo mr-2" alt="Webpack" />MySuperSite</NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
-                        <Menu items={items} toggle={onChangePage} />
+                        <Menu items={items} />
                         <ModalWindow />
                     </Collapse>
                 </Container>
