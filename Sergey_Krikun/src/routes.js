@@ -11,10 +11,4 @@ export default [
     exact: true,
     component: RouterContainer,
   },
-  /*   {
-      path: '/authorPage/:userId',
-      exact: true,
-      component: RouterContainer,
-    } */
-
 ]

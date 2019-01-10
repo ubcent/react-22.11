@@ -79,15 +79,6 @@ export default class FetchingSelectedData extends Component {
   }
 
 
-  /*   componentWillUnmount = () => {
-      console.log(this.state.posts);
-      console.log('Компонент ОТМОНТИРОВАН');
-    } */
-
-
-
-
-
   onLoadMore = (content) => {
     const { postsStringUrl, usersStringUrl, commentsStringUrl } = this.props;
     const { page, pageComments } = this.state;
@@ -131,13 +122,6 @@ export default class FetchingSelectedData extends Component {
       this.fetchData(usersStringUrl, 'users');
     }
   }
-/*   componentWillUpdate() {
-    this.setState((prevState) => ({
-      ...prevState,
-    }))
-    console.log('Перед обновлением', this.state.posts);
-  } */
-
   render() {
     const { mainPage, commentsPage, pageOfArticle, articleNumber, getUsers,
       userPage, postsStringUrl } = this.props;
