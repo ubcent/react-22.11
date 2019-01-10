@@ -1,5 +1,8 @@
-import React, { PureComponent } from 'react'; // импортируем в каждом файлк jsx
+import React, { PureComponent, Component } from 'react'; // импортируем в каждом файлк jsx
 import ReactDOM from 'react-dom'; // нужно импортировать только в точке входа
+import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
+//импортировали для роутинга 
+import routes from './routes';
 
 import { Button } from 'reactstrap';
 import Header from './components/Header';
@@ -11,7 +14,7 @@ import './index.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-class Layout extends PureComponent {
+class Layout extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -66,12 +69,20 @@ class Layout extends PureComponent {
             <br />
           </div>
 
-          {content == 'Aticles_list' &&
+          <Link to="/">Home</Link>
+          <Link to="/pageOfArticle/1/2/1">Single Page</Link>
+          <div>
+            <Switch>
+              {routes.map((route, idx) => {return <Route key={idx} {...route} /> })}
+            </Switch>
+          </div>
+
+          {/* content == 'Aticles_list' &&
             <FetchingSelectedData
               postsStringUrl="/posts?_limit=10"
               usersStringUrl="/users"
               mainPage="true"
-            />
+            /> */
           }
 
           {content == 'One_page' &&
@@ -106,4 +117,8 @@ class Layout extends PureComponent {
   }
 }
 
-ReactDOM.render(<Layout />, document.getElementById('root'));
+ReactDOM.render(
+  <BrowserRouter forceRefresh={false}>
+    <Layout />
+  </BrowserRouter>,
+  document.getElementById('root'));

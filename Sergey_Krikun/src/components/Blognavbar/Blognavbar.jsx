@@ -3,6 +3,7 @@ import './Blognavbar.css';
 import React, { PureComponent } from 'react';
 import NavMenu from 'components/NavMenu';
 import PropTypes from 'prop-types';
+import { Link, withRouter } from 'react-router-dom';
 
 import {
   Collapse,
@@ -58,16 +59,13 @@ export default class Blognavbar extends PureComponent {
   render() {
     const items = [
       {
-        key: '1', title: 'HOME', href: '#',
+        key: '1', title: 'HOME', href: '/',
       },
       {
-        key: '2', title: 'List of Posts', href: '#',
+        key: '3', title: 'One Atticle with comments', href: '/pageOfArticle/1/10/3',
       },
       {
-        key: '3', title: 'One Atticle with comments', href: '#',
-      },
-      {
-        key: '4', title: 'Author', href: '#',
+        key: '4', title: 'Author', href: '/authorPage/1/10/3',
       },
     ];
 
@@ -85,4 +83,5 @@ export default class Blognavbar extends PureComponent {
     );
   }
 }
+
 
