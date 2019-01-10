@@ -25,9 +25,10 @@ const navMenu = [
 
 class Header extends PureComponent {
     getActive = (href) => {
+        console.log(href);
         const { location } = this.props;
 
-        const substr = location.pathname.substr(0, href.length());
+        const substr = location.pathname.substr(0, href.length);
         if (href.length === 1 && location.pathname.length !== 1) {
             return '';
         }
@@ -36,6 +37,8 @@ class Header extends PureComponent {
     };
 
     render() {
+        const { match } = this.props;
+        console.log(match);
         return (
             <div className="Header">
                 <Navbar color="dark" dark expand="md">
@@ -47,8 +50,10 @@ class Header extends PureComponent {
                                 {navMenu.map((value, idx) => {
                                     return <NavItem key={idx}><NavLink
                                         exact
+                                        active={this.getActive(value.href)}
                                         tag={RRNavLink}
                                         to={value.href}>{value.title}</NavLink>
+                                        {console.log(value.href)}
                                     </NavItem>
                                 })}
                             </Nav>
