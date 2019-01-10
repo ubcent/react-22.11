@@ -1,0 +1,17 @@
+.header{
+    color: white;
+    height: 125px;
+    display: flex;
+    align-items: center;
+    
+}
+
+.header_content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-black{
+    background-color: #212936;
+}

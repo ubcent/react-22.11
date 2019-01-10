@@ -1,0 +1,16 @@
+.Footer{
+   height: 96px;
+   background-color: lightgrey;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-top: 90px;
+}
+
+.Footer>p{
+    color: #838181;
+    font-family: "raleway-regular";
+    font-size: 13px;
+    margin: 5px 0 0 40px;
+
+}
