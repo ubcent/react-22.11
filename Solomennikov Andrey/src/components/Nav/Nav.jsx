@@ -9,7 +9,7 @@ export default class Nav extends Component {
                 <a href="#">Главная</a>
                 <a href="#">Статьи</a>
                 <a href="#">Видео</a>
-                <a href="#">Фоографии</a>
+                <a href="#">Фотографии</a>
                 <a href="#">Архив</a>
                 <a href="#">Обратная связь</a>
             </div>
