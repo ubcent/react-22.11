@@ -1,48 +1,40 @@
 import React, { PureComponent, Fragment } from 'react';
+import { connect } from 'react-redux';
 import { Container } from 'reactstrap';
 
 import CommentList from 'components/CommentsList';
+import { load as loadComments } from 'actions/comments';
 
 class CommentsListContainer extends PureComponent {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            loading: false,
-            comments: [],
-            page: 1,
-        }
-    }
-
     componentDidMount() {
-        this.fetchData();
-    }
+        const { load } = this.props;
 
-    fetchData = () => {
-        const { page } = this.state;
-        this.setState({ loading: true });
-        fetch(`https://jsonplaceholder.typicode.com/comments?_limit=10&_page=${page}`)
-            .then((response) => response.json())
-            .then((_comments) => {
-                this.setState((prevState) => ({
-                    ...prevState,
-                    loading: false,
-                    comments: prevState.comments.concat(_comments),
-                    page: prevState.page + 1,
-                }))
-            });
+        load();
     }
 
     render() {
-        const { comments, loading } = this.state;
+        const { comments, loading, load } = this.props;
         return (
             <Container>
                 <Fragment>
-                    {comments.length === 0 ? 'Loading...' : <CommentList onLoadMore={this.fetchData} comments={comments} loading={loading} />}
+                    {comments.length === 0 ? 'Loading...' : <CommentList onLoadMore={load} comments={comments} loading={loading} />}
                 </Fragment>
             </Container>
         )
     }
 }
 
-export default CommentsListContainer;
+function mapStateToProps(state, props) {
+    return {
+        comments: state.comments.entities,
+        loading: state.comments.loading,
+    }
+}
+
+function mapDispatchToProps(dispatch, props) {
+    return {
+        load: () => dispatch(loadComments()),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CommentsListContainer);
