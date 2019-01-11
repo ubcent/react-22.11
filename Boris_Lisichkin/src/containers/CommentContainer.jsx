@@ -15,7 +15,7 @@ class CommentContainer extends PureComponent {
     }
 
     render() {
-        const { comment, loading } = this.state;
+        const { comment, loading } = this.props;
         return (
             <Container>
                 <Fragment>
