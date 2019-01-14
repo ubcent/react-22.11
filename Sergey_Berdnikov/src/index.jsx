@@ -2,6 +2,10 @@
 import React, { Component } from 'react';
 //ReactDom только в точке входа
 import ReactDom from 'react-dom';
+//подключаем провайдера redux
+import { Provider } from 'react-redux';
+//экземпляр stor'a
+import store from './store';
 //Подключаем роутинг
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 //подключаем свои компоненты
@@ -29,6 +33,10 @@ class App extends Component {
 }
 
 ReactDom.render(
-    <BrowserRouter><App/></BrowserRouter>,
+    <Provider store={store}>
+        <BrowserRouter>
+            <App/>
+        </BrowserRouter>
+    </Provider>,
     document.getElementById('main-div'),
 );
