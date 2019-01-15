@@ -1,59 +1,44 @@
 import React, {PureComponent, Fragment} from 'react';
 
+import {connect} from 'react-redux';
+import {load as loadPosts} from 'actions/posts';
+import {load as loadUsers} from 'actions/users';
+
 import Main from 'components/Main';
 
-export default class PostFormContainer extends PureComponent {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            page: 1,
-            posts: [],
-            users: [],
-            loading: false,
-        }
-
-    }
-
+class PostFormContainer extends PureComponent {
     componentDidMount() {
-        this.fetchData();
-        this.fetchDataUser();
+        const {loadPosts, loadUsers} = this.props;
+        loadPosts();
+        loadUsers();
     }
-
-    fetchDataUser = () => {
-        fetch(`http://jsonplaceholder.typicode.com/users`)
-            .then((response) => response.json())
-            .then((_users) => {
-                this.setState({
-                    users: _users,
-                })
-            })
-    };
-
-    fetchData = () => {
-        const { page } = this.state;
-        this.setState({
-           loading: true,
-        });
-        fetch(`http://jsonplaceholder.typicode.com/posts?_limit=1&_page=${page}`)
-            .then((response) => response.json())
-            .then((_posts) => {
-                this.setState((prevState) => ({
-                    loading: false,
-                    posts: prevState.posts.concat(_posts),
-                    page: prevState.page + 1,
-                }))
-            });
-    };
 
     render() {
-        const {posts, users, loading} = this.state;
+        const {posts, users, loading, loadPosts} = this.props;
         return (
             <Fragment>
                 <div>
-                    {posts.length === 0 || users.length === 0 ? 'Loading' :  <Main onLoadMore={this.fetchData} posts={posts} users={users} loading={loading}/>}
+                    {posts.length === 0 || users.length === 0 ? 'Loading' :
+                        <Main onLoadMore={loadPosts} posts={posts} users={users} loading={loading}/>}
                 </div>
             </Fragment>
         )
     }
 }
+
+function mapStateToProps(state, props) {
+    return {
+        posts: state.posts.entities,
+        loading: state.posts.loading,
+        users: state.users.entities,
+    }
+}
+
+function mapDispatchToProps(dispatch, props) {
+    return {
+        loadPosts: () => dispatch(loadPosts()),
+        loadUsers: () => dispatch(loadUsers()),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PostFormContainer);

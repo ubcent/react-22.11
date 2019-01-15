@@ -3,37 +3,41 @@ import React, {PureComponent, Fragment} from 'react';
 import PostFormAction from 'components/PostFormAction';
 import PostFormComments from 'components/PostFormComments';
 
-export default class PostFormCommentsContainer extends PureComponent {
-    constructor(props) {
-        super(props);
+import {connect} from 'react-redux';
+import {load as loadPosts} from 'actions/posts';
+import {load as loadUsers} from 'actions/users';
+import {load as loadComments} from 'actions/comments';
 
-        this.state = {
-            expanded: false,
-            comments: []
-        };
-    }
-
-
-    handleExpandClick = () => {
-        this.setState((prevState) => ({expanded: !prevState.expanded}));
-        const { postId } = this.props;
-        fetch(`http://jsonplaceholder.typicode.com/comments?postId=${postId}`)
-            .then((response) => response.json())
-            .then((_comments) => {
-                this.setState(() => ({
-                    comments: _comments,
-                }))
-            });
-    };
-
+class PostFormCommentsContainer extends PureComponent {
 
     render() {
-        const {expanded, comments} = this.state;
+        const {expanded, comments, loadComments, postId} = this.props;
+        console.log(this.props);
         return (
             <Fragment>
-                <PostFormAction onHandleClick={this.handleExpandClick} expanded={expanded}/>
-                <PostFormComments expanded={expanded} comments={comments}/>
+                <PostFormAction onHandleClick={loadComments} expanded={expanded}/>
+                <PostFormComments expanded={expanded} comments={comments.filter(comment => comment.postId === postId)}/>
             </Fragment>
         )
     }
 }
+
+function mapStateToProps(state, props) {
+    return {
+        posts: state.posts.entities,
+        loading: state.posts.loading,
+        users: state.users.entities,
+        expanded: state.comments.expanded,
+        comments: state.comments.entities,
+    }
+}
+
+function mapDispatchToProps(dispatch, props) {
+    return {
+        loadPosts: () => dispatch(loadPosts()),
+        loadUsers: () => dispatch(loadUsers()),
+        loadComments: () => dispatch(loadComments()),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PostFormCommentsContainer);
