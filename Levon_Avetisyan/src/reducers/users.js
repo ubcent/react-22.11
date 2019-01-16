@@ -18,7 +18,7 @@ export default handleActions({
         return {
             ...state,
             loading: false,
-            entities: state.entities.concat(action.payload),
+            entities: action.payload,
         }
     },
     [loadFailed]: (state, action) => {
