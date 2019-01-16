@@ -1,11 +1,10 @@
 import {handleActions} from 'redux-actions';
 
-import { loadStarted, loadCompleted, loadFailed } from 'actions/comments';
+import {loadStarted, loadCompleted, loadFailed} from 'actions/comments';
 
 const initialState = {
     entities: [],
     loading: false,
-    expanded: false,
 };
 
 export default handleActions({
@@ -16,11 +15,13 @@ export default handleActions({
         };
     },
     [loadCompleted]: (state, action) => {
+
         return {
             ...state,
             loading: false,
-            expanded: !state.expanded,
-            entities: state.entities.concat(action.payload),
+            entities: state.entities.concat(action.payload.filter((entity) =>
+                !state.entities.find((stateEnt) => stateEnt.postId === entity.postId)
+            )),
         }
     },
     [loadFailed]: (state, action) => {

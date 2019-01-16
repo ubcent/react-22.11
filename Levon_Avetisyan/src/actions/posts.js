@@ -3,6 +3,7 @@ import {createAction} from 'redux-actions';
 export const loadStarted = createAction('[Posts] load started');
 export const loadCompleted = createAction('[Posts] load completed');
 export const loadFailed = createAction('[Posts] load failed');
+export const toggleExpanded = createAction('[Posts] toggle expanded');
 
 export const load = () => (dispatch, getState) => {
     const state = getState();
@@ -17,3 +18,6 @@ export const load = () => (dispatch, getState) => {
         });
 };
 
+export const toggle = (postId) => (dispatch) => {
+    dispatch(toggleExpanded(postId));
+};

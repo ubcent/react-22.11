@@ -6,14 +6,18 @@ import Collapse from '@material-ui/core/Collapse';
 import Typography from '@material-ui/core/Typography';
 
 export default class PostFormComments extends PureComponent {
-    static defaultProps = {}
 
     render() {
-        const {expanded, comments} = this.props;
+        const {expanded, comments, postId} = this.props;
+
+        const commentsFiltered = comments.filter(comment => {
+                return comment.postId === postId;
+        });
+
         return (
             <div className="PostFormComments">
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
-                    {comments.map((comment) => <CardContent key={comment.id}>
+                    {commentsFiltered.map((comment) => <CardContent key={comment.id}>
                             <Typography variant="subtitle2">
                                 {comment.name}
                             </Typography>

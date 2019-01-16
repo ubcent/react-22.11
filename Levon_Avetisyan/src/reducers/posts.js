@@ -1,6 +1,6 @@
 import {handleActions} from 'redux-actions';
 
-import { loadStarted, loadCompleted, loadFailed } from 'actions/posts';
+import {loadStarted, loadCompleted, loadFailed, toggleExpanded} from 'actions/posts';
 
 const initialState = {
     entities: [],
@@ -20,7 +20,25 @@ export default handleActions({
             ...state,
             loading: false,
             page: state.page + 1,
-            entities: state.entities.concat(action.payload),
+            entities: state.entities.concat(action.payload.map((post) => {
+                return {...post, expanded: false}
+            })),
+        }
+    },
+    [toggleExpanded]: (state, action) => {
+        const postId = action.payload.target.closest('.PostForm').dataset.postid;
+        return {
+            ...state,
+            entities: state.entities.map((entity) => {
+                if (entity.id === +postId) {
+                    const exp = entity.expanded;
+                    return {
+                    ...entity,
+                    expanded: !exp,
+                    }
+                }
+                return entity;
+            }),
         }
     },
     [loadFailed]: (state, action) => {

@@ -34,9 +34,9 @@ class PostForm extends PureComponent {
     };
 
     render() {
-        const {classes, user, title, body, postId} = this.props;
+        const {classes, user, title, body, postId, expanded} = this.props;
         return (
-            <div className="PostForm">
+            <div className="PostForm" data-postid={postId}>
                 <Card className={classes.card}>
                     <CardHeader
                         avatar={
@@ -57,7 +57,7 @@ class PostForm extends PureComponent {
                             {body}
                         </Typography>
                     </CardContent>
-                    <PostFormCommentsContainer postId={postId} />
+                    <PostFormCommentsContainer postId={postId} expanded={expanded}/>
                 </Card>
             </div>
         )

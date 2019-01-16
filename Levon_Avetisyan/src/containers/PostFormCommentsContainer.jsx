@@ -4,19 +4,16 @@ import PostFormAction from 'components/PostFormAction';
 import PostFormComments from 'components/PostFormComments';
 
 import {connect} from 'react-redux';
-import {load as loadPosts} from 'actions/posts';
-import {load as loadUsers} from 'actions/users';
 import {load as loadComments} from 'actions/comments';
+import {toggle as loadExpanded} from 'actions/posts';
 
 class PostFormCommentsContainer extends PureComponent {
-
     render() {
-        const {expanded, comments, loadComments, postId} = this.props;
-        console.log(this.props);
+        const { comments, load, postId, expanded} = this.props;
         return (
             <Fragment>
-                <PostFormAction onHandleClick={loadComments} expanded={expanded}/>
-                <PostFormComments expanded={expanded} comments={comments.filter(comment => comment.postId === postId)}/>
+                <PostFormAction onHandleClick={load} postId={postId} expanded={expanded}/>
+                <PostFormComments expanded={expanded} comments={comments} postId={postId}/>
             </Fragment>
         )
     }
@@ -25,18 +22,16 @@ class PostFormCommentsContainer extends PureComponent {
 function mapStateToProps(state, props) {
     return {
         posts: state.posts.entities,
-        loading: state.posts.loading,
-        users: state.users.entities,
-        expanded: state.comments.expanded,
         comments: state.comments.entities,
     }
 }
 
 function mapDispatchToProps(dispatch, props) {
     return {
-        loadPosts: () => dispatch(loadPosts()),
-        loadUsers: () => dispatch(loadUsers()),
-        loadComments: () => dispatch(loadComments()),
+        load: (event) => {
+            dispatch(loadComments(event));
+            dispatch(loadExpanded(event));
+        },
     }
 }
 
