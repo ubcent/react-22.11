@@ -12,6 +12,8 @@ module.exports = {
   },
   resolve: {
     alias: {
+      actions: path.resolve(__dirname, 'src', 'actions'),
+      reducers: path.resolve(__dirname, 'src', 'reducers'),
       components: path.resolve(__dirname, 'src', 'components'), // необходимо
       // чтобы могли из любой папки системы иметь доступ к папке components,
       // без длинного пути

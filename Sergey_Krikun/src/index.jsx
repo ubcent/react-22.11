@@ -2,7 +2,9 @@ import React, { PureComponent, Component } from 'react'; // импортируе
 import ReactDOM from 'react-dom'; // нужно импортировать только в точке входа
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 //импортировали для роутинга 
+import { Provider } from 'react-redux'; // подключаем копонент - обертка для redux
 import routes from './routes';
+import store from './store'; // импортируем хранилеще redux
 
 import { Button } from 'reactstrap';
 import Header from './components/Header';
@@ -60,7 +62,9 @@ class Layout extends Component {
 }
 
 ReactDOM.render(
-  <BrowserRouter forceRefresh={false}>
-    <Layout />
-  </BrowserRouter>,
+  <Provider store={store}> {/* для redux */}
+    <BrowserRouter forceRefresh={false}>
+      <Layout />
+    </BrowserRouter>
+  </Provider>,
   document.getElementById('root'));
