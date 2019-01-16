@@ -8,7 +8,7 @@ import Brand from 'components/Brand'
 const items = [
   {title: 'Домашняя', href: '/'},
   {title: 'Рейтинг блогеров', href: '/rating'},
-  {title: 'Стена', href: '/wall'},
+  {title: 'Комментарии', href: '/comments'},
 ];
 
 export default function Header() {

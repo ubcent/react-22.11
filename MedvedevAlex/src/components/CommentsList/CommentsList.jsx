@@ -9,7 +9,7 @@ export default function CommentsList(props) {
     <div className="CommentsList container">
       <h3>Comments:</h3>
       <ul>
-        {comments.map((comment) => <li key={comment.id}><span className="commentName">
+        {comments.map((comment, idx) => <li key={idx}><span className="commentName">
           <Link to={`comments/${comment.id}`}>{comment.name}</Link>:</span> {comment.body}</li>)}
       </ul>
       <button onClick={onLoadMore} disabled={loading}>LoadMore</button>
