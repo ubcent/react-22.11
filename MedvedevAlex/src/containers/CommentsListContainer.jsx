@@ -1,6 +1,6 @@
 import React, { PureComponent, Fragment } from 'react';
 import {connect} from 'react-redux';
-import {load as loadComments} from 'actions/comments';
+import {load as loadFetchData} from 'actions/fetchData';
 
 import CommentsList from 'components/CommentsList'
 
@@ -25,14 +25,14 @@ class CommentsListContainer extends PureComponent {
 
 function mapStateToProps(state, props) {
   return {
-    comments: state.comments.entities,
-    loading: state.comments.loading,
+    comments: state.connection.entities,
+    loading: state.connection.loading,
   }
 }
 
 function mapDispatchToProps (dispatch, props) {
   return {
-  load: () => dispatch(loadComments()),
+  load: () => dispatch(loadFetchData()),
   }
 }
 

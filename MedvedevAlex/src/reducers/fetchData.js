@@ -1,6 +1,6 @@
 import {handleActions} from 'redux-actions';
 
-import {loadStarted, loadStartedUsers, loadCompleted, loadFailed} from 'actions/comments';
+import {loadStarted, loadStartedUsers, loadCompleted, loadFailed} from 'actions/fetchData';
 
 const initialState = {
   entities: [],

@@ -2,7 +2,7 @@ import React, {PureComponent, Fragment} from 'react';
 
 import Comment from "components/Comment";
 import {connect} from 'react-redux';
-import {load as loadComments} from "actions/comments";
+import {load as loadFetchData} from "actions/fetchData";
 
 class CommentContainer extends PureComponent {
 
@@ -25,16 +25,16 @@ class CommentContainer extends PureComponent {
 
 function mapStateToProps (state, props) {
   const {match} = props;
-  const comment= state.comments.entities.find((comment) => comment.id === +match.params.id);
+  const comment= state.connection.entities.find((comment) => comment.id === +match.params.id);
   return {
     comment,
-    loading: state.comments.loading,
+    loading: state.connection.loading,
   }
 }
 
 function mapDispatchToProps (dispatch, props) {
   return {
-    load: () => dispatch(loadComments()),
+    load: () => dispatch(loadFetchData()),
   }
 }
 

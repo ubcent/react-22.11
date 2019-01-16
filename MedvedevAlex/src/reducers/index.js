@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux';
 
-import commentsReducer from './comments';
+import commentsReducer from './fetchData';
 
 export default combineReducers ({
-  comments: commentsReducer,
+  connection: commentsReducer,
 })
