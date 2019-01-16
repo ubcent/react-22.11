@@ -1,54 +1,40 @@
 import React, { PureComponent, Fragment } from 'react';
+import { connect } from 'react-redux';
+import { load as loadUsers } from 'actions/users';
 
 import Users from 'components/Users';
 
-export default class UsersContainer extends PureComponent
-{
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            loading: false,
-            page: 1,
-            text: [],
-            limit: 10,
-        }
-    }
-
+class UsersContainer extends PureComponent {
     componentDidMount() {
-        this.fetchData();
+        const { load } = this.props;
+        //вызов диспетчера
+        load();
     }
-
-    fetchData = () => {
-        const { page, limit } = this.state;
-        this.setState({ loading: true });
-        fetch(`http://jsonplaceholder.typicode.com/users?_limit=${limit}&_page=${page}`)
-            .then((response) => response.json())
-            .then((_text) =>
-                /**
-                 * Вот такой вариант записи вызвал бы мутирование стейта
-                 * this.state.text = _text
-                 */
-
-                this.setState((prevState) => ({
-                    ...prevState,
-                    loading: false,
-                    text: _text,
-                    page: prevState.page + 1,
-                }))
-            );
-    };
 
     render() {
-        const { text, loading } = this.state;
+        const { text, loading, load } = this.props;
 
         return (
             <Fragment>
                 {text.length === 0
                     ? 'Loading...'
-                    : <Users onLoadNext={this.fetchData} text={text} loading={loading}/>}
+                    : <Users onLoadNext={load} text={text} loading={loading}/>}
             </Fragment>
         );
     }
 }
-    
+
+function mapStateToProps(state, props) {
+    return {
+        text: state.users.entities,
+        loading: state.users.loading,
+    }
+}
+
+function mapDispatchToProps(dispatch, props) {
+    return {
+        load: () => dispatch(loadUsers()),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);

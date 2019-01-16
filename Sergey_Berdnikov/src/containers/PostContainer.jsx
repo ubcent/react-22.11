@@ -1,8 +1,9 @@
 import React, { PureComponent, Fragment } from 'react';
-
+import { connect } from 'react-redux';
+import { load as loadPosts } from 'actions/posts';
 import Post from 'components/Post';
 
-export default class PostsContainer extends PureComponent {
+class PostsContainer extends PureComponent {
     constructor(props) {
         super(props);
 
@@ -13,21 +14,15 @@ export default class PostsContainer extends PureComponent {
     }
 
     componentDidMount() {
-        const { match } = this.props;
-        this.setState({ loading: true });
-        fetch(`http://jsonplaceholder.typicode.com/posts/${match.params.id}`)
-            .then((response) => response.json())
-            .then((_text) =>
-                this.setState((prevState) => ({
-                    ...prevState,
-                    loading: false,
-                    text: _text,
-                }))
-            );
+        const { load, text } = this.props;
+
+        if (!text) {
+            load();
+        }
     }
 
     render() {
-        const { text, loading } = this.state;
+        const { text, loading } = this.props;
         return (
             <Fragment>
                 {loading ? 'Loading post...' : <Post {...text}/>
@@ -36,4 +31,20 @@ export default class PostsContainer extends PureComponent {
         );
     }
 }
-    
+
+function mapStateToProps(state, props) {
+    const { match } = props;
+
+    return {
+        text: state.posts.entities.find((post) => post.id === +match.params.id)
+    }
+}
+
+function mapDispatchToProps(dispatch, props) {
+    return {
+        load: () => dispatch(loadPosts()),
+    }
+
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PostsContainer)

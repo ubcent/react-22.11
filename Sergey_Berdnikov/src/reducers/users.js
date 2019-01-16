@@ -1,12 +1,10 @@
 import { handleActions } from 'redux-actions';
 
-import { loadStarted, loadCompleted, loadFailed } from 'actions/comments';
+import { loadStarted, loadCompleted, loadFailed } from 'actions/users';
 
 const initialState = {
     entities: [],
     loading: false,
-    page: 1,
-
 };
 
 //вызов сигналов, на каждый из которых назначается своя функция
@@ -22,7 +20,6 @@ export default handleActions({
             ...state,
             loading: false,
             entities: state.entities.concat(action.payload),
-            page: state.page + 1,
         }
     },
     [loadFailed]: (state, action) => {
