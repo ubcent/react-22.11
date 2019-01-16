@@ -1,33 +1,20 @@
 import React, {PureComponent} from 'react';
+import {connect} from 'react-redux';
 
 import PostDetails from 'components/PostDetails';
+import {load as loadBlog} from 'actions/blog';
 
-export default class PostDetailsContainer extends PureComponent {
-    constructor(props) {
-        super(props);
+class PostDetailsContainer extends PureComponent {
+    componentDidMount() {
+        const {load, post} = this.props;
 
-        this.state = {
-            loading: false,
-            post: {},
+        if (!post) {
+            load();
         }
     }
 
-    componentDidMount() {
-        const {match} = this.props;
-        this.setState({loading: true});
-        fetch(`https://jsonplaceholder.typicode.com/posts/${match.params.id}`)
-            .then((response) => response.json())
-            .then((_post) => {
-                this.setState((prevState) => ({
-                    ...prevState,
-                    loading: false,
-                    post: _post,
-                }))
-            });
-    }
-
     render() {
-        const {post, loading} = this.state;
+        const {post, loading} = this.props;
         return (
             <div>
                 {loading ? <h4 className="mt-4">Loading...</h4> :
@@ -36,3 +23,20 @@ export default class PostDetailsContainer extends PureComponent {
         )
     }
 }
+
+function mapStateToProps(state, props) {
+    const {match} = props;
+    const post = state.blog.posts.find((post) => post.id === +match.params.id);
+    return {
+        post,
+        loading: state.blog.loading,
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        load: () => dispatch(loadBlog()),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PostDetailsContainer);
