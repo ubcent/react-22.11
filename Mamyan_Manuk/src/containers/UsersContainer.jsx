@@ -1,40 +1,21 @@
 import React, {Fragment, PureComponent} from 'react';
+import {connect} from 'react-redux';
 
 import Users from 'components/Users';
+import {load as loadUsers} from 'actions/users';
 
-export default class UsersContaine extends PureComponent {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            loading: false,
-            users: [],
-            page: 0,
-        };
-    }
+class UsersContainer extends PureComponent {
 
     componentDidMount() {
-        this.fetchData();
+        const {load} = this.props;
+        load();
     }
 
-    fetchData = () => {
-        const {page} = this.state;
-        this.setState({loading: true});
-        fetch(`https://jsonplaceholder.typicode.com/users?_limit=3&_page=${page}`)
-            .then((response) => response.json())
-            .then((_users) => {
-                this.setState((prevState) => ({
-                    ...prevState,
-                    loading: false,
-                    users: prevState.users.concat(_users),
-                    page: prevState.page + 1,
-                }))
-            });
-    };
+
 
 
     render() {
-        const {users, loading} = this.state;
+        const {users, loading} = this.props;
         return (
             <Fragment>
                 {users.length === 0 ? 'Loading...' :
@@ -43,3 +24,19 @@ export default class UsersContaine extends PureComponent {
         )
     }
 }
+
+function mapStateToProps(state, props) {
+    return {
+        users: state.users.entities,
+        loading: state.users.loading
+    }
+}
+
+
+function mapDispatchToProps(dispatch, props) {
+    return {
+        load: () => dispatch(loadUsers()),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
