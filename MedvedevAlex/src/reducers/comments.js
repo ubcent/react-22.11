@@ -1,11 +1,12 @@
 import {handleActions} from 'redux-actions';
 
-import {loadStarted, loadCompleted, loadFailed} from 'actions/comments';
+import {loadStarted, loadStartedUsers, loadCompleted, loadFailed} from 'actions/comments';
 
 const initialState = {
   entities: [],
   loading: false,
   page: 0,
+  fetchData: 'comments',
 };
 
 export default handleActions({
@@ -13,6 +14,13 @@ export default handleActions({
     return {
       ...state,
       loading: true,
+    }
+  },
+  [loadStartedUsers]: (state, action) => {
+    return {
+      ...state,
+      loading: true,
+      fetchData: 'users',
     }
   },
   [loadCompleted]: (state, action) => {
