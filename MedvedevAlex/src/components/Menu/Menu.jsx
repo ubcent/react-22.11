@@ -8,7 +8,9 @@ function Menu(props) {
   return (
     <div className="Menu">
       <ul className="menuHeader">
-        {items.map((item, idx) => <li className={"menuList" + `${location.pathname === item.href ? " active" : ""}`} key={idx}><Link to={item.href} className="menuLink">
+        {items.map((item, idx) =>
+          <li className={"menuList" + `${location.pathname === item.href ? " active" : ""}`} key={idx}>
+            <Link to={item.href} className="menuLink">
           {item.title}</Link></li>)}
       </ul>
     </div>
