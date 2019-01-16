@@ -1,6 +1,6 @@
 import './Footer.css';
 
-import React, {PureComponent} from 'react';
+import React from 'react';
 
 export default function Footer() {
   return (

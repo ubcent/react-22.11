@@ -1,6 +1,6 @@
 import './rightContentBlock.css';
 
-import React, {PureComponent} from 'react';
+import React from 'react';
 
 import FormContainer from 'containers/FormContainer';
 

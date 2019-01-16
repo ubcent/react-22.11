@@ -48,6 +48,10 @@ module.exports = {
     ]
   },
 
+  devServer: {
+    historyApiFallback: true,
+  },
+
   plugins: [
     new ExtractTextPlugin({filename: 'style.css'}),
     new HtmlWebpackPlugin({

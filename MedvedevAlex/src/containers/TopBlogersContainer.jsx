@@ -1,6 +1,6 @@
 import React, { PureComponent, Fragment } from 'react';
 
-import TopBlogers from "components/TopBlogers/TopBlogers";
+import TopBlogers from "components/TopBlogers";
 
 export default class TopBlogersContainer extends PureComponent {
   constructor(props) {

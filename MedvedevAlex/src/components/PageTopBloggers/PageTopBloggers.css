@@ -1,5 +1,4 @@
-.TopBlogers {
+.TopBloggers {
     display: flex;
-    flex-direction: column;
     justify-content: center;
 }

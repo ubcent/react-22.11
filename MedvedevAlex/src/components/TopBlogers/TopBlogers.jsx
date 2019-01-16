@@ -1,6 +1,6 @@
 import './TopBlogers.css';
 
-import React, {PureComponent} from 'react';
+import React from 'react';
 
 export default function TopBlogers(props) {
   const {blogers, loading, onLoadMore} = props;
