@@ -4,7 +4,7 @@ import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 //импортировали для роутинга 
 import { Provider } from 'react-redux'; // подключаем копонент - обертка для redux
 import routes from './routes';
-import store from './store'; // импортируем хранилеще redux
+import store from './store'; // импортируемstore redux
 
 import { Button } from 'reactstrap';
 import Header from './components/Header';

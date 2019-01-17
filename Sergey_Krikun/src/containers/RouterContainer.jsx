@@ -23,14 +23,6 @@ export default class RouterContainer extends Component {
 
     switch (match.params.nameOfPage) {
       case "pageOfArticle":
-
-        /*         this.setState(() => (
-                  {
-                    numberOfPost: match.params.numberOfPost,
-                  })
-                ) */
-
-
         return (
           <FetchingSelectedData
             postsStringUrl={`/posts?&id=${match.params.numberOfPost}`}

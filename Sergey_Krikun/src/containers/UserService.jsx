@@ -27,7 +27,7 @@ export default class UserService extends PureComponent {
   }
 
   render() {
-    const { postsUrl, commentsUrl, userUrl } = this.state;
+    const { postsUrl, commentsUrl, userUrl, userObject } = this.state;
 
 
     return (
@@ -36,7 +36,8 @@ export default class UserService extends PureComponent {
           postsStringUrl={postsUrl}
           commentsStringUrl={commentsUrl}
           usersStringUrl={userUrl}
-          userPage="true"
+          userObject={userObject}
+          userPage='true'
         />
       </Fragment>
 

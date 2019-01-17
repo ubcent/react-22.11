@@ -34,6 +34,7 @@ export default handleActions({
       ...state,
       loading: false,
       posts: state.posts.concat(action.payload), /* сюда через action.payload  передаем параметр из loadCompleted(comments) - comments */
+
     }
   },
   [loadFaild]: (state, action) => {
@@ -42,6 +43,4 @@ export default handleActions({
       loading: false,
     }
   },
-
-
 }, initialState); /* для обработки action используем функцию handleActions и передаем два аргумента - 1й это сам обработчик, 2й это состояние */

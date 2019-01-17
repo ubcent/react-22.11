@@ -8,13 +8,14 @@ export default class UserPage extends PureComponent {
   static defaultProps = {}
 
   render() {
-    const { articleItems, commentsItems, userItems, onLoadMore, commentsTotalItems } = this.props;
-
+    const { articleItems, commentsItems, userItems, onLoadMore, commentsTotalItems, match } = this.props;
+    console.log(this.props);
+    const userRecord = [].concat(userItems[5]);
     return (
       <div className="UserPage">
         <div className="user-info-heading">
           <h2>Author page</h2>
-          {userItems.map((item, idx) => {
+          {userRecord.map((item, idx) => {
             return (
               <div className="user-page_item" key={idx}>
                 <p className="user-page_name">

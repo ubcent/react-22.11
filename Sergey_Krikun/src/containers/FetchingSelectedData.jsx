@@ -8,21 +8,21 @@ import PageOfArticle from 'components/PageOfArticle';
 import UserService from 'containers/UserService';
 import UserPage from 'components/UserPage';
 
-class FetchingSelectedData extends Component {
+class FetchingSelectedData extends PureComponent {
   constructor(props) {
     super(props);
-    this.state = {
-      loading: false,
-      error: null,
-      posts: [],
-      comments: [],
-      users: [],
-      page: 1,
-      pageComments: 1,
-      postsTotalItems: 0,
-      commentsTotalItems: 0,
-      usersTotalItems: 0,
-    };
+    /*  this.state = {
+       loading: false,
+       error: null,
+       posts: [],
+       comments: [],
+       users: [],
+       page: 1,
+       pageComments: 1,
+       postsTotalItems: 0,
+       commentsTotalItems: 0,
+       usersTotalItems: 0,
+     }; */
   }
 
   /*   fetchData = (stringUrl, name) => {
@@ -61,39 +61,42 @@ class FetchingSelectedData extends Component {
     } */
 
   componentDidMount = () => {
-    /*     const { postsStringUrl, commentsStringUrl, usersStringUrl }
-          = this.props;
-    
-    
-    
-        if (postsStringUrl) {
-    
-          this.fetchData(postsStringUrl, 'posts');
-    
-          this.addPage();
-        }
-        if (commentsStringUrl) {
-          this.fetchData(commentsStringUrl, 'comments');
-          this.addPage('Comments');
-        }
-        if (usersStringUrl) {
-          this.fetchData(usersStringUrl, 'users');
-        } */
-    const { comments, users, posts, load } = this.props;
-    
+    const { postsStringUrl, commentsStringUrl, usersStringUrl }
+      = this.props;
 
-    if (!comments) {
+
+
+    /* if (postsStringUrl) {
+ 
+       this.fetchData(postsStringUrl, 'posts');
+ 
+       this.addPage();
+     }
+     if (commentsStringUrl) {
+       this.fetchData(commentsStringUrl, 'comments');
+       this.addPage('Comments');
+     }
+     if (usersStringUrl) {
+       this.fetchData(usersStringUrl, 'users');
+     } */
+    const { comments, users, posts, load, loadCom } = this.props;
+
+    if (comments.length < 1 || comments == undefined) {
       load('comments');
     }
-    if (!posts) {
+    if (posts.length < 1 || posts == undefined) {
+
       load('posts');
     }
-    if (!users) {
-      load('users');
+    if (users.length < 1 || users == undefined) {
+      load('users', usersStringUrl);
     }
 
 
   }
+
+
+
 
 
   onLoadMore = (content) => {
@@ -141,9 +144,8 @@ class FetchingSelectedData extends Component {
   }
   render() {
     const { mainPage, commentsPage, pageOfArticle, articleNumber, getUsers,
-      userPage, postsStringUrl } = this.props;
+      userPage, userObject } = this.props;
     const { comments, loading, users, posts, commentsTotalItems, error } = this.props;
-
 
 
     if (error) {
@@ -157,6 +159,7 @@ class FetchingSelectedData extends Component {
               articleItems={posts}
               commentsItems={comments}
               userItems={users}
+              userObject = {userObject}
               commentsTotalItems={commentsTotalItems}
             />
           }
@@ -233,9 +236,9 @@ function mapStateToProps(state, props) {
 } /* определяет на какую часть store подписывается наш компонент, в state находится все что лежит в store */
 
 function mapDispatchToProps(dispatch, props) {
+
   return {
     load: (name) => dispatch(loadComments(name)),
-    /* loadPosts: (name = 'posts') => dispatch(loadComments(name)), */
   }
 }
 

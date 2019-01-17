@@ -3,7 +3,11 @@ import { createAction } from 'redux-actions';
 export const loadComments = createAction('[Comments] Load'); //создаем action с уникальным индентификатором [Comments] Load
 
 export const loadStarted = createAction('[Comments] Load started');
-export const loadCompleted = { comments: createAction('[Comments] Load completed'), posts: createAction('[Posts] Load completed'), users: createAction('[Users] Load completed') };
+export const loadCompleted = {
+  comments: createAction('[Comments] Load completed'),
+  posts: createAction('[Posts] Load completed'),
+  users: createAction('[Users] Load completed')
+};
 export const loadFailed = createAction('[Comments] Load faild');
 
 
@@ -24,7 +28,7 @@ export const loadFailed = createAction('[Comments] Load faild');
 } */
 
 export const load = (name) => (dispatch) => {
-  dispatch(loadStarted());
+  /*   dispatch(loadStarted()); */
   fetch(`https://jsonplaceholder.typicode.com/${name}`)
     .then((response) => response.json())
     .then((data) => {
