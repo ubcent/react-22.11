@@ -16,4 +16,4 @@ export const load = () => (dispatch) => {
         .catch((err) => {
             dispatch(loadFailed(err));
         })
-}
+};
