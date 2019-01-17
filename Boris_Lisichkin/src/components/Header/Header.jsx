@@ -25,9 +25,7 @@ export default class Header extends PureComponent {
         });
     }
     render() {
-
         return (
-
             <header>
                 <Navbar className="container" dark expand="md">
                     <NavbarBrand href="/">MyCloud</NavbarBrand>

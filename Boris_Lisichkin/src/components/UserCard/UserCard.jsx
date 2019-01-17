@@ -7,7 +7,7 @@ export default class UserCard extends PureComponent {
         const { users, loading, onLoadMore } = this.props;
 
         return (
-            < div className="UserCard">
+            <div className="UserCard">
                 <h1 className="my-4">Users</h1>
 
                 {users.map((user) =>

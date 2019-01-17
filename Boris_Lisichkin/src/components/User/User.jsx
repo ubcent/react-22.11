@@ -7,7 +7,7 @@ export default class User extends PureComponent {
         const { name, phone, website } = this.props;
 
         return (
-            < div className="User">
+            <div className="User">
                 <h2>{name}</h2>
                 <p>{phone}</p>
                 <p>{website}</p>
