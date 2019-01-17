@@ -1,51 +1,46 @@
 import React, { PureComponent, Fragment } from 'react';
-
+import { connect } from 'react-redux';
+import { load as loadPosts } from 'actions/posts';
 import Posts from 'components/Posts';
 
-export default class PostsContainer extends PureComponent
-{
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            loading: false,
-            text: [],
-            page: 1,
-            limit: 5,
-        }
-    }
-
+class PostsContainer extends PureComponent {
     componentDidMount() {
-        this.fetchData();
+        const { load } = this.props;
+        //вызов диспетчера
+        load();
     }
-
-    fetchData = () => {
-        const { page, limit } = this.state;
-
-        this.setState({ loading: true });
-
-        fetch(`http://jsonplaceholder.typicode.com/posts?_limit=${limit}&_page=${page}`)
-            .then((response) => response.json())
-            .then((_text) =>
-                this.setState((prevState) => ({
-                    ...prevState,
-                    loading: false,
-                    text: prevState.text.concat(_text),
-                    page: prevState.page + 1,
-                }))
-            );
-
-    };
 
     render() {
-        const { text, loading } = this.state;
+        const { text, loading, load } = this.props;
         return (
             <Fragment>
                 {text.length === 0
                     ? 'Loading blog...'
-                    : <Posts onLoadMore={this.fetchData} blogs={text} loading={loading}/>
+                    : <Posts onLoadMore={load} blogs={text} loading={loading}/>
                 }
             </Fragment>
         );
     }
 }
+
+function mapStateToProps(state, props) {
+    return {
+        text: state.posts.entities,
+        loading: state.posts.loading,
+    }
+}
+
+function mapDispatchToProps(dispatch, props) {
+    return {
+        load: () => dispatch(loadPosts()),
+    }
+}
+
+/**
+ * Подписываемся на store
+ * В первую часть передаем две функции которыми определяем какие данные нужны компоненту
+ * mapStateToProp - оперделяет какие property мы передадим нашему компоненту
+ * mapDispatchToProps - опеределяет какие сигналы, экшены и побочные эффекты передаем в качестве проперитис
+ * Во вторую сам компонент который подписывается на store
+ */
+export default connect(mapStateToProps, mapDispatchToProps)(PostsContainer)

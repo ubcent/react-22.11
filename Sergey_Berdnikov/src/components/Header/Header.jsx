@@ -23,14 +23,13 @@ const navMenu = [
 ];
 
 
-
 class Header extends PureComponent {
     getActive = (href) => {
         const { location } = this.props;
 
-        const substr = location.pathname.substr(0, href.length());
+        const substr = location.pathname.substr(0, href.length);
         if (href.length === 1 && location.pathname.length !== 1) {
-            return '';
+            return
         }
 
         return substr === href;
@@ -47,8 +46,10 @@ class Header extends PureComponent {
                             <Nav className="ml-auto" navbar>
                                 {navMenu.map((value, idx) => {
                                     return <NavItem key={idx}><NavLink
-                                                             tag={RRNavLink}
-                                                             to={value.href}>{value.title}</NavLink>
+                                        exact
+                                        active={this.getActive(value.href)}
+                                        tag={RRNavLink}
+                                        to={value.href}>{value.title}</NavLink>
                                     </NavItem>
                                 })}
                             </Nav>
