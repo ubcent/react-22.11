@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import { Container } from 'reactstrap';
 import { connect } from 'react-redux';
 import { load as loadUsers } from 'actions/users';
@@ -16,7 +16,9 @@ class UsersContainer extends PureComponent {
         const { users, loading, load } = this.props;
         return (
             <Container>
-                {users.length === 0 ? 'Loading...' : <UserCard onLoadMore={load} users={users} loading={loading} />}
+                <Fragment>
+                    {users.length === 0 ? 'Loading...' : <UserCard onLoadMore={load} users={users} loading={loading} />}
+                </Fragment>
             </Container>
         )
     }

@@ -15,10 +15,10 @@ class UserContainer extends PureComponent {
     }
 
     render() {
-        const { users, loading } = this.props;
+        const { user, loading } = this.props;
         return (
             <Container>
-                {loading ? 'Loading...' : <User {...users} />}
+                {loading ? 'Loading...' : <User {...user} />}
             </Container>
         )
     }

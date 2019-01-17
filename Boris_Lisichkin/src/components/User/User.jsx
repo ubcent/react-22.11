@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import './User.css';
 
 export default class User extends PureComponent {
     static defaultProps = {}

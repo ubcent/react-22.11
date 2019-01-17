@@ -9,7 +9,7 @@ class CommentContainer extends PureComponent {
     componentDidMount() {
         const { load, comment } = this.props;
 
-        if(!comment) {
+        if (!comment) {
             load();
         }
     }
@@ -38,7 +38,7 @@ function mapStateTopProps(state, props) {
 
 function mapDispatchToProps(dispatch, props) {
     return {
-        load: () => dispatch(loadComments(),)
+        load: () => dispatch(loadComments())
     }
 }
 

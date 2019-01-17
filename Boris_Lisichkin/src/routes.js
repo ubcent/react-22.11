@@ -3,9 +3,9 @@ import BlogContainer from 'containers/BlogContainer';
 import CommentsList from 'containers/CommentsListContainer';
 import Comment from 'containers/CommentContainer';
 import UsersContainer from 'containers/UsersContainer';
+import User from 'containers/UserContainer';
 
-export default [
-    {
+export default [{
         path: '/',
         exact: true,
         component: HomeContainer,
@@ -29,5 +29,10 @@ export default [
         path: '/user',
         exact: true,
         component: UsersContainer,
+    },
+    {
+        path: '/user/:id',
+        exact: true,
+        component: User,
     },
 ]

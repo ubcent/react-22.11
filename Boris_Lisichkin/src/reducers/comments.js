@@ -1,5 +1,11 @@
-import { handleActions } from 'redux-actions';
-import { loadStarted, loadCompleted, loadFailed } from 'actions/comments';
+import {
+    handleActions
+} from 'redux-actions';
+import {
+    loadStarted,
+    loadCompleted,
+    loadFailed
+} from 'actions/comments';
 
 const initialState = {
     entities: [],
