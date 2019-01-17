@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import { Col, Container, Row } from 'reactstrap';
 import MediaObj from 'components/Media';
 import Slider from 'components/Slider';
-import SimpleSnackbar from 'components/Snackbar';
 
 const news = [
     'Ullamco ullamco pariatur laboris sit enim incididunt.',

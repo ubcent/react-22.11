@@ -1,9 +1,9 @@
 import React, { PureComponent, Fragment } from 'react';
 import { Container } from 'reactstrap';
 import { connect } from 'react-redux';
-
-import Comment from 'components/Comment';
 import { load as loadComments } from 'actions/comments';
+import Comment from 'components/Comment';
+
 
 class CommentContainer extends PureComponent {
     componentDidMount() {
@@ -15,7 +15,7 @@ class CommentContainer extends PureComponent {
     }
 
     render() {
-        const { comment, loading } = this.state;
+        const { comment, loading } = this.props;
         return (
             <Container>
                 <Fragment>

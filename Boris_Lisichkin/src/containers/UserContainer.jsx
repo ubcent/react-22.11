@@ -2,29 +2,34 @@ import React, { PureComponent } from 'react';
 import { Container } from 'reactstrap';
 import { connect } from 'react-redux';
 import { load as loadUsers } from 'actions/users';
-import UserCard from 'components/UserCard';
+import User from 'components/User';
 
 
-class UsersContainer extends PureComponent {
+class UserContainer extends PureComponent {
     componentDidMount() {
-        const { load } = this.props;
+        const { load, user } = this.props;
 
-        load();
+        if (!user) {
+            load();
+        }
     }
 
     render() {
-        const { users, loading, load } = this.props;
+        const { users, loading } = this.props;
         return (
             <Container>
-                {users.length === 0 ? 'Loading...' : <UserCard onLoadMore={load} users={users} loading={loading} />}
+                {loading ? 'Loading...' : <User {...users} />}
             </Container>
         )
     }
 }
 
 function mapStateToProps(state, props) {
+    const { match } = props;
+
+    const user = state.users.entities.find((user) => user.id === +match.params.id)
     return {
-        users: state.users.entities,
+        user,
         loading: state.users.loading,
     }
 }
@@ -35,4 +40,4 @@ function mapDispatchToProps(dispatch, props) {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(UserContainer);
