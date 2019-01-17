@@ -6,13 +6,13 @@ import Comment from 'components/Comment';
 import PropTypes from 'prop-types';
 
 export default function Post(props) {
-    const { title, author, date, img, body, comments } = props;
+    const { post, author, date, img, comments } = props;
     return (
-        <Main head={title}>
-            <p className="lead">by <a href="#">{author}</a></p><hr />
+        <Main head={post.title}>
+            <p className="lead">by <a href="#">{author.name}</a></p><hr />
             <p>Posted on {date}</p><hr />
-            <img src={img} className="img-fluid rounded" alt={title} /><hr />
-            <p className="lead">{body}</p><hr />
+            <img src={img} className="img-fluid rounded" alt={post.title} /><hr />
+            <p className="lead">{post.body}</p><hr />
             <Widget head="Leave a Comment:">
                 <Form>
                     <FormGroup>
@@ -21,21 +21,21 @@ export default function Post(props) {
                     <Button type="submit" color="primary">Submit</Button>
                 </Form>
             </Widget>
-            {comments.length > 0 && comments.map((comment, idx) => <Comment key={idx} {...comment} />)}
+            {comments.length === 0 ? 'Loading...' : comments.map((comment, idx) => <Comment key={idx} {...comment} />)}
         </Main>
     )
 }
 
 Post.defaultProps = {
+    author: {name: 'Guest'},
     date: '06.01.19',
     img: 'http://placehold.it/900x300',
 };
 
 Post.propTypes = {
-    title: PropTypes.string.isRequired,
+    post: PropTypes.object.isRequired,
     date: PropTypes.string.isRequired,
-    author: PropTypes.string.isRequired,
-    body: PropTypes.string.isRequired,
+    author: PropTypes.object.isRequired,
     img: PropTypes.string,
     comments: PropTypes.array,
 };

@@ -22,20 +22,20 @@ export default function Blogpost(props) {
                 <Button tag={Link} to={`/blog/${postId}`} color="primary">Read More →</Button>
             </CardBody>
             <CardFooter className="text-muted">
-                Posted on {date} by <a href="#">{author}</a>
+                Posted on {date} by <a href="#">{author.name}</a>
             </CardFooter>
         </Card>
     )
 }
 Blogpost.defaultProps = {
     date: '26.12.18',
-    author: 'Alex',
+    author: {name: 'Guest'},
     img: 'http://placehold.it/750x300',
 };
 Blogpost.propTypes = {
-    postId: PropTypes.string.isRequired,
+    postId: PropTypes.number.isRequired,
     head: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
-    author: PropTypes.string.isRequired,
+    author: PropTypes.object.isRequired,
     img: PropTypes.string,
 };

@@ -14,6 +14,8 @@ module.exports = {
             components: path.resolve(__dirname, 'public_html', 'components'),
             containers: path.resolve(__dirname, 'public_html', 'containers'),
             img: path.resolve(__dirname, 'public_html', 'img'),
+            actions: path.resolve(__dirname, 'public_html', 'actions'),
+            reducers: path.resolve(__dirname, 'public_html', 'reducers'),
         },
         extensions: ['.js', '.jsx']
     },
