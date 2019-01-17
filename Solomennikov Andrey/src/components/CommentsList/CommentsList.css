@@ -1,0 +1,13 @@
+.CommentsList {
+}
+
+.CommentsList li {
+    padding-bottom:5px;
+}
+.CommentsList ul:hover {
+    background-color: antiquewhite;
+}
+
+.opencomms {
+    margin-top: 10px;
+}

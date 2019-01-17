@@ -1,17 +1,18 @@
 import './Nav.css';
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
-export default class Nav extends Component {
+export default class Nav extends PureComponent {
 
     render() {
+
         return (
             <div className="right_menu">
-                <a href="#">Главная</a>
-                <a href="#">Статьи</a>
-                <a href="#">Видео</a>
-                <a href="#">Фотографии</a>
-                <a href="#">Архив</a>
-                <a href="#">Обратная связь</a>
+                <a href="#">MainPage</a>
+                <a href="#">Блог</a>
+                <a href="#">Комментарии</a>
+                <a href="#">Пользователи</a>
+                <a href="#">Pure Component</a>
+
             </div>
 
         )
