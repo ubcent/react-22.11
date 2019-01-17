@@ -14,12 +14,12 @@ export default class Header extends Component {
     constructor(props) {
         super(props);
 
-        this.toggle = this.toggle.bind(this);
+        this.toggle = this.toggle;
         this.state = {
             isOpen: false
         };
     }
-    toggle() {
+    toggle = () => {
         this.setState({
             isOpen: !this.state.isOpen
         });
@@ -38,13 +38,13 @@ export default class Header extends Component {
                                     <NavLink href="/"><span className="item">Home</span></NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink href="/"><span className="item">About</span></NavLink>
+                                    <NavLink href="/"><span className="item">Blog</span></NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink href="/"><span className="item">Services</span></NavLink>
+                                    <NavLink href="/"><span className="item">Comments</span></NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink href="/"><span className="item">Contact</span></NavLink>
+                                    <NavLink href="/"><span className="item">Users</span></NavLink>
                                 </NavItem>
                             </Nav>
                         </Collapse>
