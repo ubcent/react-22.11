@@ -5,6 +5,6 @@ import rootReducer from 'reducers';
 
 
 export default createStore(
-  rootReducer,
-  applyMiddleware(thunk),
-); //в качестве аргумента reducer
+    rootReducer,
+    applyMiddleware(thunk),
+); // в качестве аргумента reducer

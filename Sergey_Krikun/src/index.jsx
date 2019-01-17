@@ -1,7 +1,7 @@
 import React, { PureComponent, Component } from 'react'; // импортируем в каждом файлк jsx
 import ReactDOM from 'react-dom'; // нужно импортировать только в точке входа
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
-//импортировали для роутинга 
+// импортировали для роутинга
 import { Provider } from 'react-redux'; // подключаем копонент - обертка для redux
 import routes from './routes';
 import store from './store'; // импортируемstore redux
@@ -46,10 +46,11 @@ class Layout extends Component {
           <Link to="/pageOfArticle/1/2/1">Single Page</Link>
           <div>
             <Switch>
-              {routes.map((route, idx) => { return <Route key={idx} {...route} /> })}
+              {routes.map((route, idx) => {
+                return <Route key={idx} {...route} />;
+              })}
             </Switch>
           </div>
-
 
 
           <hr />

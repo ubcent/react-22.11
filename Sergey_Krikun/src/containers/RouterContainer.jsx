@@ -13,45 +13,45 @@ export default class RouterContainer extends Component {
     super(props);
     this.state = {
       numberOfPost: [],
-    }
+    };
   }
 
   render() {
     const { match } = this.props;
 
 
-
     switch (match.params.nameOfPage) {
-      case "pageOfArticle":
+      case 'pageOfArticle':
         return (
           <FetchingSelectedData
             postsStringUrl={`/posts?&id=${match.params.numberOfPost}`}
             usersStringUrl={`/users/${match.params.userId}`}
             commentsStringUrl=
-            {`/comments?postId=${match.params.numberOfPost}&_limit=${match.params.limitOfComments}`}
+              {`/comments?postId=${match.params.numberOfPost}&_limit=${match.params.limitOfComments}`}
             articleNumber={match.params.numberOfPost}
             pageOfArticle="true"
           />
-        )
-      case "authorPage":
+        );
+        debugger;
+      case 'authorPage':
 
         return (
-          <FetchingSelectedData getUsers="true"
+          <UserPage
             usersStringUrl={`/users?id=${match.params.userId}`}
+            userId={`${match.params.userId}`}
           />
-        )
+        );
       default:
         return (
           <FetchingSelectedData
             postsStringUrl='/posts?&_limit=10'
             usersStringUrl="/users"
             mainPage="true"
-          />)
+          />);
     }
     return (
 
-      <div>sdfsdfs</div>
-    )
+      <div></div>
+    );
   }
-
 }

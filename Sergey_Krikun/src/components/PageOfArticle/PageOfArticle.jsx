@@ -44,8 +44,6 @@ export default class PageOfArticle extends PureComponent {
     const foundComments = this.findComments(numberOfArticle);
 
 
-
-
     return (
       <div className="PageOfArticle">
         <h2>Article {foundArticle.id} with comments</h2>

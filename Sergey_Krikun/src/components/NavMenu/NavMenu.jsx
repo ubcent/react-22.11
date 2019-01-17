@@ -15,16 +15,15 @@ class NavMenu extends PureComponent {
 
     if (href.length === 1 && location.pathname.length !== 1) {
       return 'menu-item__link';
-    } 
+    }
 
     return substr === href ? 'menu-item__active menu-item__link'
       : 'menu-item__link';
-
   }
 
   render() {
     const { items, location } = this.props;
-   
+
     return (
       <Nav className="NavMenu ml-auto" navbar>
 

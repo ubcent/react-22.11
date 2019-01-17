@@ -1,4 +1,4 @@
-import RouterContainer from './containers/RouterContainer'
+import RouterContainer from './containers/RouterContainer';
 
 export default [
   {
@@ -11,4 +11,4 @@ export default [
     exact: true,
     component: RouterContainer,
   },
-]
+];
