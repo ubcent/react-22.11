@@ -3,37 +3,36 @@ import React, {PureComponent, Fragment} from 'react';
 import PostFormAction from 'components/PostFormAction';
 import PostFormComments from 'components/PostFormComments';
 
-export default class PostFormCommentsContainer extends PureComponent {
-    constructor(props) {
-        super(props);
+import {connect} from 'react-redux';
+import {load as loadComments} from 'actions/comments';
+import {toggle as loadExpanded} from 'actions/posts';
 
-        this.state = {
-            expanded: false,
-            comments: []
-        };
-    }
-
-
-    handleExpandClick = () => {
-        this.setState((prevState) => ({expanded: !prevState.expanded}));
-        const { postId } = this.props;
-        fetch(`http://jsonplaceholder.typicode.com/comments?postId=${postId}`)
-            .then((response) => response.json())
-            .then((_comments) => {
-                this.setState(() => ({
-                    comments: _comments,
-                }))
-            });
-    };
-
-
+class PostFormCommentsContainer extends PureComponent {
     render() {
-        const {expanded, comments} = this.state;
+        const { comments, load, postId, expanded} = this.props;
         return (
             <Fragment>
-                <PostFormAction onHandleClick={this.handleExpandClick} expanded={expanded}/>
-                <PostFormComments expanded={expanded} comments={comments}/>
+                <PostFormAction onHandleClick={load} postId={postId} expanded={expanded}/>
+                <PostFormComments expanded={expanded} comments={comments} postId={postId}/>
             </Fragment>
         )
     }
 }
+
+function mapStateToProps(state, props) {
+    return {
+        posts: state.posts.entities,
+        comments: state.comments.entities,
+    }
+}
+
+function mapDispatchToProps(dispatch, props) {
+    return {
+        load: (event) => {
+            dispatch(loadComments(event));
+            dispatch(loadExpanded(event));
+        },
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PostFormCommentsContainer);
