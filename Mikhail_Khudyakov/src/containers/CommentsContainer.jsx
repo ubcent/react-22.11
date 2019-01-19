@@ -1,44 +1,45 @@
 import React, {PureComponent} from 'react';
+import {connect} from 'react-redux';
 
 import Comments from 'components/Comments';
+import {load as loadComments} from 'actions/comments';
+import {Delete} from 'actions/deletepage';
 
-export default class CommentsContainer extends PureComponent {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            loading: false,
-            comments: [],
-            page: 0,
-        }
-    }
-
+class CommentsContainer extends PureComponent {
     componentDidMount() {
-        this.fetchData();
+        const {load} = this.props;
+        load();
     }
 
-    fetchData = () => {
-        const {page} = this.state;
-        this.setState({loading: true});
-        fetch(`https://jsonplaceholder.typicode.com/comments?_limit=5&_page=${page}`)
-            .then((response) => response.json())
-            .then((_comments) => {
-                this.setState((prevState) => ({
-                    ...prevState,
-                    loading: false,
-                    comments: prevState.comments.concat(_comments),
-                    page: prevState.page + 1,
-                }))
-            });
-    };
+    componentWillUnmount() {
+        const {Delete, entities} = this.props;
+        entities.splice(0, entities.length);
+        Delete();
+    }
 
     render() {
-        const {comments, loading} = this.state;
+        const {entities, loading, load} = this.props;
         return (
             <div>
-                {comments.length === 0 ? <h4 className="mt-4">Loading...</h4> :
-                    <Comments onLoadMore={this.fetchData} comments={comments} loading={loading}/>}
+                {entities.length === 0 ? <h4 className="mt-4">Loading...</h4> :
+                    <Comments onLoadMore={load} comments={entities} loading={loading}/>}
             </div>
         )
     }
 }
+
+function mapStateToProps(state) {
+    return {
+        entities: state.comments.entities,
+        loading: state.comments.loading,
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        load: () => dispatch(loadComments()),
+        Delete: () => dispatch(Delete()),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CommentsContainer);

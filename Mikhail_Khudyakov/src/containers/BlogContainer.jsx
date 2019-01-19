@@ -1,44 +1,45 @@
 import React, {PureComponent} from 'react';
+import {connect} from 'react-redux';
 
 import Blog from 'components/Blog';
+import {load as loadBlog} from 'actions/blog';
+import {Delete} from 'actions/deletepage';
 
-export default class BlogContainer extends PureComponent {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            loading: false,
-            posts: [],
-            page: 0,
-        }
-    }
-
+class BlogContainer extends PureComponent {
     componentDidMount() {
-        this.fetchData();
+        const {load} = this.props;
+        load();
     }
 
-    fetchData = () => {
-        const {page} = this.state;
-        this.setState({loading: true});
-        fetch(`https://jsonplaceholder.typicode.com/posts?_limit=5&_page=${page}`)
-            .then((response) => response.json())
-            .then((_posts) => {
-                this.setState((prevState) => ({
-                    ...prevState,
-                    loading: false,
-                    posts: prevState.posts.concat(_posts),
-                    page: prevState.page + 1,
-                }))
-            });
-    };
+    componentWillUnmount() {
+        const {Delete, posts} = this.props;
+        posts.splice(5);
+        Delete();
+    }
 
     render() {
-        const {posts, loading} = this.state;
+        const {posts, loading, load} = this.props;
         return (
             <div>
                 {posts.length === 0 ? <h4 className="mt-4">Loading...</h4> :
-                    <Blog onLoadMore={this.fetchData} posts={posts} loading={loading}/>}
+                    <Blog onLoadMore={load} posts={posts} loading={loading}/>}
             </div>
         )
     }
 }
+
+function mapStateToProps(state) {
+    return {
+        posts: state.blog.posts,
+        loading: state.blog.loading,
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        load: () => dispatch(loadBlog()),
+        Delete: () => dispatch(Delete()),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BlogContainer);

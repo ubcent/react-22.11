@@ -1,33 +1,20 @@
 import React, {PureComponent} from 'react';
+import {connect} from 'react-redux';
 
 import UserInfo from 'components/UserInfo';
+import {load as loadUsers} from 'actions/users';
 
-export default class UserInfoContainer extends PureComponent {
-    constructor(props) {
-        super(props);
+class UserInfoContainer extends PureComponent {
+    componentDidMount() {
+        const {load, user} = this.props;
 
-        this.state = {
-            loading: false,
-            user: {},
+        if (!user) {
+            load();
         }
     }
 
-    componentDidMount() {
-        const {match} = this.props;
-        this.setState({loading: true});
-        fetch(`https://jsonplaceholder.typicode.com/users/${match.params.id}`)
-            .then((response) => response.json())
-            .then((_user) => {
-                this.setState((prevState) => ({
-                    ...prevState,
-                    loading: false,
-                    user: _user,
-                }))
-            });
-    }
-
     render() {
-        const {user, loading} = this.state;
+        const {user, loading} = this.props;
         return (
             <div>
                 {loading ? <h4 className="mt-4">Loading...</h4> :
@@ -36,3 +23,20 @@ export default class UserInfoContainer extends PureComponent {
         )
     }
 }
+
+function mapStateToProps(state, props) {
+    const {match} = props;
+    const user = state.users.info.find((user) => user.id === +match.params.id);
+    return {
+        user,
+        loading: state.users.loading,
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        load: () => dispatch(loadUsers()),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserInfoContainer);

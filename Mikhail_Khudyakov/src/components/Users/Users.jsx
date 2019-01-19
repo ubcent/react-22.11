@@ -1,6 +1,6 @@
 import React from 'react';
-import {Button, Card, CardBody, CardHeader, CardText, CardTitle} from "reactstrap";
-import {Link} from "react-router-dom";
+import {Button, Card, CardBody, CardHeader, CardText, CardTitle} from 'reactstrap';
+import {Link} from 'react-router-dom';
 
 export default function Users(props) {
     return (
