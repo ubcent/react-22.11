@@ -1,28 +1,40 @@
+//подключаем express
 const express = require('express');
+//для обработки пост запросов подключаем body-parser
 const bodyParser = require('body-parser');
+//для работы с mongoDB
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://loaclhost/test');
+//строка подключения mongoose к БД
+mongoose.connect('mongodb://localhost/test', { useNewUrlParser: true });
+//подключаем модель
+const Animal = require('./model/animal');
 
+//создаем приложение
 const app = express();
+//цепляем body-parser к нашему приложению
 app.use(bodyParser.json());
 
-app.get('/animals', (req, res) => {
-    res.json({
-        name: 'Sergey',
-        age: '29',
-    });
+//указываем чтобы обрабатывался get
+app.get('/animals', async (req, res) => {
+    console.log('start');
+    const animals = await Animal.find();
+    res.json(animals);
+});
+//шаблонизация роута, получаем параметр id
+app.get('/animals/:id', async (req, res) => {
+    const animal = await Animal.findById(req.params.id);
+    res.json(animal);
 });
 
-app.get('/animals/:id', (req, res) => {
-    res.send(`Requested id:${req.params.id}`)
+//обработка запроса методом post
+app.post('/animals', async (req, res) => {
+    let animal = new Animal(req.body);
+    animal = await animal.save();
+    res.json(animal);
 });
 
-app.post('/animals', (req, res) => {
-    console.log(req.body);
-    res.send('OK');
-});
-
+//Указываем какой порт слушать приложению
 app.listen(3000, () => {
     console.log('Server has been started');
 });
