@@ -11,13 +11,11 @@ mongoose.connection.on('open', () => {
 const commentsDB = require('./model/comment');
 const postsDB = require('./model/post');
 const app = express();
-
 app.use(express.static(path.join(__dirname, '../src')));
 
 app.get('/', (req,res) =>{
   res.sendFile(path.join(__dirname + '../src/index.html'));
 });
-
 
 app.get('/comments', async(req, res) => {
   const comments = await commentsDB.find();
