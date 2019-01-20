@@ -12,7 +12,7 @@ import PostContainer from 'containers/PostContainer';
 import {BrowserRouter, Switch, Route, Link} from 'react-router-dom';
 
 export default class Layout extends PureComponent {
-  static defaultProps = {};
+  static defaultProps = {}
 
   constructor(props) {
     super(props);

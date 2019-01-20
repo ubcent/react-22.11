@@ -3,11 +3,11 @@ import React, {PureComponent} from 'react';
 
 export default class Post extends PureComponent {
   render(){
-  	const {posts, onLoadMore, loading} = this.props; 
+  	const {postsArr, onLoadMore, loading} = this.props; 
     return(
 	  <div className="Post">
 	    <ul>
-        {posts.map((posts, idx) => <li key = {idx}>Заголовок: {posts.title}<br />Содержание: {posts.body}</li>)}
+        {postsArr.map((postsArr, idx) => <li key = {idx}>Заголовок: {postsArr.title}<br />Содержание: {postsArr.body}</li>)}
       </ul>
       <button disabled = {loading} onClick = {onLoadMore}>Посмотреть новости</button>
 	  </div>
