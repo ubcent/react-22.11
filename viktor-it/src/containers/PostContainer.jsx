@@ -10,7 +10,7 @@ class PostContainer extends PureComponent {
   };
 
   render(){
-  	const {postsArr, page, loading, load} = this.props;
+  	const {postsArr, loading, load} = this.props;
   	return(
   	  <Fragment>
   	    {postsArr.length === 0 ? 'loading...' : <Post onLoadMore={load} postsArr={postsArr} loading={loading} />}
@@ -23,7 +23,6 @@ function mapStateToProps(state, props){
   return{
     loading: state.posts.loading,
     postsArr: state.posts.postsArr,
-    page: state.page+1,
   };
 };
 
