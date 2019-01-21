@@ -10,7 +10,7 @@ export default class Users extends PureComponent {
         return (
             <div className="CommentsList">
                 <ul>
-                    {users.map((comment, idx) => <li key={idx}><strong>User: </strong>{comment.name} <strong>Message: </strong>{comment.email}</li>)}
+                    {users.map((comment, idx) => <li key={idx}><strong>User: </strong>{comment.name} <strong>Email: </strong>{comment.email}</li>)}
                 </ul>
                 <button className ="opencomms" onClick={onLoadMore} disabled={loading}>Read More</button>
             </div>

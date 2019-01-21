@@ -18,7 +18,7 @@ export default class UsersListContainer extends PureComponent {
     }
 
     fetchData = () => {
-        const {page} = this.state;
+        const { page } = this.state;
         this.setState({loading: true});
         fetch(`https://jsonplaceholder.typicode.com/users?_limit=10&_page=${page}`)
             .then((response) => response.json())
@@ -30,7 +30,7 @@ export default class UsersListContainer extends PureComponent {
                     page: prevState.page + 1,
                 }))
             });
-    }
+    };
 
 
     render() {

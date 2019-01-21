@@ -9,7 +9,7 @@ a {
 }
 
 a:hover {
-    color: darkorange;
+    color: yellow;
 
 }
 
@@ -43,6 +43,30 @@ body {
 #changeNews {
     margin: 20px;
 }
+
+.links {
+    width: 150px;
+    display: block;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 400;
+    text-align: center;
+    background-color: #f16d7f;
+    padding-right: 19px;
+    padding-left: 19px;
+    line-height: 38px;
+    height: 38px;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    margin-left: 26px;
+}
+
+.listall {
+    display: flex;
+    padding: 10px;
+}
+
 
 .footer {
     width: 100%;

@@ -5,9 +5,8 @@ import Nav from '../Nav';
 import Formlogin from '../Formlogin';
 import Header from '../Header';
 import Main from '../Main';
-import Users from '../Users';
 import CommentsList from 'containers/CommentsListContainer';
-//import CommentsList from '../CommentsList';
+import Users from 'containers/UsersListContainer';
 
 
 export default class Layout extends PureComponent {
@@ -66,10 +65,12 @@ export default class Layout extends PureComponent {
         return (
             <div className="wrapper">
                 <Header/>
-                <a onClick={this.main}>Главная</a>
-                <a onClick={this.blog}>Публикации</a>
-                <a onClick={this.comments}>Комментарии</a>
-                <a onClick={this.usersID}>Пользователи</a>
+                <div className="listall">
+                <a className = "links" onClick={this.main}>Главная</a>
+                <a className = "links" onClick={this.blog}>Публикации</a>
+                <a className = "links" onClick={this.comments}>Комментарии</a>
+                <a className = "links" onClick={this.usersID}>Пользователи</a>
+                </div>
                 <div className="content">
                     <div className="left">
                         { currentPage }
