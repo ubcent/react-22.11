@@ -13,14 +13,15 @@ export const loadFailed = createAction('[Comments] Load faild');
 
 
 export const load = (name) => (dispatch) => {
-  fetch(`https://jsonplaceholder.typicode.com/${name}`)
-      .then((response) => response.json())
-      .then((data) => {
-        dispatch(loadCompleted[name](data));
-      })
-      .catch((err) => {
-        dispatch(loadFailed(err));
-      });
+  /*  fetch(`https://jsonplaceholder.typicode.com/${name}`) */
+  fetch(`http://localhost:3000/${name}`, { mode: 'cors' })
+    .then((response) => response.json())
+    .then((data) => {
+      dispatch(loadCompleted[name](data));
+    })
+    .catch((err) => {
+      dispatch(loadFailed(err));
+    });
 };
 
 

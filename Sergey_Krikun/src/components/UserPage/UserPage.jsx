@@ -36,9 +36,7 @@ class UserPage extends PureComponent {
 
     if (usersUserPage) {
       const commentsFiltered = comments.filter((comment) => comment.email == usersUserPage.email);
-      console.log(commentsFiltered);
-
-      debugger;
+  
       return (
 
         <div className="UserPage">
