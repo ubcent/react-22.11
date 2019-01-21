@@ -13,11 +13,9 @@ class FetchingSelectedData extends PureComponent {
     super(props);
   }
 
- 
 
   componentDidMount = () => {
-
-    const { comments, users, posts, load} = this.props;
+    const { comments, users, posts, load } = this.props;
 
     if (comments.length < 1 || comments == undefined) {
       load('comments');

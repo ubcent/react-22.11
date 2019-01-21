@@ -1,28 +1,16 @@
 import './NavMenu.css';
 
-import React, { PureComponent, Component } from 'react';
-import { Nav, NavItem, NavLink } from 'reactstrap';
+import React, { Component } from 'react';
+import { Nav, NavItem } from 'reactstrap';
 import PropTypes from 'prop-types';
-import { Link, withRouter } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 
-class NavMenu extends PureComponent {
+class NavMenu extends Component {
   static defaultProps = {};
 
-  getActive = (href) => {
-    const { location } = this.props;
-
-    const substr = location.pathname.substr(0, href.length);
-
-    if (href.length === 1 && location.pathname.length !== 1) {
-      return 'menu-item__link';
-    }
-
-    return substr === href ? 'menu-item__active menu-item__link'
-      : 'menu-item__link';
-  }
 
   render() {
-    const { items, location } = this.props;
+    const { items } = this.props;
 
     return (
       <Nav className="NavMenu ml-auto" navbar>
@@ -30,9 +18,10 @@ class NavMenu extends PureComponent {
 
         {items.map((item) =>
           <NavItem key={item.key}>
-            <Link className={this.getActive(item.href)} to={item.href}>
+            <NavLink className="menu-item__link" activeClassName="menu-item__active" exact to={item.href}>
               {item.title}
-            </Link>
+            </NavLink>
+
           </NavItem>
         )}
       </Nav>

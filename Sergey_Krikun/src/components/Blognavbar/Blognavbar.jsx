@@ -1,9 +1,8 @@
 import './Blognavbar.css';
 
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import NavMenu from 'components/NavMenu';
 import PropTypes from 'prop-types';
-import { Link, withRouter } from 'react-router-dom';
 
 import {
   Collapse,
@@ -12,7 +11,7 @@ import {
   NavbarBrand,
 } from 'reactstrap';
 
-export default class Blognavbar extends PureComponent {
+export default class Blognavbar extends Component {
   static propTypes = {
     logoString: PropTypes.string,
     logoHref: PropTypes.string,
@@ -28,9 +27,11 @@ export default class Blognavbar extends PureComponent {
       prevPos: null,
     };
   }
+
+
   toggle = () => {
     this.setState({
-      isOpen: !this.state.isOpen,
+      isOpen: this.state.isOpen,
     });
   }
 
@@ -44,11 +45,17 @@ export default class Blognavbar extends PureComponent {
     if (currentPos <= 1) {
       this.setState({ class: 'Blognavbar' });
     };
-    this.state.prevPos = currentPos;
+    this.setState((prevState) => ({
+      ...prevState,
+      prevPos: currentPos,
+    }))
   }
 
   componentDidMount() {
-    this.state.prevPos = window.pageYOffset;
+    this.setState((prevState) => ({
+      ...prevState,
+      prevPos: window.pageYOffset,
+    }));
     window.addEventListener('scroll', this.scrollFunction);
   };
 

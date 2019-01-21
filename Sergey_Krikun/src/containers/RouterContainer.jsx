@@ -27,7 +27,7 @@ export default class RouterContainer extends Component {
             postsStringUrl={`/posts?&id=${match.params.numberOfPost}`}
             usersStringUrl={`/users/${match.params.userId}`}
             commentsStringUrl=
-            {`/comments?postId=${match.params.numberOfPost}&_limit=${match.params.limitOfComments}`}
+              {`/comments?postId=${match.params.numberOfPost}&_limit=${match.params.limitOfComments}`}
             articleNumber={match.params.numberOfPost}
             pageOfArticle="true"
           />
@@ -49,9 +49,5 @@ export default class RouterContainer extends Component {
             mainPage="true"
           />);
     }
-    return (
-
-      <div></div>
-    );
   }
 }

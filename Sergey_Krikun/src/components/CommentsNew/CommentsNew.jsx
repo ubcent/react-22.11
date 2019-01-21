@@ -3,7 +3,7 @@ import './CommentsNew.css';
 import React, { PureComponent } from 'react';
 
 export default class CommentsNew extends PureComponent {
-  static defaultProps = { commentsList: [] }
+  static defaultProps = { commentsList: []}
   constructor(props) {
     super(props);
   }
@@ -17,9 +17,7 @@ export default class CommentsNew extends PureComponent {
   }
 
   render() {
-    const { commentsList,
-      loading } = this.props;
-
+    const { commentsList } = this.props;
 
 
     return (

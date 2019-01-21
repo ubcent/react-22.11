@@ -39,6 +39,7 @@ class Layout extends Component {
 
     return (
       <div className="layout_main_wrapper">
+
         <Header />
         <div className="main-content">
 
@@ -61,9 +62,9 @@ class Layout extends Component {
 }
 
 ReactDOM.render(
-  <Provider store={store}> {/* для redux */}
-    <BrowserRouter forceRefresh={false}>
-      <Layout />
-    </BrowserRouter>
-  </Provider>,
-  document.getElementById('root'));
+    <Provider store={store}> {/* для redux */}
+      <BrowserRouter forceRefresh={false}>
+        <Layout />
+      </BrowserRouter>
+    </Provider>,
+    document.getElementById('root'));

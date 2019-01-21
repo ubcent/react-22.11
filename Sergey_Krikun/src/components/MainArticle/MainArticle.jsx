@@ -25,21 +25,21 @@ export default class MainArticle extends PureComponent {
       <div className="MainArticle">
         <h2> List of articles </h2>
         {articleItems.map(
-          (item, idx) => <div key={idx} className="mainArticle-item">
-            <a href={`/pageOfArticle/${this.findAuthor(item.userId).id}/${item.id}/3`}
-              className="mainArticle_item__link item">
-              <h4 className="mainArticle_item_title">{item.title}</h4>
-              <h5 className="mainArticle_item_sub-title">{item.body}</h5>
-              <p>Article number: {item.id}</p>
-            </a>
-            <p className="mainArticle-author-string">
+            (item, idx) => <div key={idx} className="mainArticle-item">
+              <Link to={`/pageOfArticle/${this.findAuthor(item.userId).id}/${item.id}/3`}
+                className="mainArticle_item__link item">
+                <h4 className="mainArticle_item_title">{item.title}</h4>
+                <h5 className="mainArticle_item_sub-title">{item.body}</h5>
+                <p>Article number: {item.id}</p>
+              </Link>
+              <p className="mainArticle-author-string">
               Posted by
-                <a className="mainArticle-author__link"
-                href={`/authorPage/${this.findAuthor(item.userId).id}/${item.id}/3`}> {this.findAuthor(item.userId).name}
-              </a>
-            </p>
-            <hr />
-          </div>)}
+                <Link className="mainArticle-author__link"
+                  to={`/authorPage/${this.findAuthor(item.userId).id}/${item.id}/3`}> {this.findAuthor(item.userId).name}
+                </Link>
+              </p>
+              <hr />
+            </div>)}
         <br />
         <br />
       </div>
