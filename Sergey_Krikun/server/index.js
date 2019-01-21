@@ -12,15 +12,6 @@ const User = require('./model/user');
 const Comment = require('./model/comment');
 
 
-
-
-
-/*request('http://www.google.com', function (error, response, body) {
-  console.log('error:', error); // Print the error if one occurred
-  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-  newObj = body; // Print the HTML for the Google homepage.
-}); * /
-
 /* node server/ - запустить сервер*/
 
 const app = express();
@@ -56,7 +47,7 @@ app.use(bodyParser.json());
 
 app.get('/posts', async (req, res) => {
   const posts = await Post.find();
-  console.log('Get post info');
+
 
   res.json(posts);
 
@@ -65,44 +56,29 @@ app.get('/posts', async (req, res) => {
 app.post('/posts', async (req, res) => {
   let post = new Post(req.body);
   post = await post.save();
-  console.log('Saved post info');
-
   res.json(post);
-
 });
 
 app.get('/users', async (req, res) => {
   const user = await User.find();
-  console.log('Get user info');
-
   res.json(user);
-
-});
+}); // читаем информацию из базы данных mongoDB
 
 app.post('/users', async (req, res) => {
   let user = new User(req.body);
   user = await user.save();
-  console.log('Saved user info');
-
   res.json(user);
-
-});
+}); // получаем информацию из post запроса и записываем в базу mongoDB
 
 app.get('/comments', async (req, res) => {
   const comment = await Comment.find();
-  console.log('Get comment info');
-
   res.json(comment);
-
 });
 
 app.post('/comments', async (req, res) => {
   let comment = new Comment(req.body);
   comment = await comment.save();
-  console.log('Saved comment info');
-
   res.json(comment);
-
 });
 
 app.get('/', (req, res) => res.send('Hello World'));

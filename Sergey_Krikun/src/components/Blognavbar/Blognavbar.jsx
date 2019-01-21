@@ -62,10 +62,10 @@ export default class Blognavbar extends PureComponent {
         key: '1', title: 'HOME', href: '/',
       },
       {
-        key: '3', title: 'One Atticle with comments', href: '/pageOfArticle/1/10/3',
+        key: '3', title: 'One Atticle with comments', href: '/pageOfArticle/2/1/3',
       },
       {
-        key: '4', title: 'Author', href: '/authorPage/1/10/3',
+        key: '4', title: 'Author', href: '/authorPage/3/3/3',
       },
     ];
 

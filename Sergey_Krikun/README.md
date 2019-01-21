@@ -6,9 +6,17 @@ An example of training blog created with [React](https://reactjs.org/) and [reac
 
 Use npm to run.
 
+First start server:
+
+```bash
+node server/
+```
+then 
+
 ```bash
 npm run dev
 ```
+you can open site on http://localhost:8080/
 
 ## Usage
 

@@ -26,17 +26,11 @@ class UserPage extends PureComponent {
   }
 
   render() {
-    const { articleItems, commentsItems, userItems, onLoadMore, commentsTotalItems, userId, posts, users, comments, loading, usersUserPage, postsFinded, postsFound } = this.props;
-
-    console.log(users);
-    console.log(postsFound);
-    console.log(comments);
-    console.log(usersUserPage);
-    console.log(loading);
+    const { posts, users, comments, loading, usersUserPage } = this.props;
 
     if (usersUserPage) {
       const commentsFiltered = comments.filter((comment) => comment.email == usersUserPage.email);
-  
+
       return (
 
         <div className="UserPage">
@@ -63,7 +57,7 @@ class UserPage extends PureComponent {
               authorItems={users}
             />
             : null}
-          {(comments.length > 0) ?
+          {(commentsFiltered.length > 0) ?
             <CommentsNew
               commentsList={commentsFiltered}
             />

@@ -42,8 +42,6 @@ class Layout extends Component {
         <Header />
         <div className="main-content">
 
-          <Link to="/">Home</Link>
-          <Link to="/pageOfArticle/1/2/1">Single Page</Link>
           <div>
             <Switch>
               {routes.map((route, idx) => {
