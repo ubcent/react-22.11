@@ -1,4 +1,4 @@
-import React, { PureComponent, Component, Fragment } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { load as loadComments } from 'actions/comments';
 
@@ -75,8 +75,13 @@ class FetchingSelectedData extends PureComponent {
   render() {
     const { mainPage, commentsPage, pageOfArticle, articleNumber, getUsers,
       userPage, userObject } = this.props;
-    const { comments, loading, users, posts, commentsTotalItems, error } = this.props;
-
+    const {
+      comments,
+      loading,
+      users,
+      posts,
+      commentsTotalItems,
+      error } = this.props;
 
     if (error) {
       return (<p>The error, {error}</p>);
@@ -125,7 +130,9 @@ class FetchingSelectedData extends PureComponent {
       return (
 
         <div>
-          {(posts.length === 0 || users.length === 0 || loading) ? 'Loading...' :
+          {(posts.length === 0 || users.length === 0 || loading)
+            ? 'Loading...'
+            :
             <MainArticle
               articleItems={posts}
               loading={loading}
@@ -139,7 +146,10 @@ class FetchingSelectedData extends PureComponent {
     if (pageOfArticle == 'true') {
       return (
         <Fragment>
-          {(posts.length === 0 || users.length === 0 || comments.length === 0 || loading)
+          {(posts.length === 0 ||
+            users.length === 0 ||
+            comments.length === 0 ||
+            loading)
             ? 'Loading...' :
             <PageOfArticle
               articleItems={posts}
@@ -162,7 +172,8 @@ function mapStateToProps(state, props) {
     users: state.fetchingData.users,
     loading: state.fetchingData.loading,
   };
-} /* определяет на какую часть store подписывается наш компонент, в state находится все что лежит в store */
+} /* определяет на какую часть store подписывается наш компонент,
+в state находится все что лежит в store */
 
 function mapDispatchToProps(dispatch, props) {
   return {
@@ -170,6 +181,9 @@ function mapDispatchToProps(dispatch, props) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(FetchingSelectedData);
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(FetchingSelectedData);
 
 

@@ -48,7 +48,7 @@ export default class Blognavbar extends Component {
     this.setState((prevState) => ({
       ...prevState,
       prevPos: currentPos,
-    }))
+    }));
   }
 
   componentDidMount() {
@@ -66,13 +66,16 @@ export default class Blognavbar extends Component {
   render() {
     const items = [
       {
-        key: '1', title: 'HOME', href: '/',
+        key: '1', title: 'HOME',
+        href: '/',
       },
       {
-        key: '3', title: 'One Atticle with comments', href: '/pageOfArticle/2/1/3',
+        key: '3', title: 'One Atticle with comments',
+        href: '/pageOfArticle/2/1/3',
       },
       {
-        key: '4', title: 'Author', href: '/authorPage/3/3/3',
+        key: '4', title: 'Author',
+        href: '/authorPage/3/3/3',
       },
     ];
 

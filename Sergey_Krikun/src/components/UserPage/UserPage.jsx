@@ -26,10 +26,11 @@ class UserPage extends PureComponent {
   }
 
   render() {
-    const { posts, users, comments, loading, usersUserPage } = this.props;
+    const { posts, users, comments, usersUserPage } = this.props;
 
     if (usersUserPage) {
-      const commentsFiltered = comments.filter((comment) => comment.email == usersUserPage.email);
+      const commentsFiltered = comments.filter(
+          (comment) => comment.email == usersUserPage.email);
 
       return (
 
@@ -84,7 +85,8 @@ function mapStateToProps(state, props) {
     comments: state.fetchingData.comments,
     loading: state.fetchingData.loading,
   };
-} /* определяет на какую часть store подписывается наш компонент, в state находится все что лежит в store */
+} /* определяет на какую часть store подписывается наш компонент,
+в state находится все что лежит в store */
 
 function mapDispatchToProps(dispatch, props) {
   return {
@@ -93,4 +95,14 @@ function mapDispatchToProps(dispatch, props) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserPage);
+
+UserPage.propTypes = {
+
+  authorItems: PropTypes.array,
+  comments: PropTypes.array,
+  users: PropTypes.array,
+  posts: PropTypes.array,
+  load: PropTypes.func,
+  usersUserPage: PropTypes.array,
+};
 

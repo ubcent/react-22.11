@@ -18,7 +18,9 @@ class NavMenu extends Component {
 
         {items.map((item) =>
           <NavItem key={item.key}>
-            <NavLink className="menu-item__link" activeClassName="menu-item__active" exact to={item.href}>
+            <NavLink className="menu-item__link"
+              activeClassName="menu-item__active"
+              exact to={item.href}>
               {item.title}
             </NavLink>
 

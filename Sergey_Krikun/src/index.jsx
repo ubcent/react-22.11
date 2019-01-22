@@ -1,16 +1,14 @@
-import React, { PureComponent, Component } from 'react'; // импортируем в каждом файлк jsx
+import React, { Component } from 'react';
+// импортируем в каждом файлк jsx
 import ReactDOM from 'react-dom'; // нужно импортировать только в точке входа
-import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 // импортировали для роутинга
-import { Provider } from 'react-redux'; // подключаем копонент - обертка для redux
+import { Provider } from 'react-redux'; // подключаем компонент
+// - обертка для redux
 import routes from './routes';
 import store from './store'; // импортируемstore redux
-
-import { Button } from 'reactstrap';
 import Header from './components/Header';
 import Footer from 'components/Footer';
-import ModalWindow from 'components/ModalWindow';
-import FetchingSelectedData from 'containers/FetchingSelectedData';
 
 import './index.css';
 
@@ -32,11 +30,6 @@ class Layout extends Component {
   }
 
   render() {
-    const numberOfPost = 3;
-    const userId = 1;
-    const limitOfComments = 3;
-    const { content } = this.state;
-
     return (
       <div className="layout_main_wrapper">
 
@@ -50,7 +43,6 @@ class Layout extends Component {
               })}
             </Switch>
           </div>
-
 
           <hr />
         </div>
