@@ -1,80 +1,30 @@
-import React, { PureComponent, Component, Fragment } from 'react';
+import React, { PureComponent, Fragment } from 'react';
+import { connect } from 'react-redux';
+import { load as loadComments } from 'actions/comments';
+
 import MainArticle from 'components/MainArticle';
 import CommentsNew from 'components/CommentsNew';
 import PageOfArticle from 'components/PageOfArticle';
 import UserService from 'containers/UserService';
 import UserPage from 'components/UserPage';
 
-export default class FetchingSelectedData extends Component {
+class FetchingSelectedData extends PureComponent {
   constructor(props) {
     super(props);
-    this.state = {
-      loading: false,
-      error: null,
-      posts: [],
-      comments: [],
-      users: [],
-      page: 1,
-      pageComments: 1,
-      postsTotalItems: 0,
-      commentsTotalItems: 0,
-      usersTotalItems: 0,
-    };
   }
 
-  fetchData = (stringUrl, name) => {
-    this.setState({ loading: true });
-
-    const stringOfUrl = `https://jsonplaceholder.typicode.com${stringUrl}`;
-
-    fetch(stringOfUrl)
-      .then((response) => {
-        if (response.ok) {
-          const res = response.headers.get('x-total-count');
-          this.setState(() => ({ [`${name}TotalItems`]: res }));
-          return response.json();
-        } else {
-          throw new Error('Something went wrong ...');
-        }
-      })
-      .then((_data) => {
-        this.setState((prevState) => ({
-          loading: false,
-          [`${name}`]: prevState[`${name}`].concat(_data),
-        }));
-      })
-      .catch((error) => this.setState((prevState) => ({
-        ...prevState,
-        error,
-        loading: false,
-      })));
-  }
-
-  componetWillMount() {
-    this.setState((prevState) => ({
-      ...prevState,
-      posts: [],
-    }))
-  }
 
   componentDidMount = () => {
-    const { postsStringUrl, commentsStringUrl, usersStringUrl }
-      = this.props;
+    const { comments, users, posts, load } = this.props;
 
-
-
-    if (postsStringUrl) {
-
-      this.fetchData(postsStringUrl, 'posts');
-
-      this.addPage();
+    if (comments.length < 1 || comments == undefined) {
+      load('comments');
     }
-    if (commentsStringUrl) {
-      this.fetchData(commentsStringUrl, 'comments');
-      this.addPage('Comments');
+    if (posts.length < 1 || posts == undefined) {
+      load('posts');
     }
-    if (usersStringUrl) {
-      this.fetchData(usersStringUrl, 'users');
+    if (users.length < 1 || users == undefined) {
+      load('users');
     }
   }
 
@@ -124,16 +74,19 @@ export default class FetchingSelectedData extends Component {
   }
   render() {
     const { mainPage, commentsPage, pageOfArticle, articleNumber, getUsers,
-      userPage, postsStringUrl } = this.props;
-    const { comments, loading, users, posts, commentsTotalItems, error } = this.state;
-
-
-
+      userPage, userObject } = this.props;
+    const {
+      comments,
+      loading,
+      users,
+      posts,
+      commentsTotalItems,
+      error } = this.props;
 
     if (error) {
       return (<p>The error, {error}</p>);
     }
-    if (userPage == 'true') {
+    if (userPage == 'true' || loading) {
       return (
         <Fragment>
           {(users.length === 0) ? 'Loading...' :
@@ -141,13 +94,14 @@ export default class FetchingSelectedData extends Component {
               articleItems={posts}
               commentsItems={comments}
               userItems={users}
+              userObject={userObject}
               commentsTotalItems={commentsTotalItems}
             />
           }
         </Fragment>
       );
     }
-    if (getUsers == 'true') {
+    if (getUsers == 'true' || loading) {
       return (
         <Fragment>
           {(users.length === 0) ? 'Loading...' :
@@ -161,7 +115,7 @@ export default class FetchingSelectedData extends Component {
     if (commentsPage == 'true') {
       return (
         <Fragment>
-          {(comments.length === 0) ? 'Loading...' :
+          {(comments.length === 0 || loading) ? 'Loading...' :
             <CommentsNew
               commentsList={comments}
               onLoadMore={this.onLoadMore}
@@ -176,7 +130,9 @@ export default class FetchingSelectedData extends Component {
       return (
 
         <div>
-          {(posts.length === 0 || users.length === 0) ? 'Loading...' :
+          {(posts.length === 0 || users.length === 0 || loading)
+            ? 'Loading...'
+            :
             <MainArticle
               articleItems={posts}
               loading={loading}
@@ -190,7 +146,10 @@ export default class FetchingSelectedData extends Component {
     if (pageOfArticle == 'true') {
       return (
         <Fragment>
-          {(posts.length === 0 || users.length === 0 || comments.length === 0)
+          {(posts.length === 0 ||
+            users.length === 0 ||
+            comments.length === 0 ||
+            loading)
             ? 'Loading...' :
             <PageOfArticle
               articleItems={posts}
@@ -205,5 +164,26 @@ export default class FetchingSelectedData extends Component {
     }
   };
 }
+
+function mapStateToProps(state, props) {
+  return {
+    comments: state.fetchingData.comments,
+    posts: state.fetchingData.posts,
+    users: state.fetchingData.users,
+    loading: state.fetchingData.loading,
+  };
+} /* определяет на какую часть store подписывается наш компонент,
+в state находится все что лежит в store */
+
+function mapDispatchToProps(dispatch, props) {
+  return {
+    load: (name) => dispatch(loadComments(name)),
+  };
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(FetchingSelectedData);
 
 

@@ -17,13 +17,8 @@ export default class CommentsNew extends PureComponent {
   }
 
   render() {
-    const { commentsList,
-      loading,
-      onLoadMore,
-      commentsTotalItems } = this.props;
+    const { commentsList } = this.props;
 
-    const isShowButton = (commentsList.length != commentsTotalItems)
-      ? true : false;
 
     return (
       <div className="CommentsNew">
@@ -37,15 +32,6 @@ export default class CommentsNew extends PureComponent {
               <p>{item.body}</p>
             </li>)}
         </ul>
-        {(onLoadMore && isShowButton)
-          ? <button
-            onClick={() => {
-              onLoadMore('Comments');
-            }}
-            disabled={loading}>
-            MORE COMMENTS {String.fromCharCode(8594)}
-          </button>
-          : null}
       </div>
     );
   }

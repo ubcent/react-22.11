@@ -1,14 +1,14 @@
-import React, { PureComponent, Component } from 'react'; // импортируем в каждом файлк jsx
+import React, { Component } from 'react';
+// импортируем в каждом файлк jsx
 import ReactDOM from 'react-dom'; // нужно импортировать только в точке входа
-import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
-//импортировали для роутинга 
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+// импортировали для роутинга
+import { Provider } from 'react-redux'; // подключаем компонент
+// - обертка для redux
 import routes from './routes';
-
-import { Button } from 'reactstrap';
+import store from './store'; // импортируемstore redux
 import Header from './components/Header';
 import Footer from 'components/Footer';
-import ModalWindow from 'components/ModalWindow';
-import FetchingSelectedData from 'containers/FetchingSelectedData';
 
 import './index.css';
 
@@ -30,25 +30,19 @@ class Layout extends Component {
   }
 
   render() {
-    const numberOfPost = 3;
-    const userId = 1;
-    const limitOfComments = 3;
-    const { content } = this.state;
-
     return (
       <div className="layout_main_wrapper">
+
         <Header />
         <div className="main-content">
 
-          <Link to="/">Home</Link>
-          <Link to="/pageOfArticle/1/2/1">Single Page</Link>
           <div>
             <Switch>
-              {routes.map((route, idx) => { return <Route key={idx} {...route} /> })}
+              {routes.map((route, idx) => {
+                return <Route key={idx} {...route} />;
+              })}
             </Switch>
           </div>
-
-
 
           <hr />
         </div>
@@ -60,7 +54,9 @@ class Layout extends Component {
 }
 
 ReactDOM.render(
-  <BrowserRouter forceRefresh={false}>
-    <Layout />
-  </BrowserRouter>,
-  document.getElementById('root'));
+    <Provider store={store}> {/* для redux */}
+      <BrowserRouter forceRefresh={false}>
+        <Layout />
+      </BrowserRouter>
+    </Provider>,
+    document.getElementById('root'));
