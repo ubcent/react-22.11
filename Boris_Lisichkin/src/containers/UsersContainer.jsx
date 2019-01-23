@@ -1,46 +1,40 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import { Container } from 'reactstrap';
-
+import { connect } from 'react-redux';
+import { load as loadUsers } from 'actions/users';
 import UserCard from 'components/UserCard';
 
+
 class UsersContainer extends PureComponent {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            loading: false,
-            users: [],
-            page: 1,
-        }
-    }
-
     componentDidMount() {
-        this.fetchData();
-    }
+        const { load } = this.props;
 
-    fetchData = () => {
-        const { page } = this.state;
-        this.setState({ loading: true });
-        fetch(`https://jsonplaceholder.typicode.com/users?_limit=3&_page=${page}`)
-            .then((response) => response.json())
-            .then((_users) => {
-                this.setState((prevState) => ({
-                    ...prevState,
-                    loading: false,
-                    users: prevState.users.concat(_users),
-                    page: prevState.page + 1,
-                }))
-            });
+        load();
     }
 
     render() {
-        const { users, loading } = this.state;
+        const { users, loading, load } = this.props;
         return (
             <Container>
-                {users.length === 0 ? 'Loading...' : <UserCard onLoadMore={this.fetchData} users={users} loading={loading} />}
+                <Fragment>
+                    {users.length === 0 ? 'Loading...' : <UserCard onLoadMore={load} users={users} loading={loading} />}
+                </Fragment>
             </Container>
         )
     }
 }
 
-export default UsersContainer;
+function mapStateToProps(state, props) {
+    return {
+        users: state.users.entities,
+        loading: state.users.loading,
+    }
+}
+
+function mapDispatchToProps(dispatch, props) {
+    return {
+        load: () => dispatch(loadUsers())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);

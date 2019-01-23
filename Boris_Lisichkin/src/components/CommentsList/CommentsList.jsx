@@ -7,7 +7,7 @@ export default class CommentsList extends PureComponent {
         const { comments, loading, onLoadMore } = this.props;
 
         return (
-            < div className="CommentsList">
+            <div className="CommentsList">
                 <Container>
                     <h1 className="my-4">Comments</h1>
 
