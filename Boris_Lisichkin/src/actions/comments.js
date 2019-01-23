@@ -7,7 +7,7 @@ export const loadFailed = createAction('[Comments] Load failed');
 export const load = () => (dispatch, getState) => {
     const state = getState();
     dispatch(loadStarted());
-    fetch(`https://jsonplaceholder.typicode.com/comments?_limit=10&_page=${state.comments.page}`)
+    fetch(`http://localhost:3000/comments`)
         .then((response) => response.json())
         .then((comments) => {
             dispatch(loadCompleted(comments));

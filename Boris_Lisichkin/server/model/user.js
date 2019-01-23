@@ -2,6 +2,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
+    id: {
+        type: Number,
+        required: true,
+        default: 1
+    },
     name: {
         type: String,
         required: true,
@@ -14,12 +19,12 @@ const userSchema = new Schema({
     },
     company: {
         type: String,
-        required: true,
+        required: false,
         default: '777 ltd.'
     },
     website: {
         type: String,
-        required: true,
+        required: false,
         default: 'website.net'
     }
 });
