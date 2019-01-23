@@ -11,6 +11,25 @@ const app = express();
 
 app.use(bodyParser.json());
 
+app.get('/comments', async (req, res) => {
+    const comments = await Comment.find();
+
+    res.json(comments);
+});
+
+app.get('/comments/:id', async (req, res) => {
+    const comment = await Comment.findById(req.params.id);
+
+    res.json(comment);
+});
+
+app.post('/comments', async (req, res) => {
+    let comment = new Comment(req.body);
+    comment = await comment.save();
+
+    res.json(comment);
+})
+
 app.get('/users', async (req, res) => {
     const users = await User.find();
 
