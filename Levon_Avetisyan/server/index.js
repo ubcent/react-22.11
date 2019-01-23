@@ -2,7 +2,6 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const mongoosePaginate = require('mongoose-paginate');
 
 const Post = require('./model/post');
 
@@ -18,7 +17,7 @@ app.get('/posts', async (req, res) => {
         res.json(posts);
     } else {
         await Post.paginate({}, {limit: +req.query.limit, page: +req.query.page}, (err, posts) => {
-            res.json(posts.docs);
+            res.json(posts);
         })
     }
 });
@@ -30,7 +29,7 @@ app.get('/posts/:id', async (req, res) => {
 
 app.post('/posts', async (req, res) => {
     const posts = await Post.find();
-    let maxPostId = 1;
+    let maxPostId = 0;
     posts.forEach((post) => {
         if (+post.postId > maxPostId) {
             maxPostId = +post.postId;
@@ -44,13 +43,14 @@ app.post('/posts', async (req, res) => {
 
 app.delete('/posts', async (req, res) => {
     let post = new Post(req.body);
+    console.log(post);
     await Post.deleteOne({postId: post.postId});
     let posts = await Post.find();
     let i = 1;
     posts = posts.map(async (post) => {
         await Post.findOneAndUpdate({postId: post.postId}, {postId: i++}, {new: true});
     });
-    res.json(posts);
+    res.json(post.postId);
 });
 
 app.listen(3003, () => {

@@ -23,6 +23,8 @@ class App extends Component {
 }
 
 ReactDom.render(
-    <BrowserRouter><App/></BrowserRouter>,
+    <BrowserRouter>
+        <App/>
+    </BrowserRouter>,
     document.getElementById('wrapper'),
 );

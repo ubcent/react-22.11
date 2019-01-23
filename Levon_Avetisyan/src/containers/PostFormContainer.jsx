@@ -8,9 +8,11 @@ import Main from 'components/Main';
 
 class PostFormContainer extends PureComponent {
     componentDidMount() {
-        const {loadPosts, loadUsers} = this.props;
-        loadPosts();
-        loadUsers();
+        const {loadPosts, loadUsers, posts} = this.props;
+        if (posts.length === 0) {
+            loadPosts();
+            loadUsers();
+        }
     }
 
     render() {

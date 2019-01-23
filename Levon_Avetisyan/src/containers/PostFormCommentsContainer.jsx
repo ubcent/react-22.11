@@ -6,13 +6,14 @@ import PostFormComments from 'components/PostFormComments';
 import {connect} from 'react-redux';
 import {load as loadComments} from 'actions/comments';
 import {toggle as loadExpanded} from 'actions/posts';
+import {postDelete} from 'actions/posts';
 
 class PostFormCommentsContainer extends PureComponent {
     render() {
-        const { comments, load, postId, expanded} = this.props;
+        const { comments, load, postDelete, postId, expanded} = this.props;
         return (
             <Fragment>
-                <PostFormAction onHandleClick={load} postId={postId} expanded={expanded}/>
+                <PostFormAction onClickDelete={postDelete} onHandleClick={load} postId={postId} expanded={expanded}/>
                 <PostFormComments expanded={expanded} comments={comments} postId={postId}/>
             </Fragment>
         )
@@ -32,6 +33,9 @@ function mapDispatchToProps(dispatch, props) {
             dispatch(loadComments(event));
             dispatch(loadExpanded(event));
         },
+        postDelete: (event) => {
+            dispatch(postDelete(event));
+            },
     }
 }
 
