@@ -8,7 +8,7 @@ export const toggleExpanded = createAction('[Posts] toggle expanded');
 export const load = () => (dispatch, getState) => {
     const state = getState();
     dispatch(loadStarted());
-    fetch(`http://jsonplaceholder.typicode.com/posts?_limit=1&_page=${state.posts.page}`)
+    fetch(`http://localhost:3003/posts?limit=1&page=${state.posts.page}`)
         .then((response) => response.json())
         .then((posts) => {
             dispatch(loadCompleted(posts));

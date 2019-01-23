@@ -30,7 +30,7 @@ export default handleActions({
         return {
             ...state,
             entities: state.entities.map((entity) => {
-                if (entity.id === +postId) {
+                if (entity.postId === +postId) {
                     const exp = entity.expanded;
                     return {
                     ...entity,

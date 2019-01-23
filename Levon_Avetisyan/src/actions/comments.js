@@ -7,7 +7,7 @@ export const loadFailed = createAction('[Comments] load failed');
 export const load = (event) => (dispatch, getState) => {
     const state = getState();
     const postId = event.target.closest('.PostForm').dataset.postid;
-    const clickedPost = state.posts.entities.find(entity => entity.id === +postId);
+    const clickedPost = state.posts.entities.find(entity => entity.postId === postId);
 
     if (clickedPost.expanded === false) {
         dispatch(loadStarted());

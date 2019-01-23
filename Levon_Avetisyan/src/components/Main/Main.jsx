@@ -11,8 +11,8 @@ export default class Main extends PureComponent {
         const { posts, users, loading, onLoadMore } = this.props;
         return (
             <div className="Main">
-                {posts.map((post) => <PostForm key={post.id} user={users.find((user) => user.id === post.userId)}
-                                               title={post.title} body={post.body} postId={post.id} expanded={post.expanded}/>)}
+                {posts.map((post) => <PostForm key={post.postId} user={users.find((user) => user.id === post.userId)}
+                                               title={post.title} body={post.body} postId={post.postId} expanded={post.expanded}/>)}
                 <ButtonLoadMore onLoadMore={onLoadMore} loading={loading}/>
             </div>
         )

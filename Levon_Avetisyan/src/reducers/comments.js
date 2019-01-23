@@ -15,7 +15,6 @@ export default handleActions({
         };
     },
     [loadCompleted]: (state, action) => {
-
         return {
             ...state,
             loading: false,
