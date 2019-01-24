@@ -5,7 +5,7 @@ import {withStyles} from '@material-ui/core/styles';
 import classnames from 'classnames';
 import CardActions from '@material-ui/core/CardActions';
 import IconButton from '@material-ui/core/IconButton';
-import FavoriteIcon from '@material-ui/icons/Favorite';
+import DeleteIcon from '@material-ui/icons/Delete';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
@@ -31,12 +31,12 @@ class PostFormAction extends PureComponent {
     };
 
     render() {
-        const { classes, expanded, onHandleClick  } = this.props;
+        const { classes, expanded, onHandleClick, onClickDelete  } = this.props;
         return (
             <Fragment>
                 <CardActions className={classes.actions} disableActionSpacing>
-                    <IconButton aria-label="Add to favorites">
-                        <FavoriteIcon/>
+                    <IconButton onClick={onClickDelete} aria-label="Delete">
+                        <DeleteIcon />
                     </IconButton>
                     <IconButton aria-label="Share">
                         <ShareIcon/>
