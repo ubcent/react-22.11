@@ -6,32 +6,73 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 //строка подключения mongoose к БД
+// noinspection JSIgnoredPromiseFromCall
 mongoose.connect('mongodb://localhost/test', { useNewUrlParser: true });
 //подключаем модель
-const Animal = require('./model/animal');
+const User = require('./model/user');
+const Post = require('./model/post');
+const Comment = require('./model/comment');
 
 //создаем приложение
 const app = express();
 //цепляем body-parser к нашему приложению
 app.use(bodyParser.json());
 
-//указываем чтобы обрабатывался get
-app.get('/animals', async (req, res) => {
-    console.log('start');
-    const animals = await Animal.find();
-    res.json(animals);
+//Обработка get запроса users
+app.get('/users', async (req, res) => {
+    const users = await User.find();
+    res.json(users);
 });
-//шаблонизация роута, получаем параметр id
-app.get('/animals/:id', async (req, res) => {
-    const animal = await Animal.findById(req.params.id);
-    res.json(animal);
+
+//Обработка get запроса по id
+app.get('/users/:id', async (req, res) => {
+    const user = await User.findById(req.params.id);
+    res.json(user);
 });
 
 //обработка запроса методом post
-app.post('/animals', async (req, res) => {
-    let animal = new Animal(req.body);
-    animal = await animal.save();
-    res.json(animal);
+app.post('/users', async (req, res) => {
+    let user = new User(req.body);
+    user = await user.save();
+    res.json(user);
+});
+
+//Обработка get запроса comments
+app.get('/comments', async (req, res) => {
+    const comments = await Comment.find();
+    res.json(comments);
+});
+
+//Обработка get запроса по id
+app.get('/comments/:id', async (req, res) => {
+    const comment = await Comment.findById(req.params.id);
+    res.json(comment);
+});
+
+//обработка запроса методом post
+app.post('/comments', async (req, res) => {
+    let comment = new Comment(req.body);
+    comment = await comment.save();
+    res.json(comment);
+});
+
+//Обработка get запроса posts
+app.get('/posts', async (req, res) => {
+    const posts = await Post.find();
+    res.json(posts);
+});
+
+//Обработка get запроса по id
+app.get('/posts/:id', async (req, res) => {
+    const post = await Post.findById(req.params.id);
+    res.json(post);
+});
+
+//обработка запроса методом post
+app.post('/posts', async (req, res) => {
+    let post = new Post(req.body);
+    post = await post.save();
+    res.json(post);
 });
 
 //Указываем какой порт слушать приложению

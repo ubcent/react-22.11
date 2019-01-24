@@ -12,7 +12,7 @@ const commentSchema = new Schema({
         required: true,
         default: 'Unknown',
     },
-    phone: String,
+    body: Text,
 });
 
 //создать модель
