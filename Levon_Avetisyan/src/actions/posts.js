@@ -36,6 +36,7 @@ export const postDelete = () => (dispatch, getState) => {
         .then((response) => response.json())
         .then((postId) => {
             dispatch(deleteCompleted(postId));
+
         })
         .catch((err) => {
             dispatch(deleteFailed(err));
