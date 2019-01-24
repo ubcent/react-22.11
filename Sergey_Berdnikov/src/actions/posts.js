@@ -9,7 +9,7 @@ export const loadFailed = createAction('[Posts] Load failed');
 export const load = () => (dispatch, getState) => {
     const state = getState();
     dispatch(loadStarted());
-    fetch(`http://jsonplaceholder.typicode.com/posts?_limit=7&_page=${state.comments.page}`)
+    fetch('http://localhost:3000/posts')
         .then((response) => response.json())
         .then((posts) => {
             dispatch(loadCompleted(posts));

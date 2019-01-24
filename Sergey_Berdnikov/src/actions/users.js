@@ -8,7 +8,7 @@ export const loadFailed = createAction('[Users] Load failed');
 //диспетчер побочный
 export const load = () => (dispatch) => {
     dispatch(loadStarted());
-    fetch('http://jsonplaceholder.typicode.com/users?_limit=10')
+    fetch('http://localhost:3000/users')
         .then((response) => response.json())
         .then((users) => {
             dispatch(loadCompleted(users));
