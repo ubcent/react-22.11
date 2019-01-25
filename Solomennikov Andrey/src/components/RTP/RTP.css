@@ -1,0 +1,78 @@
+.RTP {}
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #333333;
+    text-decoration: none;
+}
+
+a:hover {
+    color: yellow;
+
+}
+
+body {
+    background-color: #444444;
+    font: 14px "Trebuchet MS";
+}
+
+.wrapper {
+    width: 1000px;
+    background-color: #ffffff;
+    margin: 0 auto;
+}
+
+.content{
+    width: 100%;
+}
+
+.left {
+    width: 780px;
+    padding: 10px;
+    display: inline-block;
+}
+
+.right {
+    vertical-align: top;
+    width: 200px;
+    display: inline-block;
+    padding-top: 20px;
+}
+#changeNews {
+    margin: 20px;
+}
+
+.links {
+    width: 150px;
+    display: block;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 400;
+    text-align: center;
+    background-color: #f16d7f;
+    padding-right: 19px;
+    padding-left: 19px;
+    line-height: 38px;
+    height: 38px;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    margin-left: 26px;
+}
+
+.listall {
+    display: flex;
+    padding: 10px;
+}
+
+
+.footer {
+    width: 100%;
+    padding: 10px;
+    color: #a6a6ff;
+    font-size: 20px;
+}
+
