@@ -36,3 +36,14 @@ h3 {
     margin: 10px 0;
     text-align: center;
 }
+
+.comments {
+    text-decoration: none;
+    color: #6998ff;
+    margin-bottom: 5px;
+}
+
+.twoArticleButtons {
+    display: flex;
+    justify-content: space-between;
+}

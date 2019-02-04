@@ -1,41 +1,39 @@
 import React, { PureComponent, Fragment } from 'react';
 
-import TopBlogers from "components/TopBlogers/TopBlogers";
+import TopBlogers from "components/TopBlogers";
+import {load as loadFetchData} from "actions/fetchData";
+import {connect} from "react-redux";
 
-export default class TopBlogersContainer extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      loading: false,
-      blogers: [],
-      page: 0,
+class TopBlogersContainer extends PureComponent {
+
+  componentDidMount() {
+    const {load, blogers} = this.props;
+    if (blogers.length === 0) {
+      load();
     }
   }
 
-  componentDidMount() {
-    this.fetchData()
-  }
-
-  fetchData = () => {
-    const { page } = this.state;
-    this.setState({loading: true});
-    fetch(`https://jsonplaceholder.typicode.com/users?_limit=10&_page=${page}`)
-      .then((response) => response.json())
-      .then((_users) => {this.setState((prevState) => ({
-        ...prevState,
-        loading: false,
-        blogers: prevState.blogers.concat(_users),
-        page: prevState.page + 1,
-      }))
-      });
-  };
-
   render() {
-    const { blogers, loading} = this.state;
+    const { blogers, loading, load} = this.props;
     return (
       <Fragment>
-        {blogers.length === 0 ? 'Loading' : <TopBlogers onLoadMore={this.fetchData} blogers={blogers} loading={loading}/>}
+        {blogers.length === 0 ? 'Loading' : <TopBlogers onLoadMore={load} blogers={blogers} loading={loading}/>}
       </Fragment>
     )
   }
 }
+
+function mapStateToProps(state, props) {
+  return {
+    blogers: state.connection.entities,
+    loading: state.connection.loading,
+  }
+}
+
+function mapDispatchToProps (dispatch, props) {
+  return {
+    load: () => dispatch(loadFetchData()),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TopBlogersContainer);

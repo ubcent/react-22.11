@@ -1,6 +1,6 @@
 import './Form.css';
 
-import React, {PureComponent} from 'react';
+import React from 'react';
 
 export default function Form (props) {
   const { onInputLogin, onInputPassword } = props;

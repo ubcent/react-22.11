@@ -1,41 +1,39 @@
 import React, { PureComponent, Fragment } from 'react';
+import {connect} from 'react-redux';
+import {load as loadFetchData} from 'actions/fetchData';
 
 import CommentsList from 'components/CommentsList'
 
-export default class CommentsListContainer extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      loading: false,
-      comments: [],
-      page: 0,
+class CommentsListContainer extends PureComponent {
+
+  componentDidMount() {
+    const {load, comments} = this.props;
+    if (comments.length === 0) {
+    load();
     }
   }
 
-  componentDidMount() {
-    this.fetchData()
-  }
-
-  fetchData = () => {
-    const { page } = this.state;
-    this.setState({loading: true});
-    fetch(`https://jsonplaceholder.typicode.com/comments?_limit=10&_page=${page}`)
-      .then((response) => response.json())
-      .then((_comments) => {this.setState((prevState) => ({
-        ...prevState,
-        loading: false,
-        comments: prevState.comments.concat(_comments),
-        page: prevState.page + 1,
-      }))
-      });
-  };
-
   render() {
-    const { comments, loading} = this.state;
+    const { comments, loading, load} = this.props;
     return (
       <Fragment>
-        {comments.length === 0 ? 'Loading' : <CommentsList onLoadMore={this.fetchData} comments={comments} loading={loading} />  }
+        {comments.length === 0 ? 'Loading' : <CommentsList onLoadMore={load} comments={comments} loading={loading} />  }
       </Fragment>
     )
   }
 }
+
+function mapStateToProps(state, props) {
+  return {
+    comments: state.connection.entities,
+    loading: state.connection.loading,
+  }
+}
+
+function mapDispatchToProps (dispatch, props) {
+  return {
+  load: () => dispatch(loadFetchData()),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CommentsListContainer);

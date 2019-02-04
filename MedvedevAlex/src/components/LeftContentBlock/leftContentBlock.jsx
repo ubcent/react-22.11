@@ -1,6 +1,6 @@
 import './leftContentBlock.css';
 
-import React, {PureComponent} from 'react';
+import React from 'react';
 
 import NewsContainer from 'containers/NewsContainer';
 import NewsJson from 'components/LeftContentBlock/news.json'

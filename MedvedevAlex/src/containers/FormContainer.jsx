@@ -2,7 +2,6 @@ import React, {PureComponent, Fragment} from 'react';
 
 import Form from 'components/Form'
 
-
 export default class FormContainer extends PureComponent {
 
   checkName() {

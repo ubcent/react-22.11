@@ -1,49 +1,38 @@
-import React, {PureComponent} from 'react';
+import React, {Component} from 'react';
 import ReactDom from 'react-dom';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {Provider} from 'react-redux';
 import 'normalize.css';
 
-import Container from 'components/Container'
-import Header from 'components/Header'
-import Content from 'components/Content';
-import LeftContentBlock from 'components/LeftContentBlock'
-import RightContentBlock from 'components/RightContentBlock'
-import Footer from 'components/Footer';
-import CommentsListContainer from 'containers/CommentsListContainer';
-import TopBlogersContainer from 'containers/TopBlogersContainer'
+import routes from './routes';
+import store from './store';
 
-class App extends PureComponent {
+import Header from 'components/Header';
+import Footer from 'components/Footer';
+import Content from "components/Content";
+
+class App extends Component {
 
   render() {
     return (
       <div>
-        <Container>
+        <Content>
           <Header/>
-          <Content>
-            <LeftContentBlock/>
-            <RightContentBlock/>
-          </Content>
-          <Footer/>
-        </Container>
-        <Container>
-          <Header/>
-          <Content>
-            <CommentsListContainer/>
-          </Content>
-          <Footer/>
-        </Container>
-        <Container>
-          <Header/>
-          <Content>
-            <TopBlogersContainer />
-          </Content>
-          <Footer/>
-        </Container>
+          <Switch>
+            {routes.map((route, idx) => <Route key={idx} {...route}/>)}
+          </Switch>
+        </Content>
+        <Footer/>
       </div>
     );
   }
 }
 
 ReactDom.render(
-  <App/>,
-  document.getElementById('root')
+  <Provider store={store}>
+    <BrowserRouter>
+      <App/>
+    </BrowserRouter>
+  </Provider>,
+  document.getElementById('root'),
 );
