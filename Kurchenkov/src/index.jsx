@@ -1,9 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import ReactDom from 'react-dom';
 import Layout from 'components/Layout';
 
-class App extends Component {
+class App extends PureComponent {
+    constructor(props){
+        super(props);
+    }
     render(){
         return(
             <div>

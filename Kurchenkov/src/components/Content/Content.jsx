@@ -1,12 +1,12 @@
 import './Content.css';
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import {
     Carousel,
     CarouselItem,
     CarouselControl,
     CarouselIndicators,
 } from 'reactstrap';
-import CommentsList from 'components/CommentsList';
+import CommentsList from 'containers/CommentsListContainer';
 
 const items = [
     {
@@ -26,7 +26,7 @@ const items = [
     }
 ];
 
-export default class Content extends Component {
+export default class Content extends PureComponent {
     constructor(props) {
         super(props);
 
@@ -98,6 +98,7 @@ export default class Content extends Component {
                     <p><span className="more"> - Someone famous in Source Title</span></p>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro recusandae architecto itaque aliquid ex quia numquam fugit, reiciendis unde! Veritatis, consequuntur corporis! Saepe totam excepturi nemo culpa, sed velit facilis?</p>
                     <hr/>
+                    <h4>Comments:</h4>
                     <CommentsList />
                 </div>
             </div>

@@ -20,6 +20,7 @@ module.exports = {
         // свойство, помогает с путями для импорта (делает имена путей короче)
         alias:{
             components: path.resolve(__dirname, 'src', 'components'),
+            containers: path.resolve(__dirname, 'src', 'containers'),
         },
         // сойство, указывающее те расширения, которые нас интересуют
         extensions: ['.js', '.jsx'],
